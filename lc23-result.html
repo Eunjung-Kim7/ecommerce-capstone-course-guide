@@ -1,0 +1,1579 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>10/23 라이브커머스 판매 결과</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;600;700&family=Noto+Serif+KR:wght@400;600&display=swap">
+<style>
+:root{--font-anthropic-sans:"Noto Sans KR","Apple SD Gothic Neo","Malgun Gothic",sans-serif;--font-anthropic-serif:"Noto Serif KR","Nanum Myeongjo",serif;
+--cds-font-size-title:28px;--cds-font-size-heading:18px;--cds-font-size-body:15px;--cds-font-size-caption:12.5px;--cds-font-weight-medium:600;
+--cds-gap-xs:4px;--cds-gap-sm:8px;--cds-gap-md:14px;--cds-gap-lg:20px;--cds-gap-xl:28px;--cds-pad-xs:4px;--cds-pad-sm:8px;--cds-pad-md:12px;--cds-pad-lg:18px;--cds-radius:8px;
+--cds-dur-slow:.3s;--color-fg:#1d2433;--color-fg-muted:#5f6b7d;--color-bg:#ffffff;--color-panel:#f1f3f7;--color-border-line:#dde2ea;--color-ok:#1f8a4c;--color-warn:#b86e00;--color-bad:#c62828;
+--cds-chart-grid:#e9edf3;--cds-chart-muted:#b8c0cc;--cds-chart-axis:#9aa4b2;--cds-chart-reference:#6b7280;--cds-surface-popover:#fff;--cds-border:#d0d6e0;--cds-shadow-popover:0 4px 14px rgba(0,0,0,.12);color-scheme:light}
+@media (prefers-color-scheme: dark){:root{--color-fg:#e8ebf1;--color-fg-muted:#a3adbd;--color-bg:#1b2029;--color-panel:#12161d;--color-border-line:#2e3542;--cds-chart-grid:#262d39;--cds-chart-muted:#4a5363;--cds-chart-axis:#5d6778;--cds-surface-popover:#1b2029;--cds-border:#3a4252;color-scheme:dark}}
+html,body{margin:0;background:var(--color-panel);color:var(--color-fg);font-family:var(--font-anthropic-sans)}
+.wrap{max-width:1240px;margin:0 auto;padding:16px max(12px,env(safe-area-inset-left,0px)) 40px max(12px,env(safe-area-inset-right,0px))}
+.back{display:inline-flex;gap:6px;align-items:center;margin:4px 0 12px;font-size:14px;font-weight:700;color:var(--color-fg);text-decoration:none;padding:8px 14px;border:1.5px solid var(--color-border-line);border-radius:10px;background:var(--color-bg)}
+.back:hover{border-color:var(--color-fg)}
+.foot{font-size:12px;color:var(--color-fg-muted);margin-top:16px}
+.dash-skeleton{background:var(--color-panel);border-radius:4px;color:transparent}
+</style><style>
+.lc { font-family: var(--font-anthropic-sans); display: grid; gap: var(--cds-gap-lg); max-width: 1180px; margin-inline: auto; }
+.lc h1 { font-family: var(--font-anthropic-serif); font-weight: 400; font-size: var(--cds-font-size-title); margin: 0; text-wrap: balance; }
+.lc h2 { font-size: var(--cds-font-size-heading); font-weight: var(--cds-font-weight-medium); margin: 0; text-wrap: balance; }
+.lc h3 { font-size: var(--cds-font-size-body); font-weight: var(--cds-font-weight-medium); margin: 0; }
+.lc p { margin: 0; line-height: 1.6; }
+.lc .muted { color: var(--color-fg-muted); font-size: var(--cds-font-size-caption); }
+.lc .head { display: grid; gap: var(--cds-gap-sm); }
+.lc .mast { position: relative; overflow: hidden; background: var(--color-panel); border: 1px solid var(--color-border-line); border-radius: calc(var(--cds-radius) * 1.5); }
+.lc .mast-bar { display: flex; height: 26px; }
+.lc .mast-bar span { display: flex; align-items: center; height: 100%; padding-inline: 10px; color: #fff; font-size: var(--cds-font-size-caption); font-weight: 600; white-space: nowrap; overflow: hidden; min-width: 0; }
+.lc .mast-in { display: grid; gap: var(--cds-gap-sm); padding: var(--cds-pad-lg) var(--cds-pad-lg) calc(var(--cds-pad-lg) * 1.2); }
+.lc .eyebrow { margin: 0; font-size: var(--cds-font-size-caption); letter-spacing: .08em; text-transform: uppercase; color: var(--color-fg-muted); }
+.lc .mast h1 { font-family: var(--font-anthropic-serif); font-weight: 400; font-size: clamp(30px, 5.2vw, 48px); line-height: 1.12; letter-spacing: -0.01em; margin: 0; }
+.lc .mast h1 .soft { color: var(--color-fg-muted); }
+.lc .mast .sub { font-size: var(--cds-font-size-body); max-width: none; }
+.lc .mast-stats { display: flex; flex-wrap: wrap; gap: var(--cds-gap-sm) calc(var(--cds-gap-lg) * 1.5); align-items: flex-end; margin-top: var(--cds-gap-sm); padding-top: var(--cds-gap-md); border-top: 1px solid var(--color-border-line); }
+.lc .mast-stats > div:not(.teams) { display: grid; gap: 2px; }
+.lc .mast-stats .k { font-size: var(--cds-font-size-caption); color: var(--color-fg-muted); }
+.lc .mast-stats .n { font-family: var(--font-anthropic-serif); font-size: var(--cds-font-size-title); font-variant-numeric: tabular-nums; line-height: 1.1; }
+.lc .mast-stats .teams { display: flex; flex-wrap: wrap; gap: var(--cds-gap-xs); margin-left: auto; }
+
+.lc .take { max-width: none; }
+.lc, .lc p, .lc li, .lc td, .lc h1, .lc h2, .lc h3 { word-break: keep-all; overflow-wrap: break-word; }
+.lc .tabs { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: var(--cds-gap-sm); border: 0; }
+@media (max-width: 760px) { .lc .tabs { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+.lc .tabs button { font: inherit; cursor: pointer; text-align: left; display: grid; grid-template-columns: auto 1fr; grid-template-rows: auto auto; column-gap: 10px; row-gap: 2px; align-items: center;
+  padding: 12px 14px; border-radius: var(--cds-radius); border: 1px solid var(--color-border-line); background: var(--color-panel); color: var(--color-fg);
+  box-shadow: 0 1px 0 var(--color-border-line); transition: transform .12s, box-shadow .12s, background .12s; }
+.lc .tabs button:hover { transform: translateY(-1px); box-shadow: 0 3px 8px rgba(0,0,0,.1); }
+.lc .tabs button { border-top: 5px solid var(--tc, var(--color-fg)); }
+.lc .tabs button .no { grid-row: 1 / span 2; width: 30px; height: 30px; border-radius: 50%; display: grid; place-items: center; font-weight: 700; font-size: var(--cds-font-size-body); background: var(--tc, var(--color-fg)); color: #fff; }
+.lc .tabs button b { font-weight: 700 !important; font-size: var(--cds-font-size-body); color: inherit; }
+.lc .tabs button span.d { font-size: var(--cds-font-size-caption); color: var(--color-fg-muted); }
+.lc .tabs button[aria-selected=true] { background: var(--tc, var(--color-fg)); color: #fff; border-color: var(--tc, var(--color-fg)); box-shadow: 0 4px 12px rgba(0,0,0,.18); }
+.lc .tabs button[aria-selected=true] .no { background: #fff; color: var(--tc, var(--color-fg)); }
+.lc .tabs button[aria-selected=true] span.d { color: #fff; opacity: .9; }
+.lc .tabs button:focus-visible, .lc .btns button:focus-visible { outline: 2px solid var(--color-fg); outline-offset: 2px; }
+.lc .tabhint { font-size: var(--cds-font-size-caption); color: var(--color-fg-muted); margin: 0 0 calc(-1 * var(--cds-gap-sm)); }
+.lc .pane { display: grid; gap: var(--cds-gap-md); }
+.lc [hidden] { display: none !important; }
+.lc details.more { border: 1px dashed var(--color-border-line); border-radius: var(--cds-radius); padding: 0; }
+.lc details.more > summary { cursor: pointer; padding: var(--cds-pad-sm) var(--cds-pad-md); color: var(--color-fg-muted); font-size: var(--cds-font-size-caption); list-style-position: inside; }
+.lc details.more > summary:focus-visible { outline: 2px solid var(--color-fg); }
+.lc details.more[open] > summary { border-bottom: 1px dashed var(--color-border-line); }
+.lc details.more > .card { border: 0; }
+.lc .hero { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 14rem), 1fr)); gap: var(--cds-gap-md); }
+.lc .hero .tile { border-top: 4px solid var(--hc, var(--color-border-line)); }
+.lc .hero .who { font-size: var(--cds-font-size-heading); font-weight: var(--cds-font-weight-medium); }
+.lc .tiles.small .tile .v { font-size: var(--cds-font-size-heading); font-family: var(--font-anthropic-sans); font-weight: var(--cds-font-weight-medium); }
+.lc .ev { display: inline-flex; gap: 4px; align-items: center; font-size: var(--cds-font-size-caption); color: var(--color-fg-muted); white-space: nowrap; }
+.lc .ev i { font-style: normal; color: var(--color-fg); width: 1em; text-align: center; }
+.lc .simwrap { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 6fr); gap: var(--cds-gap-md); align-items: start; }
+.lc .simwrap .sim { grid-template-columns: 1fr; }
+.lc .simres { display: grid; gap: var(--cds-gap-md); position: sticky; top: 8px; }
+@media (max-width: 900px) { .lc .simwrap { grid-template-columns: 1fr; } .lc .simres { position: static; } }
+.lc .lead { font-size: var(--cds-font-size-body); line-height: 1.6; }
+.lc { font-size: var(--cds-font-size-body); }
+.lc .toprow { display: flex; flex-wrap: wrap; gap: var(--cds-gap-sm) var(--cds-gap-md); align-items: center; font-size: var(--cds-font-size-body); }
+.lc .toprow select, .lc .toprow input, .lc .lever input, .lc .lever select { font-size: var(--cds-font-size-body); padding: 6px 8px; }
+.lc .lever { font-size: var(--cds-font-size-body); }
+.lc .lever label { color: var(--color-fg); }
+.lc .diag { border-left: 4px solid var(--color-fg); padding: var(--cds-pad-sm) var(--cds-pad-md); background: var(--color-bg); border-radius: 0 var(--cds-radius) var(--cds-radius) 0; display: grid; gap: var(--cds-gap-xs); }
+.lc .diag ol { margin: 0; padding-left: 1.2rem; display: grid; gap: var(--cds-gap-xs); line-height: 1.6; }
+.lc .strat h3 { font-size: var(--cds-font-size-heading); }
+.lc .strat .btns button { font-size: var(--cds-font-size-body); padding: 6px 12px; }
+.lc .checkq { margin: 0; padding-left: 1.1rem; color: var(--color-fg); line-height: 1.55; }
+.lc .cmp { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 15rem), 1fr)); gap: var(--cds-gap-md); }
+.lc .cmpc.base { background: var(--color-bg); }
+.lc .cmpc .delta { font-weight: var(--cds-font-weight-medium); }
+.lc .facts { list-style: none; margin: 0; padding: 0; display: grid; gap: 4px; }
+.lc .facts li { display: flex; justify-content: space-between; gap: var(--cds-gap-sm); border-top: 1px solid var(--color-border-line); padding-top: 4px; }
+.lc .facts li span { color: var(--color-fg-muted); white-space: nowrap; }
+.lc .lever label, .lc .lever input, .lc .lever select { font-size: var(--cds-font-size-body); }
+.lc .facts li b { font-weight: var(--cds-font-weight-medium); text-align: right; }
+.lc .goal { font-weight: var(--cds-font-weight-medium); font-size: var(--cds-font-size-body); padding: 2px 8px; border-radius: 6px; border: 1px solid var(--color-border-line); justify-self: start; }
+.lc .goal.ok::before { content: "✓ "; }
+.lc .goal.no::before { content: "✕ "; }
+.lc .facts li.jd span { color: var(--color-fg); }
+.lc .diag .ask { color: var(--color-fg-muted); margin-top: 2px; }
+.lc .verdict ul { margin: 0; padding-left: 1.1rem; display: grid; gap: 4px; }
+.lc .q { font-family: var(--font-anthropic-serif); font-size: var(--cds-font-size-heading); font-weight: 400; }
+.lc .tiles { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 10rem), 1fr)); gap: var(--cds-gap-md); }
+.lc .tile, .lc .card { background: var(--color-panel); border: 1px solid var(--color-border-line); border-radius: var(--cds-radius); padding: var(--cds-pad-lg); min-width: 0; }
+.lc .tile { display: grid; gap: var(--cds-gap-xs); align-content: start; }
+.lc .tile .v { font-family: var(--font-anthropic-serif); font-weight: 400; font-size: var(--cds-font-size-title); font-variant-numeric: tabular-nums; }
+.lc .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 24rem), 1fr)); gap: var(--cds-gap-md); }
+.lc .card { display: grid; gap: var(--cds-gap-md); align-content: start; }
+.lc .card > header { display: grid; gap: var(--cds-gap-xs); }
+.lc .inner { background: var(--color-bg); }
+.lc .scroll { overflow-x: auto; min-width: 0; }
+.lc table { border-collapse: collapse; width: 100%; font-size: var(--cds-font-size-caption); font-variant-numeric: tabular-nums; }
+.lc th, .lc td { padding: 6px 8px; border-bottom: 1px solid var(--color-border-line); text-align: right; white-space: nowrap; }
+.lc th:first-child, .lc td:first-child { text-align: left; }
+.lc td.l, .lc th.l { text-align: left; white-space: normal; min-width: 8rem; }
+.lc th { color: var(--color-fg-muted); font-weight: var(--cds-font-weight-medium); }
+.lc tr.sub td { font-weight: var(--cds-font-weight-medium); }
+.lc tr.key td { font-weight: var(--cds-font-weight-medium); border-top: 2px solid var(--color-border-line); }
+.lc .neg { color: var(--color-bad); }
+.lc .pos { color: var(--color-ok); }
+.lc .chip { display: inline-flex; align-items: center; gap: 4px; padding: 1px 8px; border-radius: 999px; border: 1px solid var(--color-border-line); font-size: var(--cds-font-size-caption); white-space: nowrap; }
+.lc .dot { width: 8px; height: 8px; border-radius: 50%; display: inline-block; flex: none; }
+.lc td.top { font-weight: var(--cds-font-weight-medium); text-decoration: underline; text-underline-offset: 3px; }
+.lc .share { display: flex; height: 32px; border-radius: var(--cds-radius); overflow: hidden; }
+.lc .share div { display: flex; align-items: center; padding-inline: 8px; color: #fff; font-size: var(--cds-font-size-caption); white-space: nowrap; overflow: hidden; min-width: 0; }
+.lc .cols3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 17rem), 1fr)); gap: var(--cds-gap-md); }
+.lc .cols3 > div { display: grid; gap: var(--cds-gap-xs); align-content: start; }
+.lc .cols3 ul, .lc .cols3 ol, .lc .card > ul { margin: 0; padding-left: 1.1rem; display: grid; gap: var(--cds-gap-xs); line-height: 1.55; }
+.lc .cols3 ol li b { font-weight: var(--cds-font-weight-medium); }
+.lc .formula { display: grid; gap: var(--cds-gap-sm); }
+.lc .formula div { display: grid; grid-template-columns: minmax(7rem, 12rem) 1fr; gap: var(--cds-gap-sm); align-items: baseline; }
+@media (max-width: 560px) { .lc .formula div { grid-template-columns: 1fr; } }
+.lc .formula b { font-weight: var(--cds-font-weight-medium); }
+.lc .chart { position: relative; min-height: 220px; }
+.lc .tip { position: absolute; pointer-events: none; background: var(--cds-surface-popover); border: 1px solid var(--cds-border); border-radius: var(--cds-radius); box-shadow: var(--cds-shadow-popover); padding: var(--cds-pad-xs) var(--cds-pad-sm); font-size: var(--cds-font-size-caption); white-space: nowrap; }
+.lc input, .lc select { font: inherit; font-size: var(--cds-font-size-caption); padding: 4px 6px; border: 1px solid var(--color-border-line); border-radius: 6px; background: var(--color-bg); color: var(--color-fg); min-width: 0; }
+.lc input[type=number] { width: 7rem; text-align: right; font-variant-numeric: tabular-nums; }
+.lc input[type=search] { width: 100%; max-width: 20rem; }
+.lc textarea { font: inherit; font-size: var(--cds-font-size-caption); width: 100%; box-sizing: border-box; padding: 6px 8px; border: 1px solid var(--color-border-line); border-radius: 6px; background: var(--color-bg); color: var(--color-fg); }
+.lc fieldset { align-self: start; display: grid; gap: var(--cds-gap-xs); margin: 0; }
+.lc fieldset label { display: flex; gap: 6px; align-items: center; font-size: var(--cds-font-size-caption); }
+.lc .btns { display: flex; flex-wrap: wrap; gap: var(--cds-gap-xs); align-items: center; }
+.lc .btns button { font: inherit; font-size: var(--cds-font-size-caption); padding: 4px 10px; border-radius: 999px; border: 1px solid var(--color-border-line); background: var(--color-bg); color: var(--color-fg); cursor: pointer; }
+.lc .btns button[aria-pressed=true] { background: var(--color-fg); color: var(--color-bg); }
+.lc .sim { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 22rem), 1fr)); gap: var(--cds-gap-md); align-items: start; }
+.lc .lever { display: grid; grid-template-columns: 1fr auto; gap: 6px var(--cds-gap-sm); align-items: center; font-size: var(--cds-font-size-caption); }
+.lc .lever label { color: var(--color-fg-muted); }
+.lc .sentence { font-family: var(--font-anthropic-serif); font-size: var(--cds-font-size-heading); line-height: 1.6; font-weight: 400; max-width: 70ch; }
+.lc .verdict { padding: var(--cds-pad-sm) var(--cds-pad-md); border-radius: var(--cds-radius); border: 1px solid var(--color-border-line); background: var(--color-bg); line-height: 1.6; }
+.lc .tbox { max-height: 24rem; overflow: auto; }
+.lc .tbox th { position: sticky; top: 0; background: var(--color-panel); }
+.lc [data-dash-source-state=empty] { color: transparent; }
+.lc [data-dash-source-state=refreshing] { opacity: .5; transition: opacity var(--cds-dur-slow); }
+
+/* ===== dashboard skin ===== */
+.lc .head { background: var(--color-bg); border: 1px solid var(--color-border-line); border-left: 5px solid var(--color-fg); border-radius: 12px; padding: var(--cds-pad-md) var(--cds-pad-lg); }
+.lc .head .take { font-size: var(--cds-font-size-body); font-weight: 600; line-height: 1.6; }
+.lc { --c1: #3b6fd8; --c2: #d9822b; --c3: #2f9e6e; --c4: #8e5bd0; background: var(--color-panel); padding: var(--cds-pad-lg); border-radius: 14px; }
+.lc .card, .lc .tile, .lc .kpi { background: var(--color-bg); border: 1px solid var(--color-border-line); border-radius: 12px; box-shadow: 0 1px 2px rgba(0,0,0,.05), 0 6px 18px rgba(0,0,0,.04); }
+.lc details.more { background: var(--color-bg); border-style: solid; border-radius: 12px; }
+.lc .card > header h2 { display: flex; align-items: center; gap: 8px; }
+.lc .card > header h2::before { content: ""; width: 10px; height: 10px; border-radius: 3px; background: var(--ic, var(--color-fg)); flex: none; }
+.lc .mast { background: var(--color-fg); color: var(--color-bg); border: 0; box-shadow: 0 8px 24px rgba(0,0,0,.18); }
+.lc .mast .eyebrow, .lc .mast .sub { color: var(--color-bg); opacity: .75; }
+.lc .mast h1 .soft { color: var(--color-bg); opacity: .55; }
+.lc .mast-stats { border-top-color: rgba(127,127,127,.35); }
+.lc .mast .chip { border-color: rgba(127,127,127,.5); color: var(--color-bg); }
+.lc .kpis { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: var(--cds-gap-md); }
+@media (max-width: 900px) { .lc .kpis { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+.lc .kpi { padding: var(--cds-pad-md) var(--cds-pad-lg); display: grid; gap: 6px; align-content: start; }
+.lc .kpi .k { font-size: var(--cds-font-size-caption); color: var(--color-fg-muted); font-weight: 600; letter-spacing: .02em; }
+.lc .kpi .n { font-family: var(--font-anthropic-serif); font-size: clamp(22px, 2.6vw, 30px); font-variant-numeric: tabular-nums; line-height: 1.1; }
+.lc .kpi .s { font-size: 11px; color: var(--color-fg-muted); }
+.lc .mini { height: 10px; display: flex; border-radius: 5px; overflow: hidden; background: var(--color-panel); }
+.lc .mini.bars { height: 30px; align-items: flex-end; gap: 6px; background: none; border-radius: 0; }
+.lc .mini.bars span { flex: 1; border-radius: 4px 4px 0 0; }
+.lc .mini.gauge span { background: var(--color-fg); border-radius: 5px; }
+.lc .mini.txt { height: auto; background: none; font-size: var(--cds-font-size-body); }
+.lc .mini.txt b { font-weight: 600; }
+.lc .dgrid { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: var(--cds-gap-md); }
+.lc .span8 { grid-column: span 8; } .lc .span4 { grid-column: span 4; } .lc .span7 { grid-column: span 7; } .lc .span5 { grid-column: span 5; } .lc .span6 { grid-column: span 6; }
+@media (max-width: 900px) { .lc .dgrid > * { grid-column: 1 / -1; } }
+.lc .rmx { width: 100%; border-collapse: separate; border-spacing: 0 6px; }
+.lc .rmx th { font-size: 11px; text-align: center; border: 0; padding: 0 4px; }
+.lc .rmx td { text-align: center; border: 0; padding: 4px; }
+.lc .rmx td.tn { text-align: left; font-weight: 600; white-space: nowrap; }
+.lc .rmx .rk { display: inline-grid; place-items: center; width: 28px; height: 28px; border-radius: 50%; font-weight: 700; font-size: 13px; background: var(--color-panel); color: var(--color-fg); }
+.lc .rmx .rk.r1 { color: #fff; box-shadow: 0 2px 6px rgba(0,0,0,.2); }
+.lc .rmx .rk.r3 { opacity: .55; }
+.lc .rmx small { display: block; font-size: 10.5px; color: var(--color-fg-muted); margin-top: 2px; white-space: nowrap; }
+.lc .oneline { display: grid; gap: var(--cds-gap-sm); }
+.lc .oneline .ol { border-left: 4px solid var(--tc); padding: 6px 10px; background: var(--color-panel); border-radius: 0 8px 8px 0; display: grid; gap: 2px; line-height: 1.5; }
+.lc .oneline .ol b { font-weight: 700; }
+.lc .tabs button { background: var(--color-bg); }
+</style></head><body><div class="wrap">
+<a class="back" href="./">← 강좌 가이드로 돌아가기</a>
+<div id="dash-root">
+
+<div class="lc">
+  <header class="mast" id="top">
+    <div class="mast-bar" id="teamStrip" data-source="result" aria-label="팀별 매출 비중"></div>
+    <div class="mast-in">
+      <p class="eyebrow">Live Commerce Report · 캡스톤디자인(전자상거래의 이해) · 2026. 10. 23 금</p>
+      <h1>라이브커머스 <span class="soft">판매 결과</span></h1>
+      <p class="sub">많이 판 팀과 많이 남긴 팀은 다릅니다. 원인을 찾고 다음 전략을 정합니다.</p>
+      <div class="mast-stats"><div class="teams" id="mastTeams" data-source="result"></div></div>
+    </div>
+  </header>
+  <div class="head">
+    <p class="take" id="takeaway"><span class="dash-skeleton">—</span></p>
+    <p class="muted">LMS 제출 주문(오늘 배송분)으로 마감한 모의 판매 · 실제 결제·배송 없음 · 구매자가 적어 비율은 1~2건에도 크게 흔들립니다(경향 확인용)</p>
+    <div class="btns" id="evLegend" data-source="assumptions" aria-label="근거 수준"></div>
+  </div>
+
+  <p class="tabhint">단계를 눌러 순서대로 살펴보세요 ▾</p>
+  <div class="tabs" role="tablist" id="tabs">
+    <button type="button" role="tab" id="t-s1" aria-controls="s1" aria-selected="true"><span class="no" aria-hidden="true">1</span><b>성과 요약</b><span class="d">무엇을 얼마나 팔고 남겼나</span></button>
+    <button type="button" role="tab" id="t-s2" aria-controls="s2" aria-selected="false"><span class="no" aria-hidden="true">2</span><b>원인 분석</b><span class="d">무엇이 성과를 만들었나</span></button>
+    <button type="button" role="tab" id="t-s3" aria-controls="s3" aria-selected="false"><span class="no" aria-hidden="true">3</span><b>손익분기·위험</b><span class="d">어디서 적자로 바뀌나</span></button>
+    <button type="button" role="tab" id="t-s4" aria-controls="s4" aria-selected="false"><span class="no" aria-hidden="true">4</span><b>전략 시뮬레이션</b><span class="d">어떤 전략이 효과적인가</span></button>
+    <button type="button" role="tab" id="t-s5" aria-controls="s5" aria-selected="false"><span class="no" aria-hidden="true">5</span><b>다음 판매 결정</b><span class="d">무엇을 하고 어떻게 검증하나</span></button>
+  </div>
+
+  <section class="pane" id="s1" role="tabpanel" aria-labelledby="t-s1">
+    <div class="kpis">
+      <div class="kpi"><span class="k">총 매출</span><span class="n dash-skeleton" data-source="kpi" data-field="sales" data-fmt="won">—</span><div class="mini" id="miniShare" data-source="result"></div><span class="s">팀별 매출 비중</span></div>
+      <div class="kpi"><span class="k">조정 영업이익 합계</span><span class="n dash-skeleton" data-source="kpi" data-field="adj_op" data-fmt="won">—</span><div class="mini" id="miniProfit" data-source="result"></div><span class="s">팀별 조정 영업이익</span></div>
+      <div class="kpi"><span class="k">전체 조정 이익률</span><span class="n dash-skeleton" data-source="kpi" data-field="adj_rate" data-fmt="pct">—</span><div class="mini" id="miniRate" data-source="kpi"></div><span class="s">매출 100원당 남은 돈</span></div>
+      <div class="kpi"><span class="k">주문 · 구매자</span><span class="n dash-skeleton" data-source="kpi" data-field="orders_buyers" data-fmt="raw">—</span><div class="mini txt"><span>객단가 </span><b data-source="kpi" data-field="aov" data-fmt="won">—</b></div><span class="s">주문 1건 평균 결제</span></div>
+    </div>
+    <div class="dgrid">
+      <section class="card span8" id="flip-card">
+        <header><h2 style="--ic: var(--c1)">매출 순위와 이익 순위는 다릅니다</h2><p class="muted">왼쪽 매출, 오른쪽 조정 영업이익(포장 인건비·소분 손실까지 뺀 값) · 같은 팀을 같은 줄에 놓았습니다</p></header>
+        <div class="chart" id="flipChart" data-source="result"></div>
+      </section>
+      <section class="card span4" id="rank-card">
+        <header><h2 style="--ic: var(--c2)">4관점 순위</h2><p class="muted">관점마다 1위가 다릅니다</p></header>
+        <div id="rankMx" data-source="result"></div>
+      </section>
+      <section class="card span7" id="rate-card">
+        <header><h2 style="--ic: var(--c3)">비용을 뺄수록 달라지는 수익률</h2><p class="muted">공헌이익률 → 영업이익률 → 조정 영업이익률 → 원가 대비 수익률</p></header>
+        <div class="chart" id="rateChart" data-source="result"></div>
+      </section>
+      <section class="card span5" id="insight-card">
+        <header><h2 style="--ic: var(--c4)">팀별 한 줄 진단</h2><p class="muted">자세한 원인은 ② 원인 분석</p></header>
+        <div id="oneLine" class="oneline" data-source="result menu_econ"></div>
+      </section>
+    </div>
+    <details class="more" id="score-card-more"><summary>표로 보기: 4관점 성적표와 지표 설명</summary>
+    <section class="card" id="score-card">
+      <div class="scroll">
+        <table id="scoreTable" data-source="result" data-row-key="team">
+          <thead><tr><th data-field="team">팀</th><th data-field="sales">매출 규모</th><th data-field="share">매출 비중</th><th data-field="adj_op">조정 영업이익</th><th data-field="roc">비용 효율</th><th data-field="adj_safety">안정성(조정 안전한계율)</th><th data-field="fixed_dep">고정비 의존도</th></tr></thead>
+          <tbody></tbody>
+        </table>
+      </div>
+      <p class="muted">조정 영업이익 = 영업이익 − 포장 인건비 − 소분 손실 · 비용 효율 = 원가 대비 수익률(조정 영업이익 ÷ 총비용) · 조정 안전한계율 = 매출이 몇 % 줄면 적자가 되는가 · 고정비 의존도 = 고정비 ÷ 조정 공헌이익. 고정비는 교수자 가정이라 안정성은 수익성과 함께 해석해야 합니다.</p>
+    </section></details>
+  </section>
+
+  <section class="pane" id="s2" role="tabpanel" aria-labelledby="t-s2" hidden>
+    <p class="q">어떤 상품·고객·비용이 성과를 만들었나?</p>
+    <section class="card" id="cause-card">
+      <header><h2>팀별 핵심 원인 3가지</h2><p class="muted">수익 원인 · 수요 원인 · 비용 원인. 숫자는 모두 아래 표에서 추적할 수 있습니다</p></header>
+      <div class="cols3" id="causes" data-source="result menu_econ menu_value behavior"></div>
+    </section>
+    <section class="card" id="contrib-card">
+      <header><h2>어떤 메뉴가 이익을 만들었나</h2><p class="muted">막대 = 메뉴별 조정 공헌 기여(판매 수량 × 1개당 조정 공헌) · 판매 0개는 수요 미확인</p></header>
+      <div class="chart" id="contribChart" data-source="menu_econ"></div>
+    </section>
+    <details class="more" id="pl-card-more"><summary>상세: 팀별 손익 계산서</summary>
+<section class="card" id="pl-card">
+      <header><h2>팀별 손익 계산서</h2><p class="muted">위에서 아래로 비용을 빼 갑니다 · 오른쪽 칩은 그 숫자의 근거 수준</p></header>
+      <div class="scroll">
+        <table id="plTable" data-source="pl" data-row-key="item">
+          <thead><tr><th data-field="item">항목</th><th data-field="다단계">다단계</th><th data-field="푹신하게 잘자조">푹신하게 잘자조</th><th data-field="팔아묵조">팔아묵조</th><th class="l" data-field="evidence">근거</th></tr></thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </section>
+</details>
+    <details class="more" id="menu-card-more"><summary>상세: 메뉴별 수익성 표</summary>
+<section class="card" id="menu-card">
+      <header><h2>메뉴별 수익성</h2><p class="muted">단위당 조정 공헌 = 판매가 − 원가 − 결제수수료 − 소분 손실 − 메뉴 포장 인건비. 배송비·주문당 포장은 주문 단위라 여기서 빼지 않았습니다(③ 탭). 판매 0개는 '수요 미확인'이지 수익성이 없다는 뜻이 아닙니다</p></header>
+      <div class="scroll">
+        <table id="menuTable" data-source="menu_econ" data-row-key="menu_id">
+          <thead><tr><th data-field="menu">메뉴</th><th data-field="team">팀</th><th data-field="price">판매가</th><th data-field="cost">원가</th><th data-field="cost_rate">원가율</th><th data-field="unit_adj">단위당 조정 공헌</th><th data-field="pack_min">포장(분)</th><th data-field="per_min">포장 1분당 공헌</th><th data-field="qty">판매</th><th data-field="contrib">조정 공헌 기여</th><th data-field="status">상태</th></tr></thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </section>
+</details>
+    <div class="grid">
+      <details class="more" id="why-card-more"><summary>상세: 단위 가격으로 본 인기 요인</summary>
+<section class="card" id="why-card">
+        <header><h2>왜 이 메뉴가 팔렸나: 단위 가격</h2><p class="muted">단위 가격 = 판매가 ÷ 구성 수량 · 혼자 살 때 실결제 = 판매가 + (무료배송 기준 미만이면) 배송비</p></header>
+        <div class="scroll">
+          <table id="whyTable" data-source="menu_value" data-row-key="menu_id">
+            <thead><tr><th data-field="menu">메뉴</th><th data-field="unit_price">단위 가격</th><th data-field="unit_discount">작은 메뉴 대비</th><th data-field="alone_pay">혼자 살 때 실결제</th><th data-field="qty">판매</th><th data-field="qty_share">팀 내 비중</th></tr></thead>
+            <tbody></tbody>
+          </table>
+        </div>
+      </section>
+</details>
+      <details class="more" id="qty-card-more"><summary>상세: 수량 기준 네 가지</summary>
+<section class="card" id="qty-card">
+        <header><h2>수량은 네 가지로 셉니다</h2><p class="muted">같은 "개"라도 기준이 다르면 뜻이 다릅니다 · 포장 시간은 판매 SKU 기준이라 구성품을 중복해 세지 않습니다(5개 묶음 1세트 = 20분)</p></header>
+        <div class="scroll">
+          <table id="qtyTable" data-source="result" data-row-key="team">
+            <thead><tr><th data-field="team">팀</th><th data-field="orders">주문 건수</th><th data-field="units">판매 SKU</th><th data-field="comp_text">구성품 환산</th><th data-field="pack_min">포장 작업 전체</th><th data-field="order_pack_min_total">그중 주문 처리</th></tr></thead>
+            <tbody></tbody>
+          </table>
+        </div>
+      </section>
+</details>
+    </div>
+    <section class="card" id="cust-card">
+      <header><h2>고객 구매 행동</h2><p class="muted" id="custLegend">주문에서 확인된 행동(관찰)과 그 동기 해석(추정)을 나눠 표시합니다 · 가상 구매머니 20만 원이라 실제 시장 수요의 대표 표본이 아닙니다</p></header>
+      <div class="tiles">
+        <div class="tile"><span class="muted">1인당 평균 결제 · 관찰</span><span class="v dash-skeleton" data-source="budget" data-field="avg_spend" data-fmt="won">—</span></div>
+        <div class="tile"><span class="muted">한도 사용률 · 관찰</span><span class="v dash-skeleton" data-source="budget" data-field="utilization" data-fmt="pct">—</span></div>
+        <div class="tile"><span class="muted">무료배송 주문 비율 · 관찰</span><span class="v dash-skeleton" data-source="budget" data-field="free_rate" data-fmt="pct">—</span></div>
+        <div class="tile"><span class="muted">대용량 메뉴 비율 · 관찰</span><span class="v dash-skeleton" data-source="budget" data-field="bundle_share" data-fmt="pct">—</span></div>
+      </div>
+      <div class="grid">
+        <div class="scroll">
+          <h3>구매 행동 유형(관찰 기준)</h3>
+          <table id="segTable" data-source="segments" data-row-key="segment">
+            <thead><tr><th data-field="segment">유형</th><th class="l" data-field="rule">관찰 기준</th><th data-field="buyers">인원</th><th data-field="avg_spend">평균 결제</th><th data-field="left_total">남긴 예산</th></tr></thead>
+            <tbody></tbody>
+          </table>
+        </div>
+        <div class="chart" id="spendChart" data-source="buyers"></div>
+      </div>
+      <div class="grid">
+        <div class="scroll">
+          <h3>판매 팀별 장바구니</h3>
+          <table id="behTable" data-source="behavior" data-row-key="team">
+            <thead><tr><th data-field="team">판매 팀</th><th data-field="aov">객단가</th><th data-field="units_per_order">주문당 수량</th><th data-field="free_rate">무료배송</th><th data-field="bundle_share">대용량</th><th data-field="option_rate">옵션 선택률</th></tr></thead>
+            <tbody></tbody>
+          </table>
+        </div>
+        <div class="scroll">
+          <h3>구매자 소속 × 판매 팀(교차 구매)</h3>
+          <table id="mxTable" data-source="matrix" data-row-key="buyer_team">
+            <thead><tr><th data-field="buyer_team">구매자 소속</th><th data-field="다단계">다단계</th><th data-field="푹신하게 잘자조">잘자조</th><th data-field="팔아묵조">팔아묵조</th><th data-field="total">합계</th></tr></thead>
+            <tbody></tbody>
+          </table>
+        </div>
+      </div>
+      <ul id="custNotes" data-source="budget"></ul>
+      <details class="more"><summary>함께 구매된 메뉴 조합 (관찰 · 11명 전수)</summary><div class="card"><div class="tbox">
+        <table id="comboTable" data-source="combos" data-row-key="pair"><thead><tr><th data-field="pair">메뉴 조합</th><th data-field="buyers">구매자 수</th><th class="l" data-field="names">구매자</th></tr></thead><tbody></tbody></table>
+      </div><p class="muted">결론은 "고객 유형을 발견했다"가 아니라 "이번 참여자에게서 이런 조합이 관찰되었다"로 씁니다. 함께 산 이유는 구매 후 짧은 질문으로 확인해야 합니다.</p></div></details>
+      <p class="muted">성별 분석은 넣지 않았습니다. 성별 데이터가 없고, 이름으로 추정하면 틀리기 쉬우며, 11명을 성별로 나누면 개인이 드러납니다.</p>
+    </section>
+  </section>
+
+  <section class="pane" id="s3" role="tabpanel" aria-labelledby="t-s3" hidden>
+    <p class="q">어느 조건에서 적자로 바뀌나?</p>
+    <section class="card" id="bep-card">
+      <header><h2>조정 손익분기점</h2><p class="muted">조정 손익분기 매출 = 고정비 ÷ 조정 공헌이익률 · 조정 공헌이익 = 공헌이익 − 포장 인건비 − 소분 손실 · 가정: 이번과 같은 판매 구성·주문 크기 유지</p></header>
+      <div class="chart" id="bepChart" data-source="result"></div>
+      <details class="more"><summary>표로 보기: 기존·조정 손익분기 비교</summary><div class="scroll">
+        <table id="bepTable" data-source="result" data-row-key="team">
+          <thead><tr><th data-field="team">팀</th><th data-field="bep_sales">기존 손익분기</th><th data-field="adj_bep">조정 손익분기</th><th data-field="bep_gap">차이</th><th data-field="sales">실제 매출</th><th data-field="safety">기존 안전한계율</th><th data-field="adj_safety">조정 안전한계율</th></tr></thead>
+          <tbody></tbody>
+        </table>
+      </div></details>
+      <p class="muted">기존 손익분기는 포장 인건비와 소분 손실을 빼지 않아 실제보다 낙관적이었습니다. 이 화면부터는 조정 기준만 씁니다.</p>
+    </section>
+    <section class="card" id="risk-card">
+      <header><h2>판매가 줄면, 고정비가 늘면</h2><p class="muted">같은 판매 구성에서 판매량과 주문 수가 함께 줄 때의 조정 영업이익 · 빨간 칸이 적자 · 마지막 열은 대표 메뉴 1개가 평균 주문 크기로 덜 팔린 경우</p></header>
+      <div class="scroll">
+        <table id="riskTable" data-source="risk" data-row-key="team">
+          <thead><tr><th data-field="team">팀</th><th data-field="now">지금</th><th data-field="d10">판매 −10%</th><th data-field="d25">−25%</th><th data-field="d50">−50%</th><th data-field="fixed_up">고정비 +50%</th><th data-field="one_less">대표 메뉴 1개 덜 팔림</th></tr></thead>
+          <tbody></tbody>
+        </table>
+      </div>
+      <div class="cols3" id="weak" data-source="risk"></div>
+    </section>
+    <details class="more" id="marg-card-more"><summary>상세: 메뉴 1개를 더 팔면 (한계이익 세 가지)</summary>
+<section class="card" id="marg-card">
+      <header><h2>메뉴 1개를 더 팔면 이익이 얼마나 느나</h2><p class="muted">한계이익은 "어떻게 추가로 팔리느냐"에 따라 다릅니다. 세 경우를 나눠 봅니다</p></header>
+      <div class="formula">
+        <div><b>ⓐ 기존 주문에 1개 추가</b><span>단위당 조정 공헌 그대로. 배송·주문 포장이 늘지 않음</span></div>
+        <div><b>ⓑ 평균 주문 크기로 추가</b><span>ⓐ − (실제 배송원가 − 받은 배송비 기대값 + 주문당 포장 인건비) ÷ 주문당 평균 수량</span></div>
+        <div><b>ⓒ 그 메뉴 하나만 단독 주문</b><span>ⓐ + 받은 배송비(무료배송 기준 미만이면, 수수료 차감) − 실제 배송원가 − 주문당 포장 인건비</span></div>
+        <div><b>단독 회수 수량</b><span>고정비 ÷ ⓒ. 그 메뉴 하나만 단독 주문으로 판다는 극단적 가정이며, 팀 전체 손익분기 판매량이 아닙니다(다른 메뉴와 함께 팔면 고정비를 나눠 부담)</span></div>
+      </div>
+      <div class="scroll">
+        <table id="margTable" data-source="menu_econ" data-row-key="menu_id">
+          <thead><tr><th data-field="menu">메뉴</th><th data-field="team">팀</th><th data-field="unit_adj">ⓐ 기존 주문에 추가</th><th data-field="avg_marg">ⓑ 평균 주문 크기로</th><th data-field="solo_marg">ⓒ 단독 주문</th><th data-field="solo_bep">단독 회수 수량</th></tr></thead>
+          <tbody></tbody>
+        </table>
+      </div>
+      <p class="muted" id="rockNote" data-source="menu_econ"></p>
+    </section>
+</details>
+  </section>
+
+  <section class="pane" id="s4" role="tabpanel" aria-labelledby="t-s4" hidden>
+    <p class="q">어떤 전략이 가장 효과적이며, 그 효과가 나타나려면 무엇이 충족되어야 하나?</p>
+    <section class="card" id="sim-card" data-source="menus teams orders lines result menu_econ assumptions">
+      <header><h2>전략 실험실</h2><p class="lead">진단 → 실험할 전략 고르기 → 결과 비교 → ⑤에서 결정. 같은 손익 산식(②·③)을 쓰고, 판매량은 정수로 계산합니다</p><p class="muted">여기의 대안 A·B는 가정을 바꿔 계산해 보는 시뮬레이션입니다. 실제 참여자에게 서로 다른 조건을 보여 주고 반응을 비교하는 A/B 테스트와는 다르며, 그 검증은 ⑤의 실험계획서로 설계합니다.</p></header>
+      <div class="toprow">
+        <label for="simTeam">우리 팀</label><select id="simTeam"></select>
+        <label for="goalTarget">목표 조정 영업이익</label><input type="number" id="goalTarget" step="10000" min="0">
+        <label for="goalMenu">기준 메뉴</label><select id="goalMenu"></select>
+      </div>
+      <div class="diag" id="diag"></div>
+      <div class="sim" id="simCols"></div>
+      <h3>결과 비교</h3>
+      <div class="cmp" id="cmpCards"></div>
+      <div class="chart" id="simChart" data-source="menus teams orders lines"></div>
+      <div class="verdict" id="simVerdict"></div>
+      <details class="more"><summary>전체 비교표와 계산 기준</summary><div class="card">
+        <div class="scroll"><table id="simTable"><thead><tr><th>비교 기준</th><th>지금</th><th>전략 A</th><th>전략 B</th></tr></thead><tbody></tbody></table></div>
+        <p class="muted">최소 수량 = 다른 메뉴는 시나리오 수량 그대로 두고 기준 메뉴만 늘리거나 줄였을 때 조건을 처음 만족하는 정수 수량 · 판매가 늘면 주문 수(판매 수량 ÷ 이번 주문당 평균 수량, 올림)와 배송원가·주문 포장도 함께 늘어남 · 비관 = 시나리오 판매량이 20% 더 줄어든 경우 · 입력값은 학생 추정이며 저장되지 않음</p>
+        <p class="muted" id="simCheck"></p>
+      </div></details>
+    </section>
+    <details class="more" id="plan-card-more"><summary>참고: 교수자 처방안</summary>
+<section class="card" id="plan-card">
+      <header><h2>교수자 처방안 (참고)</h2><p class="muted">처방안 값은 교수자 가정 · 같은 주문이 다시 들어온다고 가정 · 시뮬레이터의 '처방안' 버튼과 같은 값</p></header>
+      <div class="scroll">
+        <table id="planTable" data-source="plan" data-row-key="team">
+          <thead><tr><th data-field="team">팀</th><th data-field="adj_now">조정이익 지금</th><th data-field="adj_plan">처방 적용</th><th data-field="roc_now">수익률 지금</th><th data-field="roc_plan">처방 적용</th><th data-field="pack_min_now">포장 지금</th><th data-field="pack_min_plan">처방 적용</th></tr></thead>
+          <tbody></tbody>
+        </table>
+      </div>
+      <div class="cols3" id="strategy" data-source="plan"></div>
+    </section>
+</details>
+    <section class="card" id="approach-card">
+      <header><h2>고객 유형과 실행 전략</h2><p class="muted">유형은 주문에서 <b>관찰</b>된 행동으로만 나눴습니다. 왜 그렇게 샀는지는 여러 해석이 가능한 <b>추정</b>이고, 전략 효과는 다음 판매에서 <b>검증</b>해야 합니다</p></header>
+      <div class="diag" id="teamFocus" data-source="orders menus teams"></div>
+      <details class="more"><summary>고객 유형 세 가지 자세히 (관찰 · 해석 · 접근 · 검증) · 원칙</summary><div class="card">
+      <div class="verdict"><b>남은 예산은 기회가 아닙니다.</b> 20만 원은 실습 규칙일 뿐이고, 덜 쓴 것은 필요가 없었거나 신중하게 고른 소비 성향일 수 있습니다. 남은 금액을 채우게 하는 권유는 고객 만족을 해치고 반품·불만으로 돌아옵니다. 추가 제안은 고객의 필요와 이득(배송비 절약, 함께 쓰면 좋은 상품)이 분명할 때 한 번만 하고, 거절은 그대로 존중합니다.</div>
+<div class="scroll">
+        <table id="typeTable" data-source="segments"><thead><tr><th>유형(인원)</th><th class="l">관찰된 구매 패턴</th><th class="l">가능한 해석 · 추정</th><th class="l">적합한 접근</th><th class="l">확인할 고객 정보 · 검증 기록</th></tr></thead><tbody></tbody></table>
+      </div></div></details>
+      <details class="more"><summary>구매자별 관계 관리 제안 (11명)</summary><div class="card">
+      <h3>구매자별 관계 관리 제안</h3>
+      <p class="muted">관찰된 신호(구매 규모, 배송비 부담, 산 팀 수)로 한 사람씩 다음 접점을 정했습니다 · 추가 구매를 유도하는 표가 아니라, 고객에게 도움이 되는 다음 연락을 정하는 표입니다 · 효과는 <span class="chip"><span class="dot" id="promoDot"></span>학생 추정</span></p>
+      <div class="tbox">
+        <table id="promoTable" data-source="promo" data-row-key="buyer">
+          <thead><tr><th data-field="buyer">구매자</th><th class="l" data-field="bought">산 것</th><th class="l" data-field="signal">관찰 신호</th><th data-field="type">접근</th><th class="l" data-field="suggestion">제안</th><th class="l" data-field="avoid">하지 말 것</th></tr></thead>
+          <tbody></tbody>
+        </table>
+      </div>
+      <p class="muted">검증 방법: 다음 판매에서 누구에게 어떤 제안을 했는지, 받아들였는지·거절했는지, 이후 실제 구매와 만족(후기·반품)을 함께 기록합니다. 제안하지 않은 고객과 비교해야 전략 효과를 말할 수 있습니다.</p></div></details>
+    </section>
+  </section>
+
+  <section class="pane" id="s5" role="tabpanel" aria-labelledby="t-s5" hidden>
+    <p class="q">무엇을 실행하고, 어떻게 검증할 것인가?</p>
+    <section class="card" id="goal-card" data-source="menus teams orders lines">
+      <header><h2>다음 판매 전략 결정서 · 실험계획서</h2><p class="muted">④에서 만든 전략 A·B 중 하나를 고르면 숫자가 자동으로 연결됩니다(팀·주력 메뉴·목표이익은 ④에서 정함). 근거와 검증 방법은 팀이 직접 씁니다</p></header>
+      <div class="lever" style="grid-template-columns:auto minmax(0,1fr)">
+        <label for="goalPick">선택한 전략</label><select id="goalPick"><option value="A">전략 A</option><option value="B">전략 B</option></select>
+      </div>
+      <div class="chart" id="goalChart" data-source="menus teams orders lines" style="min-height:120px"></div>
+      <p class="sentence" id="goalSentence"></p>
+      <div class="verdict" id="goalCheck"></div>
+      <div class="grid">
+        <fieldset class="card inner" id="decType"><legend class="muted">1. 선택한 핵심 전략(복수 선택)</legend>
+          <label><input type="checkbox" value="가격·상품 구성 개선"> 가격·상품 구성 개선</label>
+          <label><input type="checkbox" value="원가 절감"> 원가 절감</label>
+          <label><input type="checkbox" value="포장·운영 효율 개선"> 포장·운영 효율 개선</label>
+          <label><input type="checkbox" value="수요 확인·고객 관계"> 수요 확인·고객 관계</label>
+        </fieldset>
+        <div class="card inner">
+          <label class="muted" for="decWhy">2. 근거: ②·③의 숫자를 인용 (성과 주장 + 원인 가설)</label>
+          <textarea id="decWhy" rows="3"></textarea>
+          <label class="muted" for="decHyp">3. 가설과 바꿀 것 하나 (예: 사용 장면을 먼저 보여 주면 이해도가 오른다 → 설명 순서만 바꿈)</label>
+          <textarea id="decHyp" rows="2"></textarea>
+          <label class="muted" for="decKeep">4. 그대로 유지할 조건 (상품·가격·설명 시간·주문 방식 등)</label>
+          <textarea id="decKeep" rows="2"></textarea>
+          <label class="muted" for="decTest">5. 주지표와 판단 기준 — 실험 전에 정하고 바꾸지 않기 (예: 설명 직후 용도를 맞힌 비율 60% 이상이면 채택)</label>
+          <textarea id="decTest" rows="2"></textarea>
+          <label class="muted" for="decRisk">6. 실패 조건·중단 기준과 해석 범위 (이번 데이터로 알 수 없는 것)</label>
+          <textarea id="decRisk" rows="2"></textarea>
+        </div>
+      </div>
+      <div class="btns"><button type="button" id="decCopy">결정서 복사</button><span class="muted" id="decMsg">복사해 LMS에 붙여 넣어 제출하세요. 이 화면은 입력을 저장하지 않습니다.</span></div>
+      <textarea id="decOut" rows="10" readonly aria-label="결정서 내용"></textarea>
+    </section>
+    <section class="card" id="dv-card">
+      <header><h2>데이터 검증과 기록 설계 (경영정보 과제)</h2><p class="muted">결과를 해석하기 전에, 이 숫자가 무엇을 세었고 어떻게 만들어졌는지부터 확인합니다. 평가 기준: 다른 사람이 같은 원자료로 같은 결과를 재현할 수 있는가</p></header>
+      <div class="cols3">
+        <div><h3>1. 이번 데이터가 만들어진 과정</h3><ul>
+          <li>주문 메뉴판의 주문 기능이 실연 중 열리지 않아, 학생들이 원하는 주문을 캡처해 LMS에 제출했고 그 캡처를 사람이 판독해 원장을 만들었습니다.</li>
+          <li>판독 규칙: X 표시한 메뉴는 제외, 메뉴 일부만 잘라 낸 캡처는 보이는 메뉴 포함, 메뉴 전체 캡처는 옵션·수량을 바꾼 메뉴만 포함.</li>
+          <li>관찰된 품질 문제: 수량을 0으로 내릴 수 없어 X로 표시, 사은품·색상 미선택, 파일명에 이름이 빠진 제출, 제출하지 않은 학생.</li>
+          <li>과제: 이 과정에서 생길 수 있는 오류(누락·중복·오판독)를 찾고, 시스템에서 막을 방법(필수 입력, 수량 0 허용, 입력 검증, 상품코드)을 제안하세요.</li></ul></div>
+        <div><h3>2. 다음 시연에서 기록할 데이터</h3><ul>
+          <li>주문 처리 이벤트 로그: 익명 주문 ID · 활동(접수→확인→준비→포장) · 시각 · 담당 역할 · 오류·재작업.</li>
+          <li>고객여정 단계별 인원: 방송 참여 → 상품 설명 확인 → 질문·관심 표시 → 상품 선택 → 주문 완료. 기록하지 않은 단계의 수치는 추정해서 쓰지 않습니다.</li>
+          <li>구매 후 짧은 질문: 고른 이유, 사지 않은 이유(선택형 + 자유응답).</li>
+          <li>메뉴별 준비 수량(수요예측)과 남은 수량.</li></ul></div>
+        <div><h3>3. 원자료로 재현하기</h3><ul>
+          <li>원자료 CSV 내려받기: <a href="lc23-data/lines.csv" download>주문 원장</a> · <a href="lc23-data/orders.csv" download>주문별 결제</a> · <a href="lc23-data/menus.csv" download>메뉴</a> · <a href="lc23-data/teams.csv" download>팀 가정값</a> · <a href="lc23-data/assumptions.csv" download>근거 수준</a></li>
+          <li>스프레드시트에서 ② 손익 계산서의 매출·조정 영업이익을 직접 다시 계산해 보고, 차이가 나면 원인을 설명하세요.</li>
+          <li>"모의 매출 · 조정 영업이익 · 가격 변경 후 판매량"이 각각 관측·가정·추정 중 무엇인지 표로 정리하세요.</li></ul></div>
+      </div>
+      <details class="more"><summary>지표 정의표 (무엇을 세었고 어떻게 계산했나)</summary><div class="card"><div class="scroll">
+        <table id="defTable"><thead><tr><th>지표</th><th class="l">정의·계산식</th><th class="l">데이터 출처</th><th class="l">포함·제외</th><th>근거</th></tr></thead><tbody></tbody></table>
+      </div></div></details>
+    </section>
+    <section class="card" id="kpi-card">
+      <header><h2>검증 KPI</h2><p class="muted">다음 판매가 끝나면 같은 방법으로 다시 재서 이번 값과 비교합니다 · '다음 목표'는 선택한 전략으로 계산한 값</p></header>
+      <div class="scroll">
+        <table id="kpiTable"><thead><tr><th>관점</th><th class="l">KPI</th><th>이번 값</th><th>다음 목표</th><th class="l">재는 방법</th></tr></thead><tbody></tbody></table>
+      </div>
+    </section>
+    <section class="card" id="plan-exec">
+      <header><h2>실행 계획: 근거를 세 단계로 높이기</h2><p class="muted">실습 기준 성과 → 표준화 비교 → 사업화 검증. 모의 판매의 성과와 실제 사업 가능성을 혼동하지 않기 위한 순서입니다</p></header>
+      <div class="cols3">
+        <div><h3>1. 실습 기준 성과</h3><ul><li>지금 화면의 숫자입니다. 고정비·포장 시간·손실률은 교수자 가정이 섞여 있습니다.</li></ul></div>
+        <div><h3>2. 표준화 비교 (참고용)</h3><ul id="stdList" data-source="std"></ul></div>
+        <div><h3>3. 사업화 검증 (조사 과제)</h3><ul id="researchList" data-source="assumptions"></ul></div>
+      </div>
+    </section>
+    <details class="more" id="ev-card-more"><summary>교수자·검증용: 근거 수준 표</summary>
+<section class="card" id="ev-card">
+      <header><h2>근거 수준 표</h2><p class="muted">계산이 정밀해도 입력의 근거가 약하면 결론도 약합니다</p></header>
+      <div class="tbox">
+        <table id="evTable" data-source="assumptions" data-row-key="id">
+          <thead><tr><th data-field="evidence">근거</th><th class="l" data-field="item">항목</th><th class="l" data-field="team">팀</th><th class="l" data-field="value">값</th><th class="l" data-field="note">설명</th></tr></thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </section>
+</details>
+    <details class="more" id="orders-card-more"><summary>교수자·검증용: 주문 원장</summary>
+<section class="card" id="orders-card">
+      <header><h2>주문 내역</h2><p class="muted">오늘 배송분 마감 주문 · 구매하지 않은 메뉴 제외</p></header>
+      <input type="search" id="q" placeholder="이름·팀·메뉴로 찾기" aria-label="주문 내역 검색">
+      <div class="tbox">
+        <table id="lineTable" data-source="lines" data-row-key="order_no,menu_id">
+          <thead><tr><th data-field="order_no">주문번호</th><th data-field="buyer">구매자</th><th data-field="team">판매 팀</th><th data-field="menu">메뉴</th><th data-field="option">옵션</th><th data-field="qty">수량</th><th data-field="amount">금액</th></tr></thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </section>
+</details>
+  </section>
+</div>
+
+
+</div>
+<p class="foot">수업용 모의 판매 결과 · 원자료: LMS 제출 주문 17건(오늘 배송분) · 계산은 이 페이지 안에서 바로 이루어지며 입력값은 저장되지 않습니다.</p>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js"></script>
+<script>var DATA={"orders": [{"order_no": "LMS-01", "buyer": "김동혁", "buyer_team": "팔아묵조", "team": "다단계", "goods": "164700", "ship_fee": "0", "total": "164700"}, {"order_no": "LMS-02", "buyer": "김승환", "buyer_team": "푹신하게 잘자조", "team": "다단계", "goods": "79800", "ship_fee": "0", "total": "79800"}, {"order_no": "LMS-03", "buyer": "문서진", "buyer_team": "팔아묵조", "team": "다단계", "goods": "24900", "ship_fee": "3000", "total": "27900"}, {"order_no": "LMS-04", "buyer": "박민성", "buyer_team": "푹신하게 잘자조", "team": "다단계", "goods": "94800", "ship_fee": "0", "total": "94800"}, {"order_no": "LMS-05", "buyer": "박민진", "buyer_team": "팔아묵조", "team": "다단계", "goods": "69900", "ship_fee": "0", "total": "69900"}, {"order_no": "LMS-06", "buyer": "이성준", "buyer_team": "팔아묵조", "team": "다단계", "goods": "189600", "ship_fee": "0", "total": "189600"}, {"order_no": "LMS-07", "buyer": "태주환", "buyer_team": "푹신하게 잘자조", "team": "다단계", "goods": "94800", "ship_fee": "0", "total": "94800"}, {"order_no": "LMS-08", "buyer": "문서진", "buyer_team": "팔아묵조", "team": "푹신하게 잘자조", "goods": "95600", "ship_fee": "0", "total": "95600"}, {"order_no": "LMS-09", "buyer": "박민진", "buyer_team": "팔아묵조", "team": "푹신하게 잘자조", "goods": "95600", "ship_fee": "0", "total": "95600"}, {"order_no": "LMS-10", "buyer": "부석현", "buyer_team": "다단계", "team": "푹신하게 잘자조", "goods": "95600", "ship_fee": "0", "total": "95600"}, {"order_no": "LMS-11", "buyer": "임성훈", "buyer_team": "다단계", "team": "푹신하게 잘자조", "goods": "95600", "ship_fee": "0", "total": "95600"}, {"order_no": "LMS-12", "buyer": "김승환", "buyer_team": "푹신하게 잘자조", "team": "팔아묵조", "goods": "13900", "ship_fee": "3000", "total": "16900"}, {"order_no": "LMS-13", "buyer": "류연성", "buyer_team": "다단계", "team": "팔아묵조", "goods": "189600", "ship_fee": "0", "total": "189600"}, {"order_no": "LMS-14", "buyer": "박민성", "buyer_team": "푹신하게 잘자조", "team": "팔아묵조", "goods": "54900", "ship_fee": "0", "total": "54900"}, {"order_no": "LMS-15", "buyer": "이종현", "buyer_team": "다단계", "team": "팔아묵조", "goods": "192500", "ship_fee": "0", "total": "192500"}, {"order_no": "LMS-16", "buyer": "임성훈", "buyer_team": "다단계", "team": "팔아묵조", "goods": "24900", "ship_fee": "3000", "total": "27900"}, {"order_no": "LMS-17", "buyer": "태주환", "buyer_team": "푹신하게 잘자조", "team": "팔아묵조", "goods": "79800", "ship_fee": "0", "total": "79800"}], "lines": [{"order_no": "LMS-01", "buyer": "김동혁", "buyer_team": "팔아묵조", "team": "다단계", "menu_id": "d2", "menu": "RRRock토핏", "option": "", "qty": "1", "unit": "24900", "amount": "24900", "addon_qty": "0"}, {"order_no": "LMS-01", "buyer": "김동혁", "buyer_team": "팔아묵조", "team": "다단계", "menu_id": "d3", "menu": "패밀리가 떴다", "option": "", "qty": "2", "unit": "69900", "amount": "139800", "addon_qty": "0"}, {"order_no": "LMS-02", "buyer": "김승환", "buyer_team": "푹신하게 잘자조", "team": "다단계", "menu_id": "d1", "menu": "Rock토핏", "option": "", "qty": "1", "unit": "9900", "amount": "9900", "addon_qty": "0"}, {"order_no": "LMS-02", "buyer": "김승환", "buyer_team": "푹신하게 잘자조", "team": "다단계", "menu_id": "d3", "menu": "패밀리가 떴다", "option": "비타민C", "qty": "1", "unit": "69900", "amount": "69900", "addon_qty": "0"}, {"order_no": "LMS-03", "buyer": "문서진", "buyer_team": "팔아묵조", "team": "다단계", "menu_id": "d2", "menu": "RRRock토핏", "option": "콜라겐", "qty": "1", "unit": "24900", "amount": "24900", "addon_qty": "0"}, {"order_no": "LMS-04", "buyer": "박민성", "buyer_team": "푹신하게 잘자조", "team": "다단계", "menu_id": "d2", "menu": "RRRock토핏", "option": "", "qty": "1", "unit": "24900", "amount": "24900", "addon_qty": "0"}, {"order_no": "LMS-04", "buyer": "박민성", "buyer_team": "푹신하게 잘자조", "team": "다단계", "menu_id": "d3", "menu": "패밀리가 떴다", "option": "비타민C", "qty": "1", "unit": "69900", "amount": "69900", "addon_qty": "0"}, {"order_no": "LMS-05", "buyer": "박민진", "buyer_team": "팔아묵조", "team": "다단계", "menu_id": "d3", "menu": "패밀리가 떴다", "option": "비타민C", "qty": "1", "unit": "69900", "amount": "69900", "addon_qty": "0"}, {"order_no": "LMS-06", "buyer": "이성준", "buyer_team": "팔아묵조", "team": "다단계", "menu_id": "d2", "menu": "RRRock토핏", "option": "", "qty": "2", "unit": "24900", "amount": "49800", "addon_qty": "0"}, {"order_no": "LMS-06", "buyer": "이성준", "buyer_team": "팔아묵조", "team": "다단계", "menu_id": "d3", "menu": "패밀리가 떴다", "option": "", "qty": "2", "unit": "69900", "amount": "139800", "addon_qty": "0"}, {"order_no": "LMS-07", "buyer": "태주환", "buyer_team": "푹신하게 잘자조", "team": "다단계", "menu_id": "d3", "menu": "패밀리가 떴다", "option": "비타민C", "qty": "1", "unit": "69900", "amount": "69900", "addon_qty": "0"}, {"order_no": "LMS-07", "buyer": "태주환", "buyer_team": "푹신하게 잘자조", "team": "다단계", "menu_id": "d2", "menu": "RRRock토핏", "option": "콜라겐", "qty": "1", "unit": "24900", "amount": "24900", "addon_qty": "0"}, {"order_no": "LMS-08", "buyer": "문서진", "buyer_team": "팔아묵조", "team": "푹신하게 잘자조", "menu_id": "p3", "menu": "패밀리 세트", "option": "검정", "qty": "1", "unit": "95600", "amount": "95600", "addon_qty": "0"}, {"order_no": "LMS-09", "buyer": "박민진", "buyer_team": "팔아묵조", "team": "푹신하게 잘자조", "menu_id": "p3", "menu": "패밀리 세트", "option": "검정", "qty": "1", "unit": "95600", "amount": "95600", "addon_qty": "0"}, {"order_no": "LMS-10", "buyer": "부석현", "buyer_team": "다단계", "team": "푹신하게 잘자조", "menu_id": "p3", "menu": "패밀리 세트", "option": "검정", "qty": "1", "unit": "95600", "amount": "95600", "addon_qty": "0"}, {"order_no": "LMS-11", "buyer": "임성훈", "buyer_team": "다단계", "team": "푹신하게 잘자조", "menu_id": "p3", "menu": "패밀리 세트", "option": "회색", "qty": "1", "unit": "95600", "amount": "95600", "addon_qty": "0"}, {"order_no": "LMS-12", "buyer": "김승환", "buyer_team": "푹신하게 잘자조", "team": "팔아묵조", "menu_id": "m1", "menu": "기본 밀키트", "option": "", "qty": "1", "unit": "13900", "amount": "13900", "addon_qty": "0"}, {"order_no": "LMS-13", "buyer": "류연성", "buyer_team": "다단계", "team": "팔아묵조", "menu_id": "m2", "menu": "프리미엄 세트", "option": "", "qty": "1", "unit": "24900", "amount": "24900", "addon_qty": "0"}, {"order_no": "LMS-13", "buyer": "류연성", "buyer_team": "다단계", "team": "팔아묵조", "menu_id": "m3", "menu": "기본 밀키트 5개 묶음", "option": "", "qty": "3", "unit": "54900", "amount": "164700", "addon_qty": "0"}, {"order_no": "LMS-14", "buyer": "박민성", "buyer_team": "푹신하게 잘자조", "team": "팔아묵조", "menu_id": "m3", "menu": "기본 밀키트 5개 묶음", "option": "", "qty": "1", "unit": "54900", "amount": "54900", "addon_qty": "0"}, {"order_no": "LMS-15", "buyer": "이종현", "buyer_team": "다단계", "team": "팔아묵조", "menu_id": "m3", "menu": "기본 밀키트 5개 묶음", "option": "", "qty": "3", "unit": "54900", "amount": "164700", "addon_qty": "0"}, {"order_no": "LMS-15", "buyer": "이종현", "buyer_team": "다단계", "team": "팔아묵조", "menu_id": "m1", "menu": "기본 밀키트", "option": "", "qty": "2", "unit": "13900", "amount": "27800", "addon_qty": "0"}, {"order_no": "LMS-16", "buyer": "임성훈", "buyer_team": "다단계", "team": "팔아묵조", "menu_id": "m2", "menu": "프리미엄 세트", "option": "", "qty": "1", "unit": "24900", "amount": "24900", "addon_qty": "0"}, {"order_no": "LMS-17", "buyer": "태주환", "buyer_team": "푹신하게 잘자조", "team": "팔아묵조", "menu_id": "m3", "menu": "기본 밀키트 5개 묶음", "option": "", "qty": "1", "unit": "54900", "amount": "54900", "addon_qty": "0"}, {"order_no": "LMS-17", "buyer": "태주환", "buyer_team": "푹신하게 잘자조", "team": "팔아묵조", "menu_id": "m2", "menu": "프리미엄 세트", "option": "", "qty": "1", "unit": "24900", "amount": "24900", "addon_qty": "0"}], "menus": [{"menu_id": "d1", "team": "다단계", "menu": "Rock토핏", "price": "9900", "unit_cost": "9235", "pack_min": "2", "pack_units": "30", "unit_label": "포", "plan_cost_cut": "670", "plan_pack_cut": "1", "comp_units": "1", "comp_label": "박스"}, {"menu_id": "d2", "team": "다단계", "menu": "RRRock토핏", "price": "24900", "unit_cost": "22360", "pack_min": "3", "pack_units": "90", "unit_label": "포", "plan_cost_cut": "1345", "plan_pack_cut": "1", "comp_units": "3", "comp_label": "박스"}, {"menu_id": "d3", "team": "다단계", "menu": "패밀리가 떴다", "price": "69900", "unit_cost": "63590", "pack_min": "5", "pack_units": "300", "unit_label": "포", "plan_cost_cut": "4285", "plan_pack_cut": "2", "comp_units": "10", "comp_label": "박스"}, {"menu_id": "p1", "team": "푹신하게 잘자조", "menu": "1인 세트", "price": "38400", "unit_cost": "8000", "pack_min": "3", "pack_units": "1", "unit_label": "베개", "plan_cost_cut": "0", "plan_pack_cut": "1", "comp_units": "1", "comp_label": "베개"}, {"menu_id": "p2", "team": "푹신하게 잘자조", "menu": "커플 세트", "price": "67700", "unit_cost": "20000", "pack_min": "5", "pack_units": "2", "unit_label": "베개", "plan_cost_cut": "0", "plan_pack_cut": "2", "comp_units": "2", "comp_label": "베개"}, {"menu_id": "p3", "team": "푹신하게 잘자조", "menu": "패밀리 세트", "price": "95600", "unit_cost": "40000", "pack_min": "8", "pack_units": "4", "unit_label": "베개", "plan_cost_cut": "0", "plan_pack_cut": "3", "comp_units": "4", "comp_label": "베개"}, {"menu_id": "m1", "team": "팔아묵조", "menu": "기본 밀키트", "price": "13900", "unit_cost": "8092", "pack_min": "5", "pack_units": "1", "unit_label": "밀키트", "plan_cost_cut": "0", "plan_pack_cut": "2", "comp_units": "1", "comp_label": "밀키트"}, {"menu_id": "m2", "team": "팔아묵조", "menu": "프리미엄 세트", "price": "24900", "unit_cost": "16767", "pack_min": "6", "pack_units": "1", "unit_label": "밀키트(프리미엄)", "plan_cost_cut": "0", "plan_pack_cut": "2", "comp_units": "1", "comp_label": "밀키트"}, {"menu_id": "m3", "team": "팔아묵조", "menu": "기본 밀키트 5개 묶음", "price": "54900", "unit_cost": "34820", "pack_min": "20", "pack_units": "5", "unit_label": "밀키트", "plan_cost_cut": "0", "plan_pack_cut": "8", "comp_units": "5", "comp_label": "밀키트"}], "teams": [{"team": "다단계", "fixed_cost": "15000", "ship_fee": "3000", "ship_cost": "3000", "free_over": "30000", "pay_fee_rate": "0", "loss_rate": "0.01", "order_pack_min": "3", "cold_pack_min": "0", "hourly_wage": "10320", "addon_pack_min": "1", "plan_fixed_cut": "0", "plan_loss_rate": "0.01"}, {"team": "푹신하게 잘자조", "fixed_cost": "145000", "ship_fee": "3500", "ship_cost": "2500", "free_over": "40000", "pay_fee_rate": "0.03", "loss_rate": "0.0", "order_pack_min": "3", "cold_pack_min": "0", "hourly_wage": "10320", "addon_pack_min": "1", "plan_fixed_cut": "47500", "plan_loss_rate": "0.0"}, {"team": "팔아묵조", "fixed_cost": "75000", "ship_fee": "3000", "ship_cost": "3000", "free_over": "30000", "pay_fee_rate": "0", "loss_rate": "0.06", "order_pack_min": "3", "cold_pack_min": "2", "hourly_wage": "10320", "addon_pack_min": "1", "plan_fixed_cut": "0", "plan_loss_rate": "0.03"}], "assumptions": [{"id": "a01", "item": "주문·메뉴·수량", "team": "전체", "value": "17건 · 25줄", "unit": "", "evidence": "주문 확인", "note": "LMS 제출 캡처를 한 장씩 판독해 재구성(구매하지 않은 메뉴 제외)"}, {"id": "a02", "item": "받은 배송비", "team": "전체", "value": "주문별", "unit": "원", "evidence": "주문 확인", "note": "상품금액이 무료배송 기준 미만인 주문에만 부과"}, {"id": "a03", "item": "판매가", "team": "전체", "value": "메뉴판", "unit": "원", "evidence": "학생 제출", "note": "팀이 확정한 주문 메뉴판 가격"}, {"id": "a04", "item": "상품 원가", "team": "다단계", "value": "메뉴별", "unit": "원", "evidence": "학생 제출", "note": "소매 구입가(방물가게) 기준 · 사은품·포장재 포함"}, {"id": "a05", "item": "상품 원가", "team": "푹신하게 잘자조", "value": "메뉴별", "unit": "원", "evidence": "학생 추정", "note": "AI 기반 도매가 가정(쿠팡가의 약 31%) · 검증 전"}, {"id": "a06", "item": "상품 원가", "team": "팔아묵조", "value": "메뉴별", "unit": "원", "evidence": "학생 제출", "note": "재료비 합산 · 프리미엄은 문어·전복 반영"}, {"id": "a07", "item": "결제수수료율", "team": "전체", "value": "0% / 3% / 0%", "unit": "", "evidence": "학생 제출", "note": "잘자조만 3% 제출 · 표준화 비교에서는 세 팀 3%"}, {"id": "a08", "item": "실제 배송원가", "team": "전체", "value": "3,000 / 2,500 / 3,000", "unit": "원/건", "evidence": "학생 제출", "note": "무료배송이어도 판매 팀이 부담"}, {"id": "a09", "item": "고정비", "team": "전체", "value": "15,000 / 145,000 / 75,000", "unit": "원", "evidence": "교수자 가정", "note": "세 팀 손익분기 매출이 비슷하도록 정한 수업용 값"}, {"id": "a10", "item": "메뉴별 포장 시간", "team": "전체", "value": "2~20", "unit": "분/개", "evidence": "교수자 가정", "note": "박스 수·부피·냉동 소분 난이도로 정함 · 구성품 중복 없음(묶음 1개 = 20분)"}, {"id": "a11", "item": "주문당 포장 시간", "team": "전체", "value": "3 (+보냉 2)", "unit": "분/건", "evidence": "교수자 가정", "note": "박스 조립·완충재·송장·검수, 팔아묵조는 보냉 포장 추가"}, {"id": "a12", "item": "시급", "team": "전체", "value": "10,320", "unit": "원", "evidence": "교수자 가정", "note": "근거: 2026년 최저임금"}, {"id": "a13", "item": "소분 잔량 손실률", "team": "전체", "value": "1% / 0% / 6%", "unit": "원가 대비", "evidence": "교수자 가정", "note": "사은품 포 소분, 해산물 손질·해동 손실"}, {"id": "a14", "item": "수요 반응(가격 인상 시 판매 감소)", "team": "전체", "value": "시뮬레이션 입력", "unit": "%", "evidence": "학생 추정", "note": "전략 시뮬레이션에서 학생이 정하는 값"}, {"id": "a15", "item": "교수자 처방 값", "team": "전체", "value": "원가·포장·고정비·손실률", "unit": "", "evidence": "교수자 가정", "note": "전략 시뮬레이션의 처방안 프리셋"}, {"id": "a16", "item": "실제 공급가·도매 견적", "team": "전체", "value": "—", "unit": "", "evidence": "조사 필요", "note": "사업화 검증 단계에서 공급처 견적으로 교체"}, {"id": "a17", "item": "실제 포장 작업 시간", "team": "전체", "value": "—", "unit": "", "evidence": "조사 필요", "note": "시연 세트로 실측(초시계)"}, {"id": "a18", "item": "메뉴별 준비 수량(수요예측)", "team": "전체", "value": "—", "unit": "", "evidence": "조사 필요", "note": "다음 판매 전 제출 → 준비 대비 판매율·잔량 손실 계산"}, {"id": "a19", "item": "반품·교환률", "team": "푹신하게 잘자조", "value": "—", "unit": "", "evidence": "조사 필요", "note": "반품 충당금 근거"}]};
+(function(){var CALC={},CACHE={},FNS=[];
+window.dash={colors:['#3b6fd8','#d9822b','#2f9e6e','#8e5bd0','#c4475b','#4aa3b5','#9a8a2a','#6b7280'],
+calc:function(id,o){CALC[id]=o;},
+data:function(id){if(DATA[id])return{status:'ok',data:DATA[id]};if(CALC[id]){if(!CACHE[id]){CACHE[id]=CALC[id].fn.apply(null,CALC[id].inputs.map(function(i){return dash.data(i).data;}));}return{status:'ok',data:CACHE[id]};}return{status:'missing',data:[]};},
+onData:function(fn){FNS.push(fn);},setLink:function(id){try{history.replaceState(null,'','#'+id);}catch(e){}},refresh:function(){},params:function(){return{};},setParams:function(){},resetParams:function(){}};
+window.__runDash=function(){FNS.forEach(function(f){f();});};
+var t;window.addEventListener('resize',function(){clearTimeout(t);t=setTimeout(window.__runDash,200);});})();</script>
+<script>
+(function () {
+  var TEAMS = ['다단계', '푹신하게 잘자조', '팔아묵조'];
+
+  dash.calc('result', {
+    title: '팀별 정산 결과', inputs: ['orders', 'lines', 'menus', 'teams'],
+    description: '주문별 결제·메뉴·가정값으로 매출, 변동비, 조정이익, 조정 손익분기, 수량 기준을 계산',
+    fn: function (orders, lines, menus, teams) {
+      var mc = {}; menus.forEach(function (m) { mc[m.menu_id] = m; });
+      var total = orders.reduce(function (a, o) { return a + Number(o.total); }, 0);
+      var rows = teams.map(function (t) {
+        var os = orders.filter(function (o) { return o.team === t.team; });
+        var ls = lines.filter(function (l) { return l.team === t.team; });
+        var sales = os.reduce(function (a, o) { return a + Number(o.total); }, 0);
+        var goods = os.reduce(function (a, o) { return a + Number(o.goods); }, 0);
+        var cogs = ls.reduce(function (a, l) { return a + Number(l.qty) * Number(mc[l.menu_id].unit_cost); }, 0);
+        var ship = os.length * Number(t.ship_cost);
+        var fee = os.reduce(function (a, o) { return a + Math.round(Number(o.total) * Number(t.pay_fee_rate)); }, 0);
+        var orderMin = os.length * (Number(t.order_pack_min) + Number(t.cold_pack_min));
+        var packMin = orderMin + ls.reduce(function (a, l) { return a + Number(l.qty) * (Number(mc[l.menu_id].pack_min) + Number(t.addon_pack_min) * Number(l.addon_qty)); }, 0);
+        var pack = Math.round(packMin * Number(t.hourly_wage) / 60), loss = Math.round(cogs * Number(t.loss_rate));
+        var v = cogs + ship + fee, cm = sales - v, fixed = Number(t.fixed_cost), op = cm - fixed;
+        var adjCm = cm - pack - loss, adj = op - pack - loss, cost = v + fixed + pack + loss;
+        var units = ls.reduce(function (a, l) { return a + Number(l.qty); }, 0);
+        var comp = {}; ls.forEach(function (l) { var m = mc[l.menu_id]; comp[m.comp_label] = (comp[m.comp_label] || 0) + Number(l.qty) * Number(m.comp_units); });
+        return { team: t.team, orders: os.length, units: units, sales: sales, goods: goods, ship_in: sales - goods, share: sales / total,
+          cogs: cogs, ship_cost: ship, pay_fee: fee, var_cost: v, cm: cm, cm_rate: cm / sales, fixed: fixed, op: op, op_rate: op / sales,
+          pack_min: packMin, order_pack_min_total: orderMin, pack: pack, loss: loss, forecast: 0, adj_cm: adjCm,
+          adj_op: adj, adj_rate: adj / sales, total_cost: cost, roc: adj / cost, cogs_rate: cogs / goods,
+          bep_sales: fixed / (cm / sales), safety: 1 - fixed / cm,
+          adj_bep: fixed / (adjCm / sales), adj_safety: 1 - fixed / adjCm, bep_gap: fixed / (adjCm / sales) - fixed / (cm / sales),
+          fixed_dep: fixed / adjCm, per_min_team: adjCm / packMin,
+          comp_text: Object.keys(comp).map(function (k) { return comp[k] + k; }).join(' · ') };
+      });
+      ['sales', 'adj_op', 'roc', 'adj_safety'].forEach(function (k) {
+        rows.slice().sort(function (a, b) { return b[k] - a[k]; })[0]['top_' + k] = true;
+      });
+      return rows;
+    }
+  });
+  dash.calc('pl', {
+    title: '손익 계산서 표', inputs: ['result'], description: '팀별 정산 결과를 항목 × 팀 표로 바꾸고 근거 수준을 붙임',
+    fn: function (result) {
+      var items = [['매출', 'sales', '주문 확인'], ['상품 원가', 'cogs', '학생 제출·추정'], ['실제 배송원가', 'ship_cost', '학생 제출'], ['결제수수료', 'pay_fee', '학생 제출'],
+        ['공헌이익', 'cm', ''], ['공헌이익률', 'cm_rate', ''], ['포장 인건비', 'pack', '교수자 가정'], ['소분 잔량 손실', 'loss', '교수자 가정'], ['수요예측 오차 비용', 'forecast', '조사 필요'],
+        ['조정 공헌이익', 'adj_cm', ''], ['고정비', 'fixed', '교수자 가정'], ['조정 영업이익', 'adj_op', ''], ['조정 영업이익률', 'adj_rate', ''],
+        ['총비용', 'total_cost', ''], ['원가 대비 수익률', 'roc', '']];
+      return items.map(function (it) {
+        var row = { item: it[0], key: it[1], evidence: it[2] };
+        result.forEach(function (r) { row[r.team] = r[it[1]]; });
+        return row;
+      });
+    }
+  });
+  dash.calc('kpi', {
+    title: '전체 합계', inputs: ['orders', 'lines', 'result'], description: '전체 매출, 조정이익 합계, 주문·구매자 수, 판매 SKU 수량',
+    fn: function (orders, lines, result) {
+      var b = {}; orders.forEach(function (o) { b[o.buyer] = 1; });
+      return [{ sales: orders.reduce(function (a, o) { return a + Number(o.total); }, 0),
+        adj_op: result.reduce(function (a, r) { return a + r.adj_op; }, 0),
+        orders_buyers: orders.length + '건 · ' + Object.keys(b).length + '명',
+        adj_rate: result.reduce(function (a, r) { return a + r.adj_op; }, 0) / orders.reduce(function (a, o) { return a + Number(o.total); }, 0),
+        aov: orders.reduce(function (a, o) { return a + Number(o.total); }, 0) / orders.length,
+        units: lines.reduce(function (a, l) { return a + Number(l.qty); }, 0) }];
+    }
+  });
+  dash.calc('menu_econ', {
+    title: '메뉴별 수익성과 한계이익', inputs: ['menus', 'teams', 'lines', 'orders'],
+    description: '단위당 조정 공헌(메뉴만), 포장 1분당 공헌, 판매 기여, 한계이익 세 가지(기존 주문 추가·평균 주문 크기·단독 주문), 단독 회수 수량',
+    fn: function (menus, teams, lines, orders) {
+      return menus.map(function (m) {
+        var t = teams.filter(function (x) { return x.team === m.team; })[0];
+        var w = Number(t.hourly_wage) / 60, rate = Number(t.pay_fee_rate), price = Number(m.price), cost = Number(m.unit_cost);
+        var unitAdj = price - cost - price * rate - cost * Number(t.loss_rate) - Number(m.pack_min) * w;
+        var os = orders.filter(function (o) { return o.team === m.team; }), ls = lines.filter(function (l) { return l.team === m.team; });
+        var upo = ls.reduce(function (a, l) { return a + Number(l.qty); }, 0) / os.length;
+        var shipIn = os.reduce(function (a, o) { return a + Number(o.ship_fee); }, 0) / os.length;
+        var orderPack = (Number(t.order_pack_min) + Number(t.cold_pack_min)) * w;
+        var orderCost = Number(t.ship_cost) - shipIn * (1 - rate) + orderPack;
+        var soloIn = price >= Number(t.free_over) ? 0 : Number(t.ship_fee);
+        var solo = unitAdj + soloIn * (1 - rate) - Number(t.ship_cost) - orderPack;
+        var qty = ls.filter(function (l) { return l.menu_id === m.menu_id; }).reduce(function (a, l) { return a + Number(l.qty); }, 0);
+        return { menu_id: m.menu_id, team: m.team, menu: m.menu, price: price, cost: cost, cost_rate: cost / price, unit_adj: unitAdj,
+          pack_min: Number(m.pack_min), per_min: unitAdj / Number(m.pack_min), qty: qty, contrib: unitAdj * qty,
+          status: qty ? '판매' : '수요 미확인', avg_marg: unitAdj - orderCost / upo, solo_marg: solo,
+          solo_bep: solo > 0 ? Math.ceil(Number(t.fixed_cost) / solo) : null, order_cost: orderCost, upo: upo };
+      });
+    }
+  });
+  dash.calc('risk', {
+    title: '판매 감소·고정비 증가 시 조정이익', inputs: ['result', 'menu_econ'],
+    description: '같은 판매 구성에서 판매량(주문 수 포함) −10/−25/−50%, 고정비 +50%, 대표 메뉴 1개가 평균 주문 크기로 덜 팔릴 때의 조정 영업이익',
+    fn: function (result, menu_econ) {
+      return result.map(function (r) {
+        var top = menu_econ.filter(function (m) { return m.team === r.team && m.qty; }).sort(function (a, b) { return b.contrib - a.contrib; })[0];
+        var f = function (k) { return r.adj_cm * (1 - k) - r.fixed; };
+        return { team: r.team, now: r.adj_op, d10: f(0.1), d25: f(0.25), d50: f(0.5), fixed_up: r.adj_op - r.fixed * 0.5,
+          one_less: r.adj_op - top.avg_marg, top_menu: top.menu, breakeven_drop: r.adj_safety };
+      });
+    }
+  });
+  dash.calc('std', {
+    title: '표준화 비교', inputs: ['result', 'orders', 'teams'],
+    description: '결제수수료를 세 팀 모두 3%, 고정비를 세 팀 평균으로 맞췄을 때 조정 영업이익(참고용)',
+    fn: function (result, orders, teams) {
+      var avgFixed = teams.reduce(function (a, t) { return a + Number(t.fixed_cost); }, 0) / teams.length;
+      return result.map(function (r) {
+        var fee3 = orders.filter(function (o) { return o.team === r.team; }).reduce(function (a, o) { return a + Math.round(Number(o.total) * 0.03); }, 0);
+        var adj = r.adj_cm + r.pay_fee - fee3 - avgFixed;
+        return { team: r.team, std_adj: adj, std_roc: adj / (r.sales - adj), avg_fixed: avgFixed };
+      });
+    }
+  });
+  dash.calc('budget', {
+    title: '구매 행동 요약', inputs: ['orders', 'lines'], description: '1인당 평균 결제, 한도(200,000원) 사용률, 무료배송 주문 비율, 대용량 메뉴 수량 비율',
+    fn: function (orders, lines) {
+      var by = {}; orders.forEach(function (o) { by[o.buyer] = (by[o.buyer] || 0) + Number(o.total); });
+      var n = Object.keys(by).length, spend = Object.keys(by).reduce(function (a, k) { return a + by[k]; }, 0) / n;
+      var units = lines.reduce(function (a, l) { return a + Number(l.qty); }, 0);
+      var big = lines.filter(function (l) { return { d3: 1, p3: 1, m3: 1 }[l.menu_id]; }).reduce(function (a, l) { return a + Number(l.qty); }, 0);
+      return [{ avg_spend: spend, utilization: spend / 200000, free_rate: orders.filter(function (o) { return Number(o.ship_fee) === 0; }).length / orders.length, bundle_share: big / units }];
+    }
+  });
+  dash.calc('behavior', {
+    title: '판매 팀별 장바구니', inputs: ['orders', 'lines'], description: '객단가, 주문당 수량, 무료배송 비율, 대용량 메뉴 비율, 옵션 선택률',
+    fn: function (orders, lines) {
+      return ['다단계', '푹신하게 잘자조', '팔아묵조'].map(function (t) {
+        var os = orders.filter(function (o) { return o.team === t; }), ls = lines.filter(function (l) { return l.team === t; });
+        var units = ls.reduce(function (a, l) { return a + Number(l.qty); }, 0);
+        var big = ls.filter(function (l) { return { d3: 1, p3: 1, m3: 1 }[l.menu_id]; }).reduce(function (a, l) { return a + Number(l.qty); }, 0);
+        var opt = ls.filter(function (l) { return /^[dp]/.test(l.menu_id); });
+        return { team: t, aov: os.reduce(function (a, o) { return a + Number(o.total); }, 0) / os.length, units_per_order: units / os.length,
+          free_rate: os.filter(function (o) { return Number(o.ship_fee) === 0; }).length / os.length, bundle_share: big / units,
+          option_rate: opt.length ? opt.filter(function (l) { return l.option; }).length / opt.length : null };
+      });
+    }
+  });
+  dash.calc('matrix', {
+    title: '구매자 소속 × 판매 팀', inputs: ['orders'], description: '구매자 소속 팀별로 어느 판매 팀에 얼마를 썼는지',
+    fn: function (orders) {
+      return ['다단계', '푹신하게 잘자조', '팔아묵조'].map(function (b) {
+        var row = { buyer_team: b, total: 0 };
+        ['다단계', '푹신하게 잘자조', '팔아묵조'].forEach(function (s) {
+          var v = orders.filter(function (o) { return o.buyer_team === b && o.team === s; }).reduce(function (a, o) { return a + Number(o.total); }, 0);
+          row[s] = b === s ? null : v; row.total += v;
+        });
+        return row;
+      });
+    }
+  });
+  dash.calc('menu_value', {
+    title: '메뉴별 가격 매력도', inputs: ['menus', 'teams', 'lines'], description: '단위 가격, 가장 작은 메뉴 대비 차이, 혼자 살 때 실결제, 판매 수량과 팀 내 비중',
+    fn: function (menus, teams, lines) {
+      return menus.map(function (m) {
+        var t = teams.filter(function (x) { return x.team === m.team; })[0];
+        var first = menus.filter(function (x) { return x.team === m.team; })[0];
+        var up = Number(m.price) / Number(m.pack_units), base = Number(first.price) / Number(first.pack_units);
+        var qty = lines.filter(function (l) { return l.menu_id === m.menu_id; }).reduce(function (a, l) { return a + Number(l.qty); }, 0);
+        var tq = lines.filter(function (l) { return l.team === m.team; }).reduce(function (a, l) { return a + Number(l.qty); }, 0);
+        return { menu_id: m.menu_id, team: m.team, menu: m.menu, unit_label: m.unit_label, unit_price: up, unit_discount: 1 - up / base,
+          alone_pay: Number(m.price) + (Number(m.price) >= Number(t.free_over) ? 0 : Number(t.ship_fee)), qty: qty, qty_share: tq ? qty / tq : 0 };
+      });
+    }
+  });
+  dash.calc('buyers', {
+    title: '구매자별 예산 사용', inputs: ['orders', 'lines'],
+    description: '구매자마다 결제 합계, 남긴 예산(200,000원 기준), 산 팀 수, 대용량 비율과 관찰 유형',
+    fn: function (orders, lines) {
+      var names = []; orders.forEach(function (o) { if (names.indexOf(o.buyer) < 0) names.push(o.buyer); });
+      return names.map(function (b) {
+        var os = orders.filter(function (o) { return o.buyer === b; }), ls = lines.filter(function (l) { return l.buyer === b; });
+        var spend = os.reduce(function (a, o) { return a + Number(o.total); }, 0), teams = {};
+        os.forEach(function (o) { teams[o.team] = 1; });
+        var units = ls.reduce(function (a, l) { return a + Number(l.qty); }, 0);
+        var big = ls.filter(function (l) { return { d3: 1, p3: 1, m3: 1 }[l.menu_id]; }).reduce(function (a, l) { return a + Number(l.qty); }, 0);
+        var nt = Object.keys(teams).length;
+        return { buyer: b, buyer_team: os[0].buyer_team, spend: spend, left: 200000 - spend, teams_bought: nt, big_share: big / units,
+          segment: spend >= 180000 ? '한도 소진형' : nt === 1 ? '여유 집중형' : '여유 분산형' };
+      }).sort(function (a, b) { return b.spend - a.spend; });
+    }
+  });
+  dash.calc('segments', {
+    title: '구매 행동 유형 요약', inputs: ['buyers'], description: '유형별 인원, 평균 결제, 남긴 예산 합계',
+    fn: function (buyers) {
+      var rules = { '한도 소진형': '18만 원 이상 결제', '여유 집중형': '18만 원 미만 · 1팀에서만 구매', '여유 분산형': '18만 원 미만 · 살 수 있는 2팀 모두 구매' };
+      return Object.keys(rules).map(function (s) {
+        var bs = buyers.filter(function (b) { return b.segment === s; });
+        return { segment: s, rule: rules[s], buyers: bs.length,
+          avg_spend: bs.length ? bs.reduce(function (a, b) { return a + b.spend; }, 0) / bs.length : 0,
+          left_total: bs.reduce(function (a, b) { return a + b.left; }, 0) };
+      });
+    }
+  });
+  dash.calc('promo', {
+    title: '구매자별 관계 관리 제안', inputs: ['orders', 'lines', 'teams'],
+    description: '관찰 신호(구매 규모 18만 원 이상, 배송비를 낸 주문, 산 팀 수)로 사후 관리·구매 편의 안내·정보 제공·감사 안내 중 하나를 정함. 남은 예산을 채우도록 권하지 않음',
+    fn: function (orders, lines, teams) {
+      var names = []; orders.forEach(function (o) { if (names.indexOf(o.buyer) < 0) names.push(o.buyer); });
+      return names.map(function (b) {
+        var os = orders.filter(function (o) { return o.buyer === b; }), ls = lines.filter(function (l) { return l.buyer === b; });
+        var spend = os.reduce(function (a, o) { return a + Number(o.total); }, 0);
+        var teamsBought = []; os.forEach(function (o) { if (teamsBought.indexOf(o.team) < 0) teamsBought.push(o.team); });
+        var paid = os.filter(function (o) { return Number(o.ship_fee) > 0; });
+        var bought = ls.map(function (l) { return l.menu + ' ' + l.qty; }).join(', ');
+        var r = { buyer: b, buyer_team: os[0].buyer_team, spend: spend, bought: bought };
+        if (spend >= 180000) { r.signal = '대량·대용량 구매'; r.type = '사후 관리'; r.suggestion = '도착·사용법·보관법 안내, 후기 요청, 다 쓸 무렵 재구매 시점 안내'; r.avoid = '추가 구매 권유'; }
+        else if (paid.length) {
+          var t = teams.filter(function (x) { return x.team === paid[0].team; })[0];
+          r.signal = paid[0].team + ' 주문에서 배송비 ' + Number(paid[0].ship_fee).toLocaleString('ko-KR') + '원 부담'; r.type = '구매 편의 안내';
+          r.suggestion = '다음에 필요할 때 함께 담으면 ' + Number(t.free_over).toLocaleString('ko-KR') + '원부터 무료배송이라는 정보 제공'; r.avoid = '배송비를 이유로 필요 없는 상품 추가 권유';
+        } else if (teamsBought.length === 1) { r.signal = '한 팀(' + teamsBought[0] + ')에서만 구매'; r.type = '정보 제공'; r.suggestion = '다른 팀 상품의 쓰임새를 한 번 소개(체험·샘플 위주)'; r.avoid = '반복 권유, 한정·마감 압박'; }
+        else { r.signal = '두 팀에서 필요한 만큼 구매'; r.type = '감사·재구매 안내'; r.suggestion = '구매 감사, 다음 라이브 일정 안내'; r.avoid = '남은 예산을 채우라는 권유'; }
+        return r;
+      }).sort(function (x, y) { return y.spend - x.spend; });
+    }
+  });
+  dash.calc('combos', {
+    title: '함께 구매된 메뉴 조합', inputs: ['lines'], description: '같은 구매자가 함께 산 메뉴 두 개 조합을 세어 많은 순으로 나열',
+    fn: function (lines) {
+      var by = {}; lines.forEach(function (l) { (by[l.buyer] = by[l.buyer] || []).indexOf(l.menu) < 0 && by[l.buyer].push(l.menu); });
+      var cnt = {};
+      Object.keys(by).forEach(function (b) { var ms = by[b].slice().sort(); for (var i = 0; i < ms.length; i++) for (var j = i + 1; j < ms.length; j++) { var k = ms[i] + ' + ' + ms[j]; (cnt[k] = cnt[k] || []).push(b); } });
+      return Object.keys(cnt).map(function (k) { return { pair: k, buyers: cnt[k].length, names: cnt[k].join(', ') }; }).sort(function (a, b) { return b.buyers - a.buyers || (a.pair < b.pair ? -1 : 1); });
+    }
+  });
+  dash.calc('plan', {
+    title: '교수자 처방안 시뮬레이션', inputs: ['orders', 'lines', 'menus', 'teams'],
+    description: '같은 주문이 다시 들어온다고 보고, 전략 열의 원가 절감·포장 단축·고정비 절감·손실률을 적용해 다시 계산',
+    fn: function (orders, lines, menus, teams) {
+      var mc = {}; menus.forEach(function (m) { mc[m.menu_id] = m; });
+      function run(t, plan) {
+        var os = orders.filter(function (o) { return o.team === t.team; }), ls = lines.filter(function (l) { return l.team === t.team; });
+        var sales = os.reduce(function (a, o) { return a + Number(o.total); }, 0);
+        var cogs = ls.reduce(function (a, l) { return a + Number(l.qty) * (Number(mc[l.menu_id].unit_cost) - (plan ? Number(mc[l.menu_id].plan_cost_cut) : 0)); }, 0);
+        var ship = os.length * Number(t.ship_cost);
+        var fee = os.reduce(function (a, o) { return a + Math.round(Number(o.total) * Number(t.pay_fee_rate)); }, 0);
+        var pm = os.length * (Number(t.order_pack_min) + Number(t.cold_pack_min)) + ls.reduce(function (a, l) {
+          return a + Number(l.qty) * (Number(mc[l.menu_id].pack_min) - (plan ? Number(mc[l.menu_id].plan_pack_cut) : 0) + Number(t.addon_pack_min) * Number(l.addon_qty)); }, 0);
+        var pack = Math.round(pm * Number(t.hourly_wage) / 60), loss = Math.round(cogs * Number(plan ? t.plan_loss_rate : t.loss_rate));
+        var fixed = Number(t.fixed_cost) - (plan ? Number(t.plan_fixed_cut) : 0);
+        var v = cogs + ship + fee, adj = sales - v - fixed - pack - loss;
+        return { adj: adj, roc: adj / (v + fixed + pack + loss), pm: pm };
+      }
+      return teams.map(function (t) {
+        var a = run(t, false), b = run(t, true);
+        return { team: t.team, adj_now: a.adj, adj_plan: b.adj, roc_now: a.roc, roc_plan: b.roc, pack_min_now: a.pm, pack_min_plan: b.pm };
+      });
+    }
+  });
+
+  var d3f = d3.format(','), pct = d3.format('.1%'), p0 = d3.format('.0%');
+  var won = function (v) { return v == null || isNaN(v) ? '—' : d3f(Math.round(v)) + '원'; };
+  var mins = function (v) { return d3f(Math.round(v)) + '분'; };
+  var FMT = { won: won, pct: pct, n: d3f, raw: function (v) { return v; } };
+  var EV = ['주문 확인', '학생 제출', '교수자 가정', '학생 추정', '조사 필요'];
+  function evColor(e) { var i = EV.indexOf(e); return i < 0 || i === 4 ? 'var(--cds-chart-muted)' : dash.colors[[2, 0, 3, 5][i]]; }
+  function colorOf(team) { return dash.colors[TEAMS.indexOf(team)] || dash.colors[3]; }
+  function W(team) { return 'team=' + encodeURIComponent(team); }
+  function setText(el, v) { el.textContent = v; el.classList.remove('dash-skeleton'); }
+  function span(src, field, where, text) { var s = document.createElement('span'); s.dataset.source = src; s.dataset.field = field; if (where) s.dataset.where = where; s.textContent = text; return s; }
+  function rowOf(id, key, val) { var d = dash.data(id); return d.status === 'ok' ? d.data.filter(function (r) { return r[key] === val; })[0] : null; }
+  function S(id, key, val, f, fmt) { var r = rowOf(id, key, val); return span(id, f, key + '=' + encodeURIComponent(val), r && r[f] != null ? fmt(r[f]) : '—'); }
+  var EVG = { '주문 확인': '●', '학생 제출': '◆', '교수자 가정': '▲', '학생 추정': '○', '조사 필요': '?' };
+  function evChip(e) {
+    var c = document.createElement('span'); c.className = 'ev'; c.title = '근거 수준: ' + e;
+    var g = document.createElement('i'); g.setAttribute('aria-hidden', 'true'); g.textContent = EVG[e.indexOf('학생 제출') === 0 ? '학생 제출' : e] || '·'; c.append(g, e); return c;
+  }
+  function josa(w, a, b) { var c = String(w).charCodeAt(String(w).length - 1) - 0xAC00; if (c < 0 || c > 11171) return w + a + '(' + b + ')'; return w + (c % 28 ? a : b); }
+  function bold(t) { var x = document.createElement('b'); x.textContent = t; return x; }
+  function simpleTable(id, src, cols) {
+    var d = dash.data(src), tb = document.querySelector('#' + id + ' tbody'); tb.textContent = '';
+    if (d.status !== 'ok') return;
+    d.data.forEach(function (r) {
+      var tr = document.createElement('tr');
+      cols.forEach(function (c) {
+        var td = document.createElement('td'), v = c[1] ? c[1](r[c[0]], r) : r[c[0]];
+        if (v instanceof Node) td.appendChild(v); else td.textContent = v == null ? '—' : v;
+        if (c[2]) c[2](td, r[c[0]], r);
+        tr.appendChild(td);
+      });
+      tb.appendChild(tr);
+    });
+  }
+  function card(box, title, items, tag) {
+    var div = document.createElement('div'), h = document.createElement('h3'), ul = document.createElement(tag || 'ul'); h.textContent = title;
+    items.forEach(function (it) { var li = document.createElement('li'); li.append.apply(li, it); ul.appendChild(li); });
+    div.append(h, ul); box.appendChild(div);
+  }
+  var neg = function (td, v) { if (v < 0) td.className = 'neg'; };
+
+  var tabs = document.querySelectorAll('#tabs [role=tab]');
+  tabs.forEach(function (b, i) { b.style.setProperty('--tc', dash.colors[i % dash.colors.length]); });
+  function showTab(id, link) {
+    tabs.forEach(function (b) { var on = b.getAttribute('aria-controls') === id; b.setAttribute('aria-selected', on ? 'true' : 'false'); document.getElementById(b.getAttribute('aria-controls')).hidden = !on; });
+    if (link) dash.setLink(id);
+  }
+  tabs.forEach(function (b) { b.addEventListener('click', function () { showTab(b.getAttribute('aria-controls'), true); drawCharts(); }); });
+  var h0 = location.hash.slice(1); if (/^s[1-5]$/.test(h0)) showTab(h0, false);
+
+  function evLegend() {
+    var box = document.getElementById('evLegend'); box.textContent = '';
+    var lab = document.createElement('span'); lab.className = 'muted'; lab.textContent = '근거 수준'; box.appendChild(lab);
+    EV.forEach(function (e) { box.appendChild(evChip(e)); });
+  }
+  function mast(rs) {
+    var bar = document.getElementById('teamStrip'), tm = document.getElementById('mastTeams'); bar.textContent = ''; tm.textContent = '';
+    rs.forEach(function (r) {
+      var seg = document.createElement('span'); seg.style.width = (r.share * 100) + '%'; seg.style.background = colorOf(r.team); seg.dataset.where = W(r.team); seg.dataset.field = 'share'; seg.textContent = r.team.replace('푹신하게 ', '') + ' ' + pct(r.share); seg.title = r.team + ' · 매출 비중 ' + pct(r.share); bar.appendChild(seg);
+      var c = document.createElement('span'); c.className = 'chip'; var d = document.createElement('span'); d.className = 'dot'; d.style.background = colorOf(r.team);
+      c.append(d, span('result', 'team', W(r.team), r.team)); tm.appendChild(c);
+    });
+  }
+  function kpiMinis(rs) {
+    var a = document.getElementById('miniShare'); a.textContent = '';
+    rs.forEach(function (r) { var d = document.createElement('span'); d.style.width = (r.share * 100) + '%'; d.style.background = colorOf(r.team); d.dataset.where = W(r.team); d.dataset.field = 'share'; d.title = r.team + ' ' + pct(r.share); a.appendChild(d); });
+    var b = document.getElementById('miniProfit'); b.textContent = ''; b.className = 'mini bars';
+    var mx = d3.max(rs, function (r) { return Math.abs(r.adj_op); }) || 1;
+    rs.forEach(function (r) { var d = document.createElement('span'); d.style.height = Math.max(4, Math.abs(r.adj_op) / mx * 100) + '%'; d.style.background = colorOf(r.team); d.dataset.where = W(r.team); d.dataset.field = 'adj_op'; d.title = r.team + ' ' + won(r.adj_op); b.appendChild(d); });
+    var k = dash.data('kpi'), c = document.getElementById('miniRate'); c.textContent = ''; c.className = 'mini gauge';
+    if (k.status === 'ok') { var g = document.createElement('span'); g.style.width = Math.max(0, Math.min(1, k.data[0].adj_rate)) * 100 + '%'; c.appendChild(g); }
+  }
+  function rankMx(rs) {
+    var box = document.getElementById('rankMx'); box.textContent = '';
+    var cols = [['sales', '매출', won], ['adj_op', '이익액', won], ['roc', '효율', pct], ['adj_safety', '안정성', pct]];
+    var t = document.createElement('table'); t.className = 'rmx'; var hr = document.createElement('tr'); hr.appendChild(document.createElement('th'));
+    cols.forEach(function (c) { var th = document.createElement('th'); th.textContent = c[1]; hr.appendChild(th); }); var th0 = document.createElement('thead'); th0.appendChild(hr); t.appendChild(th0);
+    var tb = document.createElement('tbody');
+    rs.forEach(function (r) {
+      var tr = document.createElement('tr'), n = document.createElement('td'); n.className = 'tn'; var dot = document.createElement('span'); dot.className = 'dot'; dot.style.background = colorOf(r.team); n.append(dot, ' ', r.team.replace('푹신하게 ', '')); tr.appendChild(n);
+      cols.forEach(function (c) {
+        var rank = rs.slice().sort(function (a, b) { return b[c[0]] - a[c[0]]; }).indexOf(r) + 1;
+        var td = document.createElement('td'), badge = document.createElement('span'); badge.className = 'rk r' + rank; badge.textContent = rank;
+        if (rank === 1) badge.style.background = colorOf(r.team);
+        var v = document.createElement('small'); v.dataset.source = 'result'; v.dataset.field = c[0]; v.dataset.where = W(r.team); v.textContent = c[2](r[c[0]]);
+        td.append(badge, v); tr.appendChild(td);
+      });
+      tb.appendChild(tr);
+    });
+    t.appendChild(tb); box.appendChild(t);
+  }
+  function oneLine(rs) {
+    var box = document.getElementById('oneLine'); box.textContent = '';
+    var me = dash.data('menu_econ'); if (me.status !== 'ok') return;
+    rs.forEach(function (r) {
+      var top = me.data.filter(function (m) { return m.team === r.team; }).sort(function (a, b) { return b.contrib - a.contrib; })[0];
+      var d = document.createElement('div'); d.className = 'ol'; d.style.setProperty('--tc', colorOf(r.team));
+      var h = document.createElement('b'); h.textContent = r.team; var p = document.createElement('span');
+      var msg = r.cogs_rate > 0.8 ? '원가율이 높아 많이 팔아도 남는 돈이 적음' : r.adj_safety < 0.3 ? '마진은 크지만 고정비가 커 판매 감소에 약함' : '포장 노동이 이익을 깎는 구조';
+      p.append(msg + ' · 이익률 ', span('result', 'adj_rate', W(r.team), pct(r.adj_rate)), ' · 이익 기여 1위 ', span('menu_econ', 'menu', 'menu_id=' + top.menu_id, top.menu));
+      d.append(h, p); box.appendChild(d);
+    });
+  }
+  function flipChart() {
+    var d = dash.data('result'), box = document.getElementById('flipChart'); box.textContent = ''; if (d.status !== 'ok' || box.closest('[hidden]')) return;
+    var rs = d.data.slice().sort(function (a, b) { return TEAMS.indexOf(a.team) - TEAMS.indexOf(b.team); });
+    var w = box.clientWidth || 600, bh = 30, gap = 18, top = 24, h = top + rs.length * (bh + gap) + 6, lw = 92, mid = (w - lw) / 2;
+    var svg = d3.select(box).append('svg').attr('width', '100%').attr('viewBox', '0 0 ' + w + ' ' + h);
+    var xs = d3.scaleLinear([0, d3.max(rs, function (r) { return r.sales; })], [0, mid - 70]);
+    var xp = d3.scaleLinear([0, d3.max(rs, function (r) { return Math.max(0, r.adj_op); })], [0, mid - 70]);
+    svg.append('text').attr('x', lw).attr('y', 14).attr('fill', 'var(--color-fg-muted)').style('font-size', '12px').text('매출');
+    svg.append('text').attr('x', lw + mid + 8).attr('y', 14).attr('fill', 'var(--color-fg-muted)').style('font-size', '12px').text('조정 영업이익');
+    svg.append('line').attr('x1', lw + mid).attr('x2', lw + mid).attr('y1', 20).attr('y2', h).attr('stroke', 'var(--color-border-line)');
+    var rkS = rs.slice().sort(function (a, b) { return b.sales - a.sales; }), rkP = rs.slice().sort(function (a, b) { return b.adj_op - a.adj_op; });
+    rs.forEach(function (r, i) {
+      var y = top + i * (bh + gap);
+      svg.append('text').attr('x', lw - 10).attr('y', y + bh / 2 + 5).attr('text-anchor', 'end').attr('fill', 'var(--color-fg)').style('font-size', '13px').style('font-weight', '600').text(r.team.replace('푹신하게 ', ''));
+      svg.append('rect').attr('x', lw).attr('y', y).attr('width', xs(r.sales)).attr('height', bh).attr('rx', 5).attr('fill', colorOf(r.team)).attr('opacity', 0.35).attr('data-where', W(r.team)).attr('data-field', 'sales');
+      svg.append('text').attr('x', lw + xs(r.sales) + 6).attr('y', y + bh / 2 + 5).attr('fill', 'var(--color-fg)').style('font-size', '12px').text(wonK(r.sales) + ' · ' + (rkS.indexOf(r) + 1) + '위');
+      svg.append('rect').attr('x', lw + mid + 8).attr('y', y).attr('width', Math.max(2, xp(Math.max(0, r.adj_op)))).attr('height', bh).attr('rx', 5).attr('fill', colorOf(r.team)).attr('data-where', W(r.team)).attr('data-field', 'adj_op');
+      svg.append('text').attr('x', lw + mid + 14 + xp(Math.max(0, r.adj_op))).attr('y', y + bh / 2 + 5).attr('fill', 'var(--color-fg)').style('font-size', '12px').style('font-weight', '600').text(wonK(r.adj_op) + ' · ' + (rkP.indexOf(r) + 1) + '위');
+    });
+    box.style.minHeight = h + 'px';
+  }
+  function takeaway(rs) {
+    var el = document.getElementById('takeaway'); el.textContent = ''; el.classList.remove('dash-skeleton');
+    var f = function (k) { return rs.filter(function (r) { return r['top_' + k]; })[0]; };
+    var a = f('sales'), b = f('adj_op'), c = f('roc');
+    el.append('매출은 ', span('result', 'team', W(a.team), a.team), '(', span('result', 'share', W(a.team), pct(a.share)), '), 남긴 돈은 ',
+      span('result', 'team', W(b.team), b.team), '(', span('result', 'adj_op', W(b.team), won(b.adj_op)), '), 비용 대비 효율은 ',
+      span('result', 'team', W(c.team), c.team), '(', span('result', 'roc', W(c.team), pct(c.roc)), ')가 가장 높습니다.', document.createElement('br'), '세 관점의 1위가 모두 다릅니다. 우리 팀이 무엇 때문에 벌고 잃었는지부터 보세요.');
+  }
+  function shareCard(rs) {
+    var bar = document.getElementById('shareBar'), lg = document.getElementById('shareLegend'); bar.textContent = ''; lg.textContent = '';
+    rs.forEach(function (r) {
+      var d = document.createElement('div'); d.style.width = (r.share * 100) + '%'; d.style.background = colorOf(r.team); d.dataset.where = W(r.team); d.dataset.field = 'share'; d.textContent = pct(r.share); bar.appendChild(d);
+      var chip = document.createElement('span'); chip.className = 'chip';
+      var sw = document.createElement('span'); sw.className = 'dot'; sw.style.background = colorOf(r.team);
+      chip.append(sw, span('result', 'team', W(r.team), r.team), ' ', span('result', 'sales', W(r.team), won(r.sales)));
+      lg.appendChild(chip);
+    });
+  }
+  function rateChart() {
+    var res = dash.data('result'), box = document.getElementById('rateChart'); box.textContent = '';
+    if (res.status !== 'ok' || box.closest('[hidden]')) return;
+    var rs = res.data.slice().sort(function (a, b) { return TEAMS.indexOf(a.team) - TEAMS.indexOf(b.team); });
+    var keys = [['cm_rate', '공헌이익률'], ['op_rate', '영업이익률'], ['adj_rate', '조정 영업이익률'], ['roc', '원가 대비 수익률']];
+    var w = box.clientWidth || 360, h = 240, m = { t: 26, r: 8, b: 26, l: 40 };
+    var svg = d3.select(box).append('svg').attr('width', '100%').attr('viewBox', '0 0 ' + w + ' ' + h);
+    var x0 = d3.scaleBand(rs.map(function (r) { return r.team; }), [m.l, w - m.r]).padding(0.22);
+    var x1 = d3.scaleBand(keys.map(function (k) { return k[0]; }), [0, x0.bandwidth()]).padding(0.12);
+    var max = d3.max(rs, function (r) { return d3.max(keys, function (k) { return r[k[0]]; }); });
+    var y = d3.scaleLinear([0, Math.max(0.1, max) * 1.08], [h - m.b, m.t]).nice();
+    svg.append('g').attr('transform', 'translate(' + m.l + ',0)').call(d3.axisLeft(y).ticks(4).tickFormat(d3.format('.0%')).tickSize(-(w - m.l - m.r)))
+      .attr('font-size', null).attr('font-family', null)
+      .call(function (a) { a.select('.domain').remove(); a.selectAll('line').attr('stroke', 'var(--cds-chart-grid)'); a.selectAll('text').attr('fill', 'var(--color-fg-muted)').style('font-size', 'var(--cds-font-size-caption)'); });
+    var OP = [1, 0.7, 0.45, 0.25];
+    var tip = d3.select(box).append('div').attr('class', 'tip').style('opacity', 0);
+    rs.forEach(function (r) {
+      keys.forEach(function (k, i) {
+        svg.append('rect').attr('x', x0(r.team) + x1(k[0])).attr('y', y(Math.max(0, r[k[0]]))).attr('width', x1.bandwidth())
+          .attr('height', Math.abs(y(r[k[0]]) - y(0))).attr('rx', 3).attr('fill', colorOf(r.team)).attr('fill-opacity', OP[i]).attr('data-where', W(r.team)).attr('data-field', k[0])
+          .on('mousemove', function (ev) { var p = d3.pointer(ev, box); tip.style('opacity', 1).style('left', Math.max(0, Math.min(p[0] + 10, w - 170)) + 'px').style('top', (p[1] - 30) + 'px').text(r.team + ' · ' + k[1] + ' ' + pct(r[k[0]])); })
+          .on('mouseleave', function () { tip.style('opacity', 0); });
+      });
+      svg.append('text').attr('x', x0(r.team) + x0.bandwidth() / 2).attr('y', h - 8).attr('text-anchor', 'middle').attr('fill', 'var(--color-fg)').style('font-size', 'var(--cds-font-size-caption)').text(r.team);
+    });
+    var lg = svg.append('g'), lx = m.l;
+    keys.forEach(function (k, i) {
+      var it = lg.append('g').attr('transform', 'translate(' + lx + ',6)');
+      it.append('rect').attr('width', 10).attr('height', 10).attr('rx', 2).attr('fill', 'var(--color-fg)').attr('fill-opacity', OP[i]);
+      var t = it.append('text').attr('x', 14).attr('y', 9).attr('fill', 'var(--color-fg-muted)').style('font-size', '11px').text(k[1]);
+      lx += 22 + t.node().getComputedTextLength();
+    });
+    if (lx > w) lg.attr('transform', 'scale(' + (w / lx) + ')');
+  }
+
+  function causes() {
+    var box = document.getElementById('causes'); box.textContent = '';
+    if (['result', 'menu_econ', 'menu_value', 'behavior'].some(function (i) { return dash.data(i).status !== 'ok'; })) return;
+    var R = function (t, f, fmt) { return S('result', 'team', t, f, fmt); }, M = function (id, f, fmt) { return S('menu_econ', 'menu_id', id, f, fmt); };
+    var V = function (id, f, fmt) { return S('menu_value', 'menu_id', id, f, fmt); };
+    var n = function (u) { return function (v) { return v + u; }; };
+    card(box, '다단계', [
+      [bold('수익 '), '원가율 ', R('다단계', 'cogs_rate', pct), '. 가장 많이 팔린 패밀리가 떴다도 1개당 남는 돈이 ', M('d3', 'unit_adj', won), '뿐이라, 많이 팔아도 이익이 거의 늘지 않았습니다.'],
+      [bold('수요 '), '한 포 가격이 Rock토핏보다 ', V('d3', 'unit_discount', p0), ' 싼 패밀리에 수량이 몰렸습니다(팀 수량의 ', V('d3', 'qty_share', p0), '). 사은품 선택률은 ', S('behavior', 'team', '다단계', 'option_rate', p0), '로, 고를 것이 오히려 부담이었습니다.'],
+      [bold('비용 '), '고정비 ', R('다단계', 'fixed', won), '이 작아 적자는 피했지만, 포장·손실까지 빼면 남는 돈이 ', R('다단계', 'adj_op', won), '로 줄었습니다.']], 'ol');
+    card(box, '푹신하게 잘자조', [
+      [bold('수익 '), '원가율 ', R('푹신하게 잘자조', 'cogs_rate', pct), '로 마진이 큽니다. 패밀리 세트 1개가 ', M('p3', 'unit_adj', won), '을 남깁니다. 다만 이 원가는 검증 전 학생 추정값입니다.'],
+      [bold('수요 '), '베개 1개 값이 1인 세트보다 ', V('p3', 'unit_discount', p0), ' 싼 패밀리만 팔렸습니다. 1인 세트 ', V('p1', 'qty', n('개')), ', 커플 세트 ', V('p2', 'qty', n('개')), '로 수요 미확인입니다.'],
+      [bold('비용 '), '고정비 ', R('푹신하게 잘자조', 'fixed', won), '이 커서 조정 안전한계율이 ', R('푹신하게 잘자조', 'adj_safety', pct), '입니다. 판매가 조금만 줄어도 적자입니다.']], 'ol');
+    card(box, '팔아묵조', [
+      [bold('수익 '), '5개 묶음 ', M('m3', 'qty', n('세트')), '가 조정 공헌의 대부분(', M('m3', 'contrib', won), ')을 만들었습니다.'],
+      [bold('수요 '), '묶음은 밀키트 1개 값이 기본보다 ', V('m3', 'unit_discount', p0), ' 싸고 무료배송입니다. 프리미엄은 비싼데도 ', V('m2', 'qty', n('개')), ' 팔렸습니다. 문어·전복이라는 눈에 보이는 차이 덕분으로 보입니다(추정).'],
+      [bold('비용 '), '포장 작업이 ', R('팔아묵조', 'pack_min', mins), '로 세 팀 중 가장 깁니다. 포장 인건비 ', R('팔아묵조', 'pack', won), '와 소분 손실 ', R('팔아묵조', 'loss', won), '이 영업이익의 절반 가까이를 가져갔습니다.']], 'ol');
+  }
+  function plTable() {
+    var p = dash.data('pl'), tb = document.querySelector('#plTable tbody'); tb.textContent = '';
+    if (p.status !== 'ok') return;
+    var sub = { cm: 1, adj_cm: 1 }, key = { adj_op: 1, roc: 1 };
+    p.data.forEach(function (r) {
+      var tr = document.createElement('tr'); if (sub[r.key]) tr.className = 'sub'; if (key[r.key]) tr.className = 'key';
+      var td = document.createElement('td'); td.textContent = r.item; tr.appendChild(td);
+      TEAMS.forEach(function (t) { var v = r[t], c = document.createElement('td'); c.textContent = /rate|roc/.test(r.key) ? pct(v) : won(v); if (v < 0) c.className = 'neg'; tr.appendChild(c); });
+      var e = document.createElement('td'); e.className = 'l'; if (r.evidence) e.appendChild(evChip(r.evidence)); tr.appendChild(e);
+      tb.appendChild(tr);
+    });
+  }
+  function custNotes() {
+    var ul = document.getElementById('custNotes'); ul.textContent = '';
+    var d = dash.data('budget'); if (d.status !== 'ok') return;
+    var B = function (f, fmt) { return span('budget', f, null, fmt(d.data[0][f])); };
+    [[evChip('주문 확인'), ' 관찰: 한도 사용률 ', B('utilization', pct), ', 대용량 메뉴 비율 ', B('bundle_share', pct), ', 무료배송 주문 ', B('free_rate', pct), '.'],
+     [evChip('학생 추정'), ' 해석: 가상 예산을 채우려다 단위 가격이 싼 대용량을 고른 것으로 보입니다. 실제 시장에서는 객단가가 이만큼 오르지 않으므로, 이 비율을 그대로 다음 준비 수량으로 쓰면 과잉 재고가 생길 수 있습니다.']
+    ].forEach(function (it) { var li = document.createElement('li'); li.append.apply(li, it); ul.appendChild(li); });
+  }
+  function spendChart() {
+    var d = dash.data('buyers'), box = document.getElementById('spendChart'); box.textContent = '';
+    if (d.status !== 'ok' || box.closest('[hidden]')) return;
+    var rows = d.data, w = box.clientWidth || 360, bh = 16, gap = 6, lw = 56, h = rows.length * (bh + gap) + 26;
+    var svg = d3.select(box).append('svg').attr('width', '100%').attr('viewBox', '0 0 ' + w + ' ' + h);
+    var x = d3.scaleLinear([0, 200000], [lw, w - 10]);
+    var col = { '한도 소진형': dash.colors[3], '여유 집중형': dash.colors[5], '여유 분산형': dash.colors[6] };
+    rows.forEach(function (r, i) {
+      var y0 = 4 + i * (bh + gap);
+      svg.append('text').attr('x', lw - 6).attr('y', y0 + bh / 2 + 4).attr('text-anchor', 'end').attr('fill', 'var(--color-fg)').style('font-size', '12px').text(r.buyer);
+      svg.append('rect').attr('x', lw).attr('y', y0).attr('width', x(200000) - lw).attr('height', bh).attr('rx', 4).attr('fill', 'var(--cds-chart-muted)').attr('opacity', 0.35);
+      svg.append('rect').attr('x', lw).attr('y', y0).attr('width', x(r.spend) - lw).attr('height', bh).attr('rx', 4).attr('fill', col[r.segment]).attr('data-where', 'buyer=' + encodeURIComponent(r.buyer)).attr('data-field', 'spend');
+    });
+    var lx = lw;
+    Object.keys(col).forEach(function (k) {
+      var g = svg.append('g').attr('transform', 'translate(' + lx + ',' + (h - 12) + ')');
+      g.append('rect').attr('width', 10).attr('height', 10).attr('rx', 2).attr('fill', col[k]);
+      var t = g.append('text').attr('x', 14).attr('y', 9).attr('fill', 'var(--color-fg-muted)').style('font-size', '11px').text(k);
+      lx += 24 + t.node().getComputedTextLength();
+    });
+    box.style.minHeight = h + 'px';
+  }
+
+  function weak() {
+    var box = document.getElementById('weak'); box.textContent = '';
+    if (dash.data('risk').status !== 'ok') return;
+    var K = function (t, f, fmt) { return S('risk', 'team', t, f, fmt); };
+    TEAMS.forEach(function (t) {
+      var r = rowOf('risk', 'team', t), items = [['판매가 ', K(t, 'breakeven_drop', pct), ' 넘게 줄면 적자로 바뀝니다.']];
+      if (r.one_less < 1000) items.push([K(t, 'top_menu', String), ' 1개만 덜 팔려도 이익이 ', K(t, 'one_less', won), '까지 떨어집니다. 한 상품 의존이 가장 큰 위험입니다.']);
+      if (r.fixed_up < 0) items.push(['고정비가 50% 늘면 적자(', K(t, 'fixed_up', won), ')입니다.']);
+      if (r.d10 > 0 && r.fixed_up > 0 && r.one_less >= 1000) items.push(['단기 적자 위험은 낮습니다. 대신 1개당 남는 돈이 작아 이익을 키우기 어렵습니다(④에서 가격·원가 전략 확인).']);
+      card(box, t + ' 취약 조건', items);
+    });
+  }
+  function rockNote() {
+    var el = document.getElementById('rockNote'); el.textContent = '';
+    if (dash.data('menu_econ').status !== 'ok') return;
+    var M = function (f, fmt) { return S('menu_econ', 'menu_id', 'd1', f, fmt); };
+    el.append('예: Rock토핏 1개는 판매가 ', M('price', won), '에서 원가 ', M('cost', won), ', 소분 손실, 메뉴 포장 인건비를 빼 ', M('unit_adj', won),
+      '이 남습니다(ⓐ). 혼자 주문하면 배송비를 받아도 실제 배송원가와 주문 포장이 더 들어 ', M('solo_marg', won), '(ⓒ)로 팔수록 손해입니다. ⓐ로 고정비를 나눈 수량은 배송·주문 비용이 빠져 있어 팀 손익분기 판매량으로 쓰면 안 됩니다.');
+  }
+
+  /* ---------- ④ 전략 실험실: 진단 → 선택 → 비교 (result 계산과 같은 산식, 정수 판매량) ---------- */
+  var SIM = { team: '다단계', A: null, B: null };
+  var TYPES = {
+    price: { name: '가격 조정', q: '이 가격에도 손익분기 최소 수량 이상 팔 수 있는가? (비슷한 상품 가격·설문으로 확인)' },
+    cost: { name: '원가 절감', q: '실제 공급처에서 이 원가로 조달할 수 있는가? (견적 2곳 이상)' },
+    pack: { name: '포장 개선', q: '포장 시간을 실제로 줄일 수 있는가? (시연 세트로 초시계 측정)' },
+    demand: { name: '수요·구성 변경', q: '이 수량을 사 줄 고객이 있는가? (이번 판매·사전 예약으로 확인)' }
+  };
+  function teamData(team) {
+    var T = dash.data('teams'), Mn = dash.data('menus'), O = dash.data('orders'), Lr = dash.data('lines');
+    if ([T, Mn, O, Lr].some(function (d) { return d.status !== 'ok'; })) return null;
+    var t = T.data.filter(function (x) { return x.team === team; })[0];
+    var menus = Mn.data.filter(function (m) { return m.team === team; });
+    var os = O.data.filter(function (o) { return o.team === team; }), ls = Lr.data.filter(function (l) { return l.team === team; });
+    var q = {}; menus.forEach(function (m) { q[m.menu_id] = 0; }); ls.forEach(function (l) { q[l.menu_id] += Number(l.qty); });
+    var addon = 0; ls.forEach(function (l) { addon += Number(l.addon_qty) * Number(l.qty); });
+    var units = ls.reduce(function (a, l) { return a + Number(l.qty); }, 0);
+    return { t: t, menus: menus, q: q, N: os.length, upo: units / os.length, below: os.filter(function (o) { return Number(o.ship_fee) > 0; }).length / os.length, addon: addon, units: units };
+  }
+  function newStrat(td, types) {
+    var s = { types: types || [], price: 10, demand: -10, cost: 5, pack: 30, loss: Number(td.t.loss_rate) * 100, fixed: 0, plan: false,
+      q: Object.assign({}, td.q), judge: { feas: '보통', basis: '추정', risk: { price: '수요 감소', cost: '품질 저하', pack: '운영 차질', demand: '재고 부담' }[(types || [])[0]] || '수요 감소' }, why: '' };
+    return s;
+  }
+  /* 켜 둔 전략 유형의 값만 계산에 씀 */
+  function eff(td, s) {
+    var on = function (k) { return s.types.indexOf(k) >= 0; };
+    return { price: on('price') ? s.price : 0, demand: on('price') ? s.demand : 0, cost: on('cost') ? s.cost : 0,
+      loss: on('cost') ? s.loss : (s.plan ? Number(td.t.plan_loss_rate) * 100 : Number(td.t.loss_rate) * 100),
+      pack: on('pack') ? s.pack : 0, fixed: s.fixed + (s.plan ? Number(td.t.plan_fixed_cut) : 0), plan: s.plan, useQ: on('demand'), q: s.q };
+  }
+  function scenarioQ(td, e, extraDemand) {
+    var dem = 1 + (e.demand + (extraDemand || 0)) / 100, q = {};
+    td.menus.forEach(function (m) { var base = e.useQ ? Math.max(0, Number(e.q[m.menu_id]) || 0) : td.q[m.menu_id]; q[m.menu_id] = Math.max(0, Math.round(base * dem)); });
+    return q;
+  }
+  function evalQ(td, e, q) {
+    var t = td.t, w = Number(t.hourly_wage) / 60, u = 0;
+    td.menus.forEach(function (m) { u += q[m.menu_id]; });
+    var N = u ? Math.ceil(u / td.upo - 1e-9) : 0;
+    var goods = 0, cogs = 0, packMin = N * (Number(t.order_pack_min) + Number(t.cold_pack_min)) + td.addon * Number(t.addon_pack_min) * (td.units ? u / td.units : 0);
+    td.menus.forEach(function (m) {
+      var qq = q[m.menu_id];
+      goods += qq * Number(m.price) * (1 + e.price / 100);
+      cogs += qq * (Number(m.unit_cost) - (e.plan ? Number(m.plan_cost_cut) : 0)) * (1 - e.cost / 100);
+      packMin += qq * (Number(m.pack_min) - (e.plan ? Number(m.plan_pack_cut) : 0)) * (1 - e.pack / 100);
+    });
+    var sales = goods + N * td.below * Number(t.ship_fee), fee = sales * Number(t.pay_fee_rate), ship = N * Number(t.ship_cost);
+    var pack = packMin * w, loss = cogs * e.loss / 100, fixed = Number(t.fixed_cost) - e.fixed;
+    var adjCm = sales - cogs - ship - fee - pack - loss, adj = adjCm - fixed;
+    return { q: q, units: u, N: N, sales: sales, adj: adj, adj_rate: sales ? adj / sales : 0, roc: adj / (sales - adj), adjCm: adjCm, fixed: fixed,
+      bep: adjCm > 0 ? fixed / (adjCm / sales) : null, safety: adjCm > 0 ? 1 - fixed / adjCm : null, pack_min: packMin };
+  }
+  function minQty(td, e, q, mid, threshold) {
+    for (var n = 0; n <= 300; n++) { var qq = Object.assign({}, q); qq[mid] = n; var r = evalQ(td, e, qq); if (r.adj >= threshold) return { n: n, r: r }; }
+    return null;
+  }
+  function analyze(td, s) {
+    var e = eff(td, s), mid = document.getElementById('goalMenu').value, target = Number(document.getElementById('goalTarget').value) || 0;
+    var q = scenarioQ(td, e), r = evalQ(td, e, q), pess = evalQ(td, e, scenarioQ(td, e, -20));
+    return { e: e, r: r, pess: pess, bepQ: minQty(td, e, q, mid, 0), tgtQ: minQty(td, e, q, mid, target), mid: mid, target: target };
+  }
+  /* 진단: 팀의 핵심 문제와 먼저 실험할 전략 */
+  function diagnose(td) {
+    var r = rowOf('result', 'team', SIM.team), me = dash.data('menu_econ'), ev = dash.data('assumptions');
+    if (!r || me.status !== 'ok') return [];
+    var ms = me.data.filter(function (m) { return m.team === SIM.team; }), out = [], R = function (f, fmt) { return S('result', 'team', SIM.team, f, fmt); };
+    var top = ms.slice().sort(function (a, b) { return b.qty - a.qty; })[0], zero = ms.filter(function (m) { return !m.qty; });
+    if (r.cogs_rate > 0.8) out.push({ w: r.cogs_rate, types: ['price', 'cost'], parts: [bold('원가 부담 '), '원가율 ', R('cogs_rate', pct), ' · 1개 팔아 남는 돈이 작아 많이 팔아도 이익이 거의 늘지 않음'], ask: '가격을 올릴 것인가, 매입 원가를 낮출 것인가?' });
+    if (top.qty / td.units >= 0.6 || zero.length) out.push({ w: top.qty / td.units, types: ['demand'], ask: '주력 메뉴에 집중할 것인가, 팔리지 않은 메뉴의 수요를 확인할 것인가?', parts: [bold('한 상품 의존 '), '판매의 ', S('menu_econ', 'menu_id', top.menu_id, 'qty', function () { return pct(top.qty / td.units); }), '가 ' + top.menu + '에 집중' + (zero.length ? ' · 판매 0개 메뉴 ' + zero.length + '개' : '') + ' → 한 상품 의존'] });
+    if (r.pack / r.cm >= 0.15) {
+      var pm = ms.slice().sort(function (a, b) { return b.qty * b.pack_min - a.qty * a.pack_min; })[0];
+      out.push({ w: r.pack / r.cm, types: ['pack'], ask: pm.menu + ' 포장 시간을 줄일 것인가, 그 수고를 가격에 반영할 것인가?',
+        parts: [bold('포장 노동 부담 '), '포장에 ', R('pack_min', mins), ' 사용, 그중 ' + pm.menu + ' ' + pm.qty + '개에 ' + mins(pm.qty * pm.pack_min) + ' · 포장 인건비 ', R('pack', won), '이 공헌이익(포장·손실 반영 전)의 ' + p0(r.pack / r.cm)] });
+    }
+    if (r.adj_safety < 0.3) out.push({ w: 1 - r.adj_safety, types: ['demand', 'cost'], ask: '판매량을 안정적으로 늘릴 방법이 있는가, 고정비를 줄일 수 있는가?', parts: [bold('적자 전환 여유 작음 '), '매출이 ', R('adj_safety', pct), '만 줄어도 적자 · 고정비 ', R('fixed', won), ' 부담'] });
+    var est = ev.status === 'ok' && ev.data.some(function (a) { return a.team === SIM.team && a.item === '상품 원가' && a.evidence === '학생 추정'; });
+    if (est) out.push({ w: 0.5, types: ['cost'], ask: '실제 견적으로 원가부터 확인할 것인가?', parts: [bold('원가 근거 약함 '), evChip('학생 추정'), ' 원가가 검증 전 추정값 · 원가가 틀리면 모든 이익 계산이 흔들림'] });
+    return out.sort(function (a, b) { return b.w - a.w; }).slice(0, 3);
+  }
+  function renderDiag(list) {
+    var box = document.getElementById('diag'); box.textContent = '';
+    var h = document.createElement('h3'); h.textContent = '현재 진단: ' + SIM.team + '의 핵심 문제'; box.appendChild(h);
+    var ol = document.createElement('ol');
+    list.forEach(function (d) {
+      var li = document.createElement('li'); li.append.apply(li, d.parts);
+      var c = document.createElement('span'); c.className = 'chip'; c.textContent = '실험해 볼 전략: ' + d.types.map(function (k) { return TYPES[k].name; }).join(' · '); li.append(' ', c);
+      if (d.ask) { var a = document.createElement('div'); a.className = 'ask'; a.textContent = '결정할 것: ' + d.ask; li.appendChild(a); }
+      ol.appendChild(li);
+    });
+    if (!list.length) { var li = document.createElement('li'); li.textContent = '뚜렷한 위험 신호가 없습니다. 이익을 키울 전략을 골라 실험해 보세요.'; ol.appendChild(li); }
+    box.appendChild(ol);
+  }
+  function lever(parent, label, val, step, set, id) {
+    var l = document.createElement('label'); l.textContent = label; l.htmlFor = id;
+    var i = document.createElement('input'); i.type = 'number'; i.step = step; i.value = Math.round(val * 100) / 100; i.id = id;
+    i.addEventListener('input', function () { set(Number(i.value) || 0); renderSim(false); });
+    parent.append(l, i);
+  }
+  function stratCol(key, td) {
+    var s = SIM[key], col = document.createElement('div'); col.className = 'card inner strat';
+    var h = document.createElement('h3'); h.textContent = '전략 ' + key + (s.types.length ? ': ' + s.types.map(function (k) { return TYPES[k].name; }).join(' + ') : ': 아직 고르지 않음'); col.appendChild(h);
+    var btns = document.createElement('div'); btns.className = 'btns';
+    Object.keys(TYPES).forEach(function (k) {
+      var bt = document.createElement('button'); bt.type = 'button'; bt.textContent = TYPES[k].name; bt.setAttribute('aria-pressed', s.types.indexOf(k) >= 0 ? 'true' : 'false');
+      bt.addEventListener('click', function () { var i = s.types.indexOf(k); if (i >= 0) s.types.splice(i, 1); else s.types.push(k); renderSim(true); });
+      btns.appendChild(bt);
+    });
+    col.appendChild(btns);
+    var lv = document.createElement('div'); lv.className = 'lever';
+    if (s.types.indexOf('price') >= 0) { lever(lv, '가격 조정(%)', s.price, 1, function (v) { s.price = v; }, key + '-price'); lever(lv, '그 때문에 판매량 변화(%) · 추정', s.demand, 1, function (v) { s.demand = v; }, key + '-demand'); }
+    if (s.types.indexOf('cost') >= 0) { lever(lv, '원가 절감(%)', s.cost, 1, function (v) { s.cost = v; }, key + '-cost'); lever(lv, '소분 손실률(%)', s.loss, 0.5, function (v) { s.loss = v; }, key + '-loss'); }
+    if (s.types.indexOf('pack') >= 0) lever(lv, '메뉴 포장 시간 단축(%) · 주문당 포장(박스·송장·보냉) 제외', s.pack, 5, function (v) { s.pack = v; }, key + '-pack');
+    if (s.types.indexOf('demand') >= 0) td.menus.forEach(function (m) { lever(lv, m.menu + ' 판매 수량', s.q[m.menu_id], 1, function (v) { s.q[m.menu_id] = Math.max(0, Math.round(v)); }, key + '-q-' + m.menu_id); });
+    if (lv.childElementCount) col.appendChild(lv);
+    if (s.types.length) {
+      var qs = document.createElement('ul'); qs.className = 'checkq';
+      s.types.forEach(function (k) { var li = document.createElement('li'); li.textContent = '먼저 확인: ' + TYPES[k].q; qs.appendChild(li); });
+      col.appendChild(qs);
+      var wl = document.createElement('label'); wl.className = 'muted'; wl.htmlFor = key + '-why'; wl.textContent = '그렇게 판단한 근거(학생 입력)';
+      var wt = document.createElement('textarea'); wt.id = key + '-why'; wt.rows = 2; wt.value = s.why;
+      wt.addEventListener('input', function () { s.why = wt.value; renderDecision(); });
+      col.append(wl, wt);
+    }
+    var jb = document.createElement('div'); jb.className = 'lever';
+    [['feas', '실행 가능성 (팀 판단)', ['높음', '보통', '낮음']], ['basis', '핵심 근거 (팀 판단)', ['실측', '조사', '추정']], ['risk', '가장 큰 위험 (팀 판단)', ['수요 감소', '비용 증가', '운영 차질', '품질 저하', '재고 부담']]].forEach(function (f) {
+      var l = document.createElement('label'); l.textContent = f[1]; l.htmlFor = key + '-' + f[0];
+      var sel = document.createElement('select'); sel.id = key + '-' + f[0];
+      f[2].forEach(function (o) { var op = document.createElement('option'); op.textContent = o; if (s.judge[f[0]] === o) op.selected = true; sel.appendChild(op); });
+      sel.addEventListener('change', function () { s.judge[f[0]] = sel.value; renderSim(false); });
+      jb.append(l, sel);
+    });
+    if (s.types.length) col.appendChild(jb);
+    var det = document.createElement('details'); det.className = 'more';
+    var sm = document.createElement('summary'); sm.textContent = '상세 설정: 고정비·교수자 처방안'; det.appendChild(sm);
+    var inner = document.createElement('div'); inner.className = 'lever'; inner.style.padding = 'var(--cds-pad-sm)';
+    lever(inner, '고정비 절감(원)', s.fixed, 5000, function (v) { s.fixed = v; }, key + '-fixed');
+    var pl = document.createElement('label'); pl.textContent = '교수자 처방안 함께 적용'; pl.htmlFor = key + '-plan';
+    var pc = document.createElement('input'); pc.type = 'checkbox'; pc.id = key + '-plan'; pc.checked = s.plan; pc.addEventListener('change', function () { s.plan = pc.checked; renderSim(false); });
+    inner.append(pl, pc);
+    det.appendChild(inner); col.appendChild(det);
+    return col;
+  }
+  function qtyText(td, q) { return td.menus.filter(function (m) { return q[m.menu_id]; }).map(function (m) { return m.menu + ' ' + q[m.menu_id] + '개'; }).join(', ') || '0개'; }
+  function setupTeam(td) {
+    var menuSel = document.getElementById('goalMenu');
+    if (menuSel.dataset.team === SIM.team) return;
+    menuSel.textContent = ''; menuSel.dataset.team = SIM.team;
+    td.menus.forEach(function (m) { var o = document.createElement('option'); o.value = m.menu_id; o.textContent = m.menu; menuSel.appendChild(o); });
+    menuSel.value = td.menus.slice().sort(function (x, y) { return td.q[y.menu_id] - td.q[x.menu_id]; })[0].menu_id;
+    var base = evalQ(td, eff(td, newStrat(td, [])), td.q);
+    document.getElementById('goalTarget').value = Math.max(10000, Math.round(Math.max(base.adj, 0) * 1.5 / 10000) * 10000);
+  }
+  /* 가격을 올린 전략이 '지금'보다 나은 상태를 유지하는 최대 판매 감소율(%) */
+  function demandLimit(td, s, nowAdj) {
+    for (var d = 0; d <= 100; d++) {
+      var e = eff(td, s); e.demand = -d; var r = evalQ(td, e, scenarioQ(td, e));
+      if (r.adj <= nowAdj) return d;
+    }
+    return null;
+  }
+  function cmpCards(td, X) {
+    var box = document.getElementById('cmpCards'); box.textContent = '';
+    var better = X.A.r.adj >= X.B.r.adj ? 'A' : 'B', safer = X.A.pess.adj >= X.B.pess.adj ? 'A' : 'B', mname = document.getElementById('goalMenu').selectedOptions[0].textContent;
+    [['now', '지금'], ['A', '전략 A'], ['B', '전략 B']].forEach(function (k) {
+      var x = X[k[0]], c = document.createElement('div'); c.className = 'tile cmpc' + (k[0] === 'now' ? ' base' : '');
+      var t = document.createElement('span'); t.className = 'muted'; t.textContent = k[1] + (k[0] !== 'now' && SIM[k[0]].types.length ? ' · ' + SIM[k[0]].types.map(function (z) { return TYPES[z].name; }).join(' + ') : '');
+      var v = document.createElement('span'); v.className = 'v'; v.textContent = won(x.r.adj);
+      var d = document.createElement('span'); d.className = 'delta';
+      if (k[0] !== 'now') { var dl = x.r.adj - X.now.r.adj; d.textContent = '지금보다 ' + (dl >= 0 ? '+' : '−') + d3f(Math.abs(Math.round(dl))) + '원'; d.classList.add(dl >= 0 ? 'pos' : 'neg'); } else d.textContent = '조정 영업이익(이번 판매)';
+      var gb = document.createElement('div'); gb.className = 'goal ' + (x.r.adj >= x.target ? 'ok' : 'no');
+      var gap = x.r.adj - x.target, assumed = k[0] !== 'now' && (x.e.price || x.e.demand || x.e.cost || x.e.pack || x.e.useQ || x.e.plan || x.e.fixed);
+      gb.textContent = k[0] === 'now' ? (gap >= 0 ? '이번 실적으로 목표 달성 ' : '이번 실적: 목표 미달 ') + (gap >= 0 ? '+' : '−') + d3f(Math.abs(Math.round(gap))) + '원'
+        : (gap >= 0 ? '목표 달성' + (assumed ? '(가정이 맞을 때)' : '') + ' +' : '목표 미달 −') + d3f(Math.abs(Math.round(gap))) + '원';
+      var badges = document.createElement('div'); badges.className = 'btns';
+      if (k[0] === better && X.A.r.adj !== X.B.r.adj) { var b1 = document.createElement('span'); b1.className = 'chip'; b1.textContent = '이익 우위'; badges.appendChild(b1); }
+      if (k[0] === safer && X.A.pess.adj !== X.B.pess.adj) { var b2 = document.createElement('span'); b2.className = 'chip'; b2.textContent = '위험 우위'; badges.appendChild(b2); }
+      var ul = document.createElement('ul'); ul.className = 'facts';
+      var facts = [['판매', qtyText(td, x.r.q)], [mname + ' 손익분기 최소', x.bepQ ? x.bepQ.n + '개' : '불가'], [mname + ' 목표 최소', x.tgtQ ? x.tgtQ.n + '개' : '불가'], ['비관(판매 −20%)', won(x.pess.adj)], ['허용 판매 감소폭', x.r.safety == null ? '—' : pct(x.r.safety)]];
+      if (k[0] !== 'now' && x.e.price > 0) { var lim = demandLimit(td, SIM[k[0]], X.now.r.adj); facts.push(['가격 인상이 유리한 판매 감소 한계', lim == null ? '−100%까지 유리' : '−' + lim + '% 미만']); }
+      if (k[0] !== 'now' && x.e.pack > 0) {
+        var saved = X.now.r.pack_min - x.r.pack_min, perOrder = X.now.r.N ? X.now.r.pack_min / X.now.r.N : 0;
+        facts.push(['적용 범위', '메뉴 포장 ' + mins(X.now.r.pack_min - X.now.r.N * (Number(td.t.order_pack_min) + Number(td.t.cold_pack_min))) + '에만 적용']); facts.push(['시간 효과: 절약 시간', mins(saved)]); facts.push(['처리능력 효과: 같은 시간에 더 처리', perOrder ? d3.format('.1f')(saved / perOrder) + '건' : '—']);
+        facts.push(['현금 효과', '유급 작업일 때만 실제 절감(학생 작업이면 기회비용)']);
+      }
+      facts.forEach(function (f) {
+        var li = document.createElement('li'); var a = document.createElement('span'); a.textContent = f[0]; var b2 = document.createElement('b'); b2.textContent = f[1]; li.append(a, b2); ul.appendChild(li);
+      });
+      if (k[0] !== 'now' && SIM[k[0]].types.length) {
+        var j = SIM[k[0]].judge;
+        [['근거 수준', j.basis + (x.e.demand ? ' · 판매량 변화는 추정' : '')], ['실행 가능성', j.feas], ['가장 큰 위험', j.risk]].forEach(function (f) {
+          var li = document.createElement('li'); li.className = 'jd'; var a = document.createElement('span'); a.textContent = f[0]; var b2 = document.createElement('b'); b2.textContent = f[1]; li.append(a, b2); ul.appendChild(li);
+        });
+      }
+      c.append(t, gb, v, d, badges, ul); box.appendChild(c);
+    });
+  }
+  var LAST = {};
+  function renderSim(rebuild) {
+    var td = teamData(SIM.team); if (!td) return;
+    var dg = diagnose(td);
+    if (!SIM.A) {
+      var t1 = dg[0] ? dg[0].types[0] : 'price', t2 = (dg[1] ? dg[1].types.filter(function (k) { return k !== t1; })[0] : null) || (t1 === 'pack' ? 'price' : 'pack');
+      SIM.A = newStrat(td, [t1]); SIM.B = newStrat(td, [t2]); rebuild = true;
+    }
+    setupTeam(td); renderDiag(dg);
+    if (rebuild) { var cols = document.getElementById('simCols'); cols.textContent = ''; cols.append(stratCol('A', td), stratCol('B', td)); }
+    var X = { now: analyze(td, newStrat(td, [])), A: analyze(td, SIM.A), B: analyze(td, SIM.B) };
+    LAST = { td: td, X: X };
+    cmpCards(td, X); simChart(td, X);
+    var real = rowOf('result', 'team', SIM.team), chk = document.getElementById('simCheck'); chk.textContent = '';
+    if (real) chk.append('검산: 아무것도 바꾸지 않은 시뮬레이션 조정이익 ', won(X.now.r.adj), ' · 실제 결과 ', span('result', 'adj_op', W(SIM.team), won(real.adj_op)), Math.abs(X.now.r.adj - real.adj_op) < 2 ? ' → 같은 산식 확인' : ' → 차이 있음(확인 필요)');
+    var mname = document.getElementById('goalMenu').selectedOptions[0].textContent, nq = function (o) { return o ? o.n + '개' : '불가'; };
+    var rows = [['판매 수량(시나리오)', function (x) { return qtyText(td, x.r.q); }], ['매출', function (x) { return won(x.r.sales); }], ['조정 영업이익', function (x) { return won(x.r.adj); }, function (x) { return x.r.adj; }],
+      ['조정 영업이익률', function (x) { return pct(x.r.adj_rate); }], ['원가 대비 수익률', function (x) { return pct(x.r.roc); }], ['조정 손익분기 매출', function (x) { return x.r.bep == null ? '달성 불가' : won(x.r.bep); }],
+      ['허용 판매 감소폭', function (x) { return x.r.safety == null ? '—' : pct(x.r.safety); }], [mname + ' 손익분기 최소 수량', function (x) { return nq(x.bepQ); }], [mname + ' 목표 최소 수량', function (x) { return nq(x.tgtQ); }],
+      ['비관 조정이익', function (x) { return won(x.pess.adj) + ' · ' + qtyText(td, x.pess.q); }, function (x) { return x.pess.adj; }],
+      ['판매 감소 0/−10/−20/−30%일 때 조정이익', function (x) { return [0, 10, 20, 30].map(function (d) { var e = Object.assign({}, x.e); e.demand = -d; return wonK(evalQ(td, e, scenarioQ(td, e)).adj); }).join(' / '); }], ['포장 시간', function (x) { return mins(x.r.pack_min); }], ['주문 수', function (x) { return x.r.N + '건'; }]];
+    var tb = document.querySelector('#simTable tbody'); tb.textContent = '';
+    rows.forEach(function (r) {
+      var tr = document.createElement('tr'), c0 = document.createElement('td'); c0.textContent = r[0]; tr.appendChild(c0);
+      ['now', 'A', 'B'].forEach(function (k) { var c = document.createElement('td'); c.textContent = r[1](X[k]); if (r[2] && r[2](X[k]) < 0) c.className = 'neg'; tr.appendChild(c); });
+      tb.appendChild(tr);
+    });
+    var v = document.getElementById('simVerdict'); v.textContent = '';
+    var a = X.A, b = X.B, better = a.r.adj >= b.r.adj ? 'A' : 'B', other = better === 'A' ? 'B' : 'A', safer = a.pess.adj >= b.pess.adj ? 'A' : 'B';
+    var ul = document.createElement('ul');
+    [['이익', '전략 ' + better + '가 ' + won(Math.abs(a.r.adj - b.r.adj)) + ' 더 남깁니다.'],
+     ['위험', '판매가 20% 더 줄어도 ' + (X[safer].pess.adj >= 0 ? '흑자를 지키는' : '손실이 작은') + ' 쪽은 전략 ' + safer + '입니다.'],
+     ['조건', ['A', 'B'].map(function (k) { var j = SIM[k].judge; return '전략 ' + k + '는 근거 ' + j.basis + ' · 실행 가능성 ' + j.feas + ' · 가장 큰 위험 ' + j.risk; }).join(' / ') + '. 예상이익은 이 가정이 성립할 때의 추정입니다. 이익이 가장 큰 전략이 아니라, 근거가 있고 위험을 감당할 수 있는 전략을 고르세요.']].forEach(function (x) {
+      var li = document.createElement('li'); li.append(bold(x[0] + ' '), x[1]); ul.appendChild(li);
+    });
+    v.appendChild(ul);
+    renderDecision(); teamFocus();
+  }
+
+  /* ---------- ⑤ 결정서: ④와 같은 analyze() 결과를 그대로 사용 ---------- */
+  function renderDecision() {
+    var td = LAST.td; if (!td) return;
+    var key = document.getElementById('goalPick').value, s = SIM[key], x = LAST.X[key]; if (!s || !x) return;
+    var m = td.menus.filter(function (z) { return z.menu_id === x.mid; })[0], parts = [], s0 = s; s = x.e;
+    if (s.price) parts.push('가격 ' + (s.price > 0 ? '+' : '') + s.price + '%');
+    if (s.cost) parts.push('원가 −' + s.cost + '%');
+    if (s.pack) parts.push('메뉴 포장 시간 −' + s.pack + '%');
+    if (s.plan) parts.push('교수자 처방안');
+    var plan = x.tgtQ && x.tgtQ.n > x.r.q[x.mid] ? x.tgtQ : null;
+    var finalR = plan ? plan.r : x.r, finalQ = finalR.q;
+    var sent = '“우리 팀(' + SIM.team + ')은 다음 판매에서 ' + (parts.length ? parts.join(', ') + '로 바꾸고' : '지금 조건을 유지하고') +
+      (s.demand ? '(이 때문에 판매량이 ' + Math.abs(s.demand) + '% ' + (s.demand < 0 ? '줄어든다' : '늘어난다') + '고 가정)' : '') + ', ' +
+      qtyText(td, finalQ) + '를 판매해 ' + m.menu + ' 손익분기 최소 수량(' + (x.bepQ ? x.bepQ.n + '개' : '달성 불가') + ')을 넘기고 조정 영업이익 ' + won(finalR.adj) + '을 확보하겠다.”';
+    document.getElementById('goalSentence').textContent = sent;
+    goalChart(x, finalR);
+    var c = document.getElementById('goalCheck'); c.textContent = '';
+    if (!x.tgtQ) c.append('목표 달성 불가: ' + m.menu + '을(를) 아무리 더 팔아도 목표 ' + won(x.target) + '에 닿지 않습니다. 가격·원가부터 바꾸세요.');
+    else if (!plan) c.append('목표 달성: 시나리오 판매량(' + qtyText(td, x.r.q) + ')만으로 조정이익 ' + won(x.r.adj) + '으로 목표 ' + won(x.target) + '을 넘습니다. ' + m.menu + ' 기준 목표 최소 수량은 ' + x.tgtQ.n + '개, 손익분기 최소 수량은 ' + (x.bepQ ? x.bepQ.n : '—') + '개입니다. 조정 안전한계율 ' + (x.r.safety == null ? '—' : pct(x.r.safety)) + '.');
+    else c.append('추가 판매 필요: 시나리오 판매량으로는 조정이익 ' + won(x.r.adj) + '입니다. 목표 ' + won(x.target) + '을 넘으려면 ' + josa(m.menu, '을', '를') + ' ' + x.tgtQ.n + '개(시나리오보다 ' + (x.tgtQ.n - x.r.q[x.mid]) + '개 더) 팔아야 하고, 그때 조정이익 ' + won(plan.r.adj) + ', 조정 안전한계율 ' + (plan.r.safety == null ? '—' : pct(plan.r.safety)) + '입니다. 이번에 ' + td.q[x.mid] + '개 팔린 것과 비교해 현실적인지 판단하세요.');
+    kpiTable(td, finalR);
+    var types = Array.prototype.slice.call(document.querySelectorAll('#decType input:checked')).map(function (i) { return i.value; });
+    var val = function (id) { return document.getElementById(id).value.trim() || '(작성)'; };
+    document.getElementById('decOut').value = [
+      '[다음 판매 전략 결정서] ' + SIM.team,
+      '선택 전략: 전략 ' + key + ' (' + (s0.types.map(function (k) { return TYPES[k].name; }).join(' + ') || '변경 없음') + ') · ' + (parts.join(', ') || '현재 조건') + (s.demand ? ' · 판매량 변화 가정 ' + (s.demand > 0 ? '+' : '−') + Math.abs(s.demand) + '%' : ''),
+      '1. 핵심 전략: ' + (types.join(', ') || '(선택)'),
+      '목표 문장: ' + sent,
+      '예상(같은 산식): 판매 ' + qtyText(td, finalQ) + ' · 매출 ' + won(finalR.sales) + ' · 조정 영업이익 ' + won(finalR.adj) + ' · 조정 안전한계율 ' + (finalR.safety == null ? '—' : pct(finalR.safety)),
+      '손익분기 최소 수량(' + m.menu + '): ' + (x.bepQ ? x.bepQ.n + '개' : '불가') + ' · 비관(판매량 −20% 추가) 조정이익 ' + won(x.pess.adj),
+      '먼저 확인할 질문: ' + (s0.types.map(function (k) { return TYPES[k].q; }).join(' / ') || '—'),
+      '근거(④): ' + (s0.why || '(④에서 작성)'),
+      '팀 판단: 실행 가능성 ' + s0.judge.feas + ' · 핵심 근거 ' + s0.judge.basis + ' · 가장 큰 위험 ' + s0.judge.risk,
+      '2. 근거: ' + val('decWhy'),
+      '3. 가설·바꿀 것 하나: ' + val('decHyp'),
+      '4. 유지할 조건: ' + val('decKeep'),
+      '5. 주지표·판단 기준(사전 결정): ' + val('decTest'),
+      '6. 실패·중단 기준과 해석 범위: ' + val('decRisk')].join('\n');
+  }
+  function defTable() {
+    var tb = document.querySelector('#defTable tbody'); if (tb.childElementCount) return;
+    [['구매자 수', '주문한 사람 수(중복 제거)', '주문 원장', '제출하지 않은 학생 제외', '주문 확인'],
+     ['주문 수', '구매자 1명이 한 판매 팀에서 한 번에 산 묶음 = 1건', '주문별 결제', '같은 사람이 여러 팀에서 사면 팀마다 1건', '주문 확인'],
+     ['주문 상품 행', '주문 안의 메뉴 한 줄', '주문 원장', '구매하지 않은 메뉴(X·기본값) 제외', '주문 확인'],
+     ['판매 SKU 수량', '메뉴 단위 수량 합계(5개 묶음 1세트 = 1)', '주문 원장', '구성품 환산 수량과 다름', '주문 확인'],
+     ['모의 매출', 'Σ(수량 × 메뉴판 판매가) + 받은 배송비', '주문별 결제', '할인 없음 · 결제수수료는 비용으로 처리', '주문 확인'],
+     ['공헌이익', '매출 − 상품 원가 − 실제 배송원가 − 결제수수료', '주문·메뉴·가정값', '고정비·포장 인건비 제외', '학생 제출'],
+     ['조정 영업이익', '공헌이익 − 포장 인건비 − 소분 손실 − 고정비', '주문·메뉴·가정값', '포장 인건비는 작업 시간 × 시급(현금 지출이 아닌 기회비용)', '교수자 가정'],
+     ['가격 변경 후 판매량', '이번 수량 × (1 + 판매량 변화율), 정수 반올림', '학생 입력', '실제 수요 검증 전', '학생 추정']].forEach(function (r) {
+      var tr = document.createElement('tr');
+      r.forEach(function (v, i) { var c = document.createElement('td'); if (i > 0 && i < 4) c.className = 'l'; if (i === 4) c.appendChild(evChip(v)); else c.textContent = v; tr.appendChild(c); });
+      tb.appendChild(tr);
+    });
+  }
+  function kpiTable(td, r) {
+    var tb = document.querySelector('#kpiTable tbody'); tb.textContent = '';
+    var R = function (f, fmt) { return S('result', 'team', SIM.team, f, fmt); }, Bh = function (f, fmt) { return S('behavior', 'team', SIM.team, f, fmt); };
+    var zero = td.menus.filter(function (m) { return !td.q[m.menu_id]; }).length;
+    var rows = [
+      ['수요 검증', '판매 0개 메뉴 수', zero + '개', zero ? '0개 메뉴의 수요 확인' : '메뉴 구성 유지', '메뉴별 판매 수량'],
+      ['상품 수익성', '조정 영업이익률', R('adj_rate', pct), pct(r.adj_rate), '② 손익 계산서와 같은 산식'],
+      ['사업 지속성', '조정 안전한계율', R('adj_safety', pct), r.safety == null ? '—' : pct(r.safety), '조정 손익분기 매출 대비 실제 매출'],
+      ['운영 효율', '포장 1분당 조정 공헌', R('per_min_team', won), won(r.adjCm / r.pack_min), '시연 세트로 포장 시간 실측'],
+      ['재고 관리', '준비 대비 판매율 · 잔량 손실', '측정 안 함', '준비 수량 제출 후 측정', '판매 수량 ÷ 준비 수량'],
+      ['고객 성과', '객단가 · 제안 수락률', Bh('aov', won), '제안 수락률 기록 시작', '누구에게 무엇을 제안했고 수락·거절했는지 기록']];
+    rows.forEach(function (x) {
+      var tr = document.createElement('tr');
+      x.forEach(function (v, i) { var c = document.createElement('td'); if (i === 1 || i === 4) c.className = 'l'; if (v instanceof Node) c.appendChild(v); else c.textContent = v; tr.appendChild(c); });
+      tb.appendChild(tr);
+    });
+  }
+  ['goalMenu', 'goalTarget'].forEach(function (id) { document.getElementById(id).addEventListener(id === 'goalTarget' ? 'input' : 'change', function () { renderSim(false); }); });
+  document.getElementById('goalPick').addEventListener('change', renderDecision);
+  ['decWhy', 'decHyp', 'decKeep', 'decRisk', 'decTest'].forEach(function (id) { document.getElementById(id).addEventListener('input', renderDecision); });
+  document.getElementById('decType').addEventListener('change', renderDecision);
+  document.getElementById('decCopy').addEventListener('click', function () {
+    var out = document.getElementById('decOut'), msg = document.getElementById('decMsg');
+    var done = function () { msg.textContent = '복사했습니다. LMS에 붙여 넣으세요.'; };
+    try { navigator.clipboard.writeText(out.value).then(done, function () { out.select(); msg.textContent = '자동 복사가 막혀 있어요. 선택된 내용을 Ctrl+C로 복사하세요.'; }); }
+    catch (e) { out.select(); msg.textContent = '선택된 내용을 Ctrl+C로 복사하세요.'; }
+  });
+  var simTeam = document.getElementById('simTeam');
+  TEAMS.forEach(function (t) { var o = document.createElement('option'); o.textContent = t; simTeam.appendChild(o); });
+  simTeam.addEventListener('change', function () { SIM.team = simTeam.value; SIM.A = null; renderSim(true); });
+
+  function teamFocus() {
+    var box = document.getElementById('teamFocus'); box.textContent = '';
+    var O = dash.data('orders'), Mn = dash.data('menus'), T = dash.data('teams'); if ([O, Mn, T].some(function (d) { return d.status !== 'ok'; })) return;
+    var team = SIM.team, t = T.data.filter(function (x) { return x.team === team; })[0];
+    var minAlone = Mn.data.filter(function (m) { return m.team === team; }).map(function (m) { return Number(m.price) + (Number(m.price) >= Number(t.free_over) ? 0 : Number(t.ship_fee)); }).sort(function (a, b) { return a - b; })[0];
+    var buyers = {}; O.data.forEach(function (o) { var b = buyers[o.buyer] = buyers[o.buyer] || { team: o.buyer_team, spend: 0, here: false, paid: false }; b.spend += Number(o.total); if (o.team === team) { b.here = true; if (Number(o.ship_fee) > 0) b.paid = true; } });
+    var cand = Object.keys(buyers).filter(function (n) { return buyers[n].team !== team; });
+    var non = cand.filter(function (n) { return !buyers[n].here; }), got = cand.filter(function (n) { return buyers[n].here; }), paid = cand.filter(function (n) { return buyers[n].paid; });
+    var barrier = non.filter(function (n) { return 200000 - buyers[n].spend < minAlone; });
+    var h = document.createElement('h3'); h.textContent = josa(team, '이', '가') + ' 먼저 챙길 고객'; box.appendChild(h);
+    var tbl = document.createElement('table'), th = document.createElement('thead'); th.innerHTML = '<tr><th>대상(관찰)</th><th class="l">제안 행동</th><th class="l">검증할 KPI</th></tr>'; tbl.appendChild(th);
+    var tb = document.createElement('tbody');
+    var row = function (a, b, c) { var tr = document.createElement('tr'); [a, b, c].forEach(function (v, i) { var td = document.createElement('td'); if (i) td.className = 'l'; td.textContent = v; tr.appendChild(td); }); tb.appendChild(tr); };
+    if (non.length) row('사지 않은 고객 ' + non.length + '명', '사지 않은 이유를 짧게 묻기(가격·필요·정보 중 선택)' + (barrier.length ? ' · ' + barrier.length + '명은 가장 싼 상품(' + won(minAlone) + ')이 남은 예산보다 비쌌음 → 입문 구성 검토' : ''), '응답률 · 이유 분포');
+    if (got.length) row('우리 상품을 산 고객 ' + got.length + '명', '사용법·후기 요청, 다 쓸 무렵 재구매 안내(관련 상품은 필요할 때만 정보로)', '후기 작성률 · 재구매율 · 반품');
+    if (paid.length) row('배송비를 낸 고객 ' + paid.length + '명', '무료배송 기준을 정보로 안내', '안내 후 주문 금액 변화(불필요한 추가 구매가 없었는지 함께 확인)');
+    tbl.appendChild(tb); var sc = document.createElement('div'); sc.className = 'scroll'; sc.appendChild(tbl); box.appendChild(sc);
+    var p = document.createElement('p'); p.className = 'muted'; p.textContent = '필요 없는 구매는 권하지 않습니다. 근거와 원칙은 아래 펼치기에 있습니다. 효과는 제안한 고객과 하지 않은 고객을 비교해 확인합니다.'; box.appendChild(p);
+  }
+  function approachCard() {
+    var tb = document.querySelector('#typeTable tbody'); tb.textContent = '';
+    if (dash.data('segments').status !== 'ok') return;
+    var sg = function (s) { return S('segments', 'segment', s, 'buyers', function (v) { return v + '명'; }); };
+    var R = [
+      ['한도 소진형', '18만 원 이상 · 대용량 위주', '필요가 많았다 / 가상 예산이라 아낌없이 썼다 / 가성비를 끝까지 따졌다', '추가 권유 없이 사후 관리: 도착·사용법 안내, 후기 요청, 재구매 시점 안내', '실제 필요량·재구매 의향 · 기록: 후기·반품·재구매'],
+      ['여유 집중형', '한 팀에서만 구매 · 예산 남김', '필요한 것만 샀다(신중형) / 다른 팀 상품 정보가 부족했다 / 다른 상품에 관심 없음', '다른 팀 상품의 쓰임새를 한 번 소개(체험·샘플), 거절 존중', '관심 상품·구매 기준 · 기록: 소개 여부, 수락·거절'],
+      ['여유 분산형', '두 팀에서 필요한 만큼 구매', '여러 상품을 비교해 고르는 탐색형 / 소량만 시험', '배송비를 낸 경우만 무료배송 기준·함께 담기 정보 안내(고객 이득일 때)', '배송비 민감도·만족도 · 기록: 안내 후 행동']];
+    R.forEach(function (r) {
+      var tr = document.createElement('tr'), c0 = document.createElement('td'); c0.append(r[0] + ' (', sg(r[0]), ')'); tr.appendChild(c0);
+      r.slice(1).forEach(function (t, i) { var c = document.createElement('td'); c.className = 'l'; c.textContent = t; if (i === 1) { c.prepend(evChip('학생 추정'), ' '); } tr.appendChild(c); });
+      tb.appendChild(tr);
+    });
+  }
+  function strategyCard() {
+    var box = document.getElementById('strategy'); box.textContent = '';
+    if (dash.data('plan').status !== 'ok') return;
+    var P = function (t, f, fmt) { return S('plan', 'team', t, f, fmt); };
+    card(box, '다단계', [['수익률: 사은품 "택1"을 콜라겐·비타민C 반반 고정 구성으로 바꾸고 양을 줄입니다.'], ['일 줄이기: 사은품 분류·확인이 사라집니다. 포장 ', P('다단계', 'pack_min_now', mins), ' → ', P('다단계', 'pack_min_plan', mins)], ['고객: 고민 없이 두 가지를 다 받습니다.'], ['원가 대비 수익률 ', P('다단계', 'roc_now', pct), ' → ', P('다단계', 'roc_plan', pct)]]);
+    card(box, '푹신하게 잘자조', [['수익률: 목 높이·베개 경도 고르는 법을 방송해 반품을 줄이고 반품 충당금(고정비)을 줄입니다.'], ['일 줄이기: 패밀리 세트를 미리 묶어 둡니다. 포장 ', P('푹신하게 잘자조', 'pack_min_now', mins), ' → ', P('푹신하게 잘자조', 'pack_min_plan', mins)], ['고객: 1인·커플 세트의 베개 1개 값을 패밀리에 가깝게 다시 정합니다.'], ['원가 대비 수익률 ', P('푹신하게 잘자조', 'roc_now', pct), ' → ', P('푹신하게 잘자조', 'roc_plan', pct)]]);
+    card(box, '팔아묵조', [['수익률: 해산물을 1인분 소분 상태로 납품받아 손실을 줄입니다.'], ['일 줄이기: 5개 묶음을 "한 박스·한 보냉팩" 표준 키트로 만듭니다. 포장 ', P('팔아묵조', 'pack_min_now', mins), ' → ', P('팔아묵조', 'pack_min_plan', mins)], ['고객: 기본 밀키트 2개 묶음이나 무료배송 안내로 혼자 살 때의 배송비 부담을 없앱니다.'], ['원가 대비 수익률 ', P('팔아묵조', 'roc_now', pct), ' → ', P('팔아묵조', 'roc_plan', pct)]]);
+  }
+  function stdList() {
+    var ul = document.getElementById('stdList'); ul.textContent = '';
+    if (dash.data('std').status !== 'ok') return;
+    var li0 = document.createElement('li'); li0.append('결제수수료를 세 팀 모두 3%, 고정비를 세 팀 평균(', S('std', 'team', '다단계', 'avg_fixed', won), ')으로 맞춘 조정 영업이익입니다. 고정비는 사업모델의 특성이기도 해서 이 결과만 공정한 성적은 아닙니다.'); ul.appendChild(li0);
+    TEAMS.forEach(function (t) { var li = document.createElement('li'); li.append(t + ': ', S('std', 'team', t, 'std_adj', won), ' (수익률 ', S('std', 'team', t, 'std_roc', pct), ')'); ul.appendChild(li); });
+  }
+  function researchList() {
+    var ul = document.getElementById('researchList'); ul.textContent = '';
+    var d = dash.data('assumptions'); if (d.status !== 'ok') return;
+    d.data.filter(function (r) { return r.evidence === '조사 필요'; }).forEach(function (r) {
+      var li = document.createElement('li'); li.append(span('assumptions', 'item', 'id=' + r.id, r.item), ': ' + r.note); ul.appendChild(li);
+    });
+  }
+  var q = document.getElementById('q');
+  function lineTable() {
+    simpleTable('lineTable', 'lines', [['order_no'], ['buyer'], ['team'], ['menu'], ['option', function (v) { return v || '—'; }], ['qty'], ['amount', function (v) { return won(Number(v)); }]]);
+    var s = (q.value || '').trim();
+    document.querySelectorAll('#lineTable tbody tr').forEach(function (tr) { tr.hidden = !!s && tr.textContent.indexOf(s) < 0; });
+  }
+  q.addEventListener('input', lineTable);
+  /* ---------- 대표 시각화 ---------- */
+  function axisStyle(g) { g.attr('font-size', null).attr('font-family', null); g.select('.domain').remove(); g.selectAll('line').attr('stroke', 'var(--cds-chart-grid)'); g.selectAll('text').attr('fill', 'var(--color-fg-muted)').style('font-size', 'var(--cds-font-size-caption)'); }
+  var wonK = function (v) { return Math.abs(v) >= 10000 ? d3.format(',.1~f')(v / 10000) + '만' : d3f(Math.round(v)); };
+  function hbars(box, rows, opt) {
+    box.textContent = ''; if (box.closest('[hidden]')) return;
+    var w = box.clientWidth || 360, bh = opt.bh || 22, gap = opt.gap || 10, top = rows.some(function (r) { return r.mark != null; }) ? 20 : 6;
+    var tmp = d3.select(box).append('svg'), lw = 0;
+    rows.forEach(function (r) { var t = tmp.append('text').style('font-size', '12px').text(r.label); lw = Math.max(lw, t.node().getComputedTextLength()); }); tmp.remove();
+    lw = Math.min(lw + 10, w * 0.4);
+    var h = top + rows.length * (bh + gap) + 18, max = d3.max(rows, function (r) { return Math.max(r.v, r.mark || 0); }) || 1, min = Math.min(0, d3.min(rows, function (r) { return r.v; }));
+    var svg = d3.select(box).append('svg').attr('width', '100%').attr('viewBox', '0 0 ' + w + ' ' + h);
+    var x = d3.scaleLinear([min, max * 1.05], [lw, w - (opt.right || 90)]);
+    rows.forEach(function (r, i) {
+      var y0 = top + i * (bh + gap);
+      svg.append('text').attr('x', lw - 8).attr('y', y0 + bh / 2 + 4).attr('text-anchor', 'end').attr('fill', 'var(--color-fg)').style('font-size', '12px').text(r.label);
+      if (opt.track) svg.append('rect').attr('x', x(0)).attr('y', y0).attr('width', x(max * 1.05) - x(0)).attr('height', bh).attr('rx', 4).attr('fill', 'var(--cds-chart-muted)').attr('opacity', 0.18);
+      var x1 = x(Math.min(0, r.v)), wd = Math.abs(x(r.v) - x(0));
+      svg.append('rect').attr('x', x1).attr('y', y0).attr('width', Math.max(r.v ? 2 : 0, wd)).attr('height', bh).attr('rx', 4).attr('fill', r.color)
+        .attr('data-where', r.where).attr('data-field', r.field);
+      if (r.mark != null) {
+        svg.append('line').attr('x1', x(r.mark)).attr('x2', x(r.mark)).attr('y1', y0 - 4).attr('y2', y0 + bh + 4).attr('stroke', 'var(--color-fg)').attr('stroke-width', 2);
+        svg.append('text').attr('x', x(r.mark)).attr('y', y0 - 6 + (i ? 0 : 0)).attr('text-anchor', 'middle').attr('fill', 'var(--color-fg-muted)').style('font-size', '10px').text(r.markLabel || '');
+      }
+      svg.append('text').attr('x', Math.max(x(r.v), x(0), r.mark != null ? x(r.mark) : 0) + 6).attr('y', y0 + bh / 2 + 4).attr('fill', r.v < 0 ? 'var(--color-bad)' : 'var(--color-fg)').style('font-size', '12px').text(r.text);
+    });
+    if (min < 0) svg.append('line').attr('x1', x(0)).attr('x2', x(0)).attr('y1', 0).attr('y2', h - 14).attr('stroke', 'var(--cds-chart-axis)');
+    box.style.minHeight = h + 'px';
+  }
+  function profitChart() {
+    var d = dash.data('result'), box = document.getElementById('profitChart'); if (!box) return; if (d.status !== 'ok') { box.textContent = ''; return; }
+    var rs = d.data.slice().sort(function (a, b) { return TEAMS.indexOf(a.team) - TEAMS.indexOf(b.team); });
+    hbars(box, rs.map(function (r) { return { label: r.team, v: r.adj_op, color: colorOf(r.team), where: W(r.team), field: 'adj_op', text: won(r.adj_op) + '   (매출 ' + wonK(r.sales) + '원 · 이익률 ' + pct(r.adj_rate) + ')' }; }), { bh: 26, right: 230, track: true });
+  }
+  function contribChart() {
+    var d = dash.data('menu_econ'), box = document.getElementById('contribChart'); if (d.status !== 'ok') { box.textContent = ''; return; }
+    hbars(box, d.data.map(function (m) { return { label: m.menu, v: m.contrib, color: m.qty ? colorOf(m.team) : 'var(--cds-chart-muted)', where: 'menu_id=' + m.menu_id, field: 'contrib',
+      text: m.qty ? won(m.contrib) + ' · ' + m.qty + '개 × ' + won(m.unit_adj) : '수요 미확인 (0개)' }; }), { bh: 18, gap: 8, right: 190 });
+  }
+  function bepChart() {
+    var d = dash.data('result'), box = document.getElementById('bepChart'); if (d.status !== 'ok') { box.textContent = ''; return; }
+    var rs = d.data.slice().sort(function (a, b) { return TEAMS.indexOf(a.team) - TEAMS.indexOf(b.team); });
+    hbars(box, rs.map(function (r) { return { label: r.team, v: r.sales, mark: r.adj_bep, markLabel: '손익분기 ' + wonK(r.adj_bep), color: colorOf(r.team), where: W(r.team), field: 'sales',
+      text: '매출 ' + wonK(r.sales) + ' · 여유 ' + pct(r.adj_safety) }; }), { bh: 24, gap: 22, right: 150, track: true });
+  }
+  function simChart(td, X) {
+    var box = document.getElementById('simChart'); box.textContent = ''; if (box.closest('[hidden]')) return;
+    var keys = [['now', '지금'], ['A', '전략 A'], ['B', '전략 B']], tgt = X.now.target;
+    var w = box.clientWidth || 360, h = 220, m = { t: 18, r: 10, b: 26, l: 46 };
+    var vals = []; keys.forEach(function (k) { vals.push(X[k[0]].r.adj, X[k[0]].pess.adj); }); vals.push(tgt, 0);
+    var y = d3.scaleLinear([d3.min(vals) * 1.1, d3.max(vals) * 1.12], [h - m.b, m.t]).nice();
+    var x = d3.scaleBand(keys.map(function (k) { return k[0]; }), [m.l, w - m.r]).padding(0.35);
+    var svg = d3.select(box).append('svg').attr('width', '100%').attr('viewBox', '0 0 ' + w + ' ' + h);
+    svg.append('g').attr('transform', 'translate(' + m.l + ',0)').call(d3.axisLeft(y).ticks(4).tickFormat(wonK).tickSize(-(w - m.l - m.r))).call(axisStyle);
+    svg.append('line').attr('x1', m.l).attr('x2', w - m.r).attr('y1', y(0)).attr('y2', y(0)).attr('stroke', 'var(--cds-chart-axis)');
+    svg.append('line').attr('x1', m.l).attr('x2', w - m.r).attr('y1', y(tgt)).attr('y2', y(tgt)).attr('stroke', 'var(--color-fg)').attr('stroke-width', 2).attr('stroke-dasharray', '6 4');
+    svg.append('text').attr('x', m.l + 4).attr('y', y(tgt) - 4).attr('text-anchor', 'start').attr('fill', 'var(--color-fg-muted)').style('font-size', '13px').style('font-weight', '600').text('목표 ' + won(tgt));
+    keys.forEach(function (k, i) {
+      var r = X[k[0]];
+      svg.append('rect').attr('x', x(k[0])).attr('y', y(Math.max(0, r.r.adj))).attr('width', x.bandwidth()).attr('height', Math.abs(y(r.r.adj) - y(0))).attr('rx', 4)
+        .attr('fill', i ? colorOf(SIM.team) : 'var(--cds-chart-muted)').attr('fill-opacity', i ? 0.6 : 1).attr('stroke', i ? colorOf(SIM.team) : 'none').attr('stroke-dasharray', i ? '4 3' : null);
+      svg.append('circle').attr('cx', x(k[0]) + x.bandwidth() / 2).attr('cy', y(r.pess.adj)).attr('r', 4).attr('fill', 'var(--color-bg)').attr('stroke', 'var(--color-fg)').attr('stroke-width', 1.5);
+      svg.append('text').attr('x', x(k[0]) + x.bandwidth() / 2).attr('y', y(Math.max(0, r.r.adj)) - 6).attr('text-anchor', 'middle').attr('fill', 'var(--color-fg)').style('font-size', '12px').text(won(r.r.adj));
+      svg.append('text').attr('x', x(k[0]) + x.bandwidth() / 2).attr('y', h - 8).attr('text-anchor', 'middle').attr('fill', 'var(--color-fg)').style('font-size', '12px').text(k[1] + (i ? ' · 가정 적용 추정' : ' · 이번 실적'));
+    });
+    var lg = svg.append('g').attr('transform', 'translate(' + m.l + ',8)');
+    lg.append('circle').attr('cx', 4).attr('cy', 0).attr('r', 4).attr('fill', 'var(--color-bg)').attr('stroke', 'var(--color-fg)');
+    lg.append('text').attr('x', 12).attr('y', 4).attr('fill', 'var(--color-fg-muted)').style('font-size', '11px').text('= 비관(판매량 20% 더 감소)');
+    box.style.minHeight = h + 'px';
+  }
+  function goalChart(x, finalR) {
+    var box = document.getElementById('goalChart'); box.textContent = ''; if (box.closest('[hidden]')) return;
+    var rows = [{ label: '시나리오 예상', v: x.r.adj, mark: x.target, markLabel: '목표', color: colorOf(SIM.team), text: won(x.r.adj) + ' · 목표의 ' + p0(x.target ? x.r.adj / x.target : 0) },
+      { label: '비관(−20%)', v: x.pess.adj, mark: x.target, markLabel: '', color: 'var(--cds-chart-muted)', text: won(x.pess.adj) }];
+    if (finalR !== x.r) rows.splice(1, 0, { label: '목표 수량 판매 시', v: finalR.adj, mark: x.target, markLabel: '', color: colorOf(SIM.team), text: won(finalR.adj) });
+    hbars(box, rows, { bh: 20, gap: 14, right: 170, track: true });
+  }
+  function heroCards() {
+    var d = dash.data('result'), box = document.getElementById('hero'); if (d.status !== 'ok') return;
+    [['sales', won], ['adj_op', won], ['roc', pct]].forEach(function (k) {
+      var r = d.data.filter(function (x) { return x['top_' + k[0]]; })[0];
+      var who = box.querySelector('[data-k=' + k[0] + ']'), v = box.querySelector('[data-k=' + k[0] + '_v]');
+      who.textContent = ''; who.appendChild(span('result', 'team', W(r.team), r.team)); who.classList.remove('dash-skeleton');
+      v.textContent = ''; v.appendChild(span('result', k[0], W(r.team), k[1](r[k[0]])));
+      who.parentNode.style.setProperty('--hc', colorOf(r.team));
+    });
+  }
+  function drawCharts() { rateChart(); spendChart(); flipChart(); contribChart(); bepChart(); if (LAST.td) { simChart(LAST.td, LAST.X); renderDecision(); } }
+
+  dash.onData(function () {
+    evLegend();
+    document.querySelectorAll('[data-fmt]').forEach(function (el) {
+      var d = dash.data(el.dataset.source);
+      if (d.status !== 'ok' || !d.data[0]) { el.textContent = '—'; return; }
+      setText(el, FMT[el.dataset.fmt](d.data[0][el.dataset.field]) + (el.dataset.unit || ''));
+    });
+    var res = dash.data('result');
+    if (res.status === 'ok' && res.data.length) {
+      var rs = res.data.slice().sort(function (a, b) { return TEAMS.indexOf(a.team) - TEAMS.indexOf(b.team); });
+      takeaway(rs); mast(rs); kpiMinis(rs); rankMx(rs); oneLine(rs);
+    } else { document.getElementById('shareBar').textContent = ''; document.getElementById('shareLegend').textContent = ''; document.getElementById('takeaway').textContent = '—'; }
+    simpleTable('scoreTable', 'result', [['team'], ['sales', won, function (td, v, r) { if (r.top_sales) td.className = 'top'; }], ['share', pct],
+      ['adj_op', won, function (td, v, r) { if (r.top_adj_op) td.className = 'top'; }], ['roc', pct, function (td, v, r) { if (r.top_roc) td.className = 'top'; }],
+      ['adj_safety', pct, function (td, v, r) { if (r.top_adj_safety) td.className = 'top'; }], ['fixed_dep', function (v) { return d3.format('.2f')(v) + '배'; }]]);
+    causes(); plTable();
+    simpleTable('menuTable', 'menu_econ', [['menu'], ['team'], ['price', won], ['cost', won], ['cost_rate', pct], ['unit_adj', won, neg], ['pack_min'], ['per_min', won], ['qty', function (v) { return v + '개'; }], ['contrib', won], ['status']]);
+    simpleTable('whyTable', 'menu_value', [['menu'], ['unit_price', function (v, r) { return won(v) + '/' + r.unit_label.replace(/\(.*\)/, ''); }], ['unit_discount', function (v) { return Math.abs(v) < 0.0005 ? '기준' : v > 0 ? pct(v) + ' 쌈' : pct(-v) + ' 비쌈(고급)'; }], ['alone_pay', won], ['qty', function (v) { return v + '개'; }], ['qty_share', pct]]);
+    simpleTable('qtyTable', 'result', [['team'], ['orders', function (v) { return v + '건'; }], ['units', function (v) { return v + '개'; }], ['comp_text'], ['pack_min', mins], ['order_pack_min_total', mins]]);
+    custNotes();
+    simpleTable('segTable', 'segments', [['segment'], ['rule', null, function (td) { td.className = 'l'; }], ['buyers', function (v) { return v + '명'; }], ['avg_spend', won], ['left_total', won]]);
+    simpleTable('behTable', 'behavior', [['team'], ['aov', won], ['units_per_order', d3.format('.1f')], ['free_rate', pct], ['bundle_share', pct], ['option_rate', function (v) { return v == null ? '옵션 없음' : pct(v); }]]);
+    var mx = function (v) { return v == null ? '자기 팀' : won(v); };
+    simpleTable('mxTable', 'matrix', [['buyer_team'], ['다단계', mx], ['푹신하게 잘자조', mx], ['팔아묵조', mx], ['total', won]]);
+    simpleTable('bepTable', 'result', [['team'], ['bep_sales', won], ['adj_bep', won], ['bep_gap', function (v) { return '+' + won(v); }], ['sales', won], ['safety', pct], ['adj_safety', pct]]);
+    simpleTable('riskTable', 'risk', [['team'], ['now', won, neg], ['d10', won, neg], ['d25', won, neg], ['d50', won, neg], ['fixed_up', won, neg], ['one_less', function (v, r) { return won(v) + ' (' + r.top_menu + ')'; }, neg]]);
+    weak();
+    simpleTable('margTable', 'menu_econ', [['menu'], ['team'], ['unit_adj', won, neg], ['avg_marg', won, neg], ['solo_marg', won, neg], ['solo_bep', function (v) { return v == null ? '회수 불가' : d3f(v) + '개'; }]]);
+    rockNote();
+    simpleTable('planTable', 'plan', [['team'], ['adj_now', won], ['adj_plan', won], ['roc_now', pct], ['roc_plan', pct], ['pack_min_now', mins], ['pack_min_plan', mins]]);
+    simpleTable('promoTable', 'promo', [['buyer'], ['bought', null, function (td) { td.className = 'l'; }], ['signal', null, function (td) { td.className = 'l'; }], ['type'], ['suggestion', null, function (td) { td.className = 'l'; }], ['avoid', null, function (td) { td.className = 'l'; }]]);
+    var pd = document.getElementById('promoDot'); if (pd) { pd.textContent = '○'; pd.className = ''; }
+    strategyCard(); approachCard(); stdList(); researchList();
+    simpleTable('evTable', 'assumptions', [['evidence', function (v) { return evChip(v); }], ['item', null, function (td) { td.className = 'l'; }], ['team', null, function (td) { td.className = 'l'; }], ['value', null, function (td) { td.className = 'l'; }], ['note', null, function (td) { td.className = 'l'; }]]);
+    lineTable(); defTable(); simpleTable('comboTable', 'combos', [['pair', null, function (td) { td.className = 'l'; }], ['buyers', function (v) { return v + '명'; }], ['names', null, function (td) { td.className = 'l'; }]]);
+    drawCharts();
+    renderSim(!document.getElementById('simCols').childElementCount);
+  });
+})();
+</script>
+<script>try{if(window.self!==window.top){var bk=document.querySelector('.back');if(bk)bk.style.display='none';}}catch(e){}window.__runDash();</script>
+</body></html>
