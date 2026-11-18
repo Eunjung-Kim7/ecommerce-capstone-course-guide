@@ -1,0 +1,1133 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>아이디어 발산 · BMC (11/18 · 11/20)</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f2f4f8;--surface:#fff;--surface2:#f6f7fb;--border:#dde1ea;--border2:#c3cbdc;--navy:#1b2a4a;--navy2:#28406e;--gold:#b98a3d;--goldbg:#fbf5ea;--gold-ink:#f3c97a;--text:#0f172a;--t2:#374151;--t3:#6b7280;--warnbg:#fff7ed;--warnline:#fdba74;--warn:#c2410c;--okbg:#dcfce7;--code:#0f1a30;--code-ink:#e8ecf5}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#10151f;--surface:#171e2b;--surface2:#1d2534;--border:#2a3446;--border2:#3a4760;--navy:#22345a;--navy2:#9fb3dc;--gold:#d2a65a;--goldbg:#2a2418;--text:#e6eaf2;--t2:#c7cfdd;--t3:#94a0b5;--warnbg:#2a1d12;--warnline:#7c4a1e;--warn:#fb923c;--okbg:#14321f;--code:#0a0f1a;color-scheme:dark}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);font-family:'Noto Sans KR',system-ui,'Apple SD Gothic Neo','Malgun Gothic',sans-serif;font-size:15px;line-height:1.6}
+.wrap{max-width:1000px;margin:0 auto;padding-block:16px 60px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.hero{background:var(--navy);color:#fff;border-radius:14px;padding:16px 20px;margin-bottom:12px}
+.hero h1{margin:0 0 4px;font-size:1.15rem;font-weight:900}.hero p{margin:0;color:#d6dcea;font-size:.86rem}
+.pill{display:inline-block;font-size:.7rem;font-weight:700;color:var(--warn);border:1px solid var(--warnline);background:var(--warnbg);border-radius:12px;padding:1px 9px;margin-bottom:6px}
+.prog{height:6px;background:rgba(255,255,255,.18);border-radius:3px;margin-top:10px;overflow:hidden}.prog i{display:block;height:100%;width:0;background:var(--gold);transition:width .3s}
+.progt{font-size:.74rem;color:#d6dcea;margin-top:4px}
+.tabs{display:flex;flex-wrap:wrap;gap:0 2px;overflow-x:visible;margin:0 0 12px;border-bottom:2px solid var(--border)}
+.tabs button{flex:none;border:0;background:none;color:var(--t3);font:inherit;font-size:.86rem;font-weight:700;padding:9px 12px;cursor:pointer;border-bottom:3px solid transparent;margin-bottom:-2px}
+.tabs button.on{color:var(--navy2);border-bottom-color:var(--gold)}
+.tabs button b{display:inline-block;min-width:18px;height:18px;border-radius:9px;background:var(--surface2);color:var(--t3);font-size:.7rem;line-height:18px;text-align:center;margin-right:4px}
+.tabs button.on b{background:var(--gold);color:#fff}
+.pane{display:none}.pane.on{display:block}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:16px;margin-bottom:14px}
+.card h2{margin:0 0 6px;font-size:1.02rem;color:var(--navy2);font-weight:900}
+.card h3{margin:12px 0 4px;font-size:.9rem;color:var(--navy2)}
+.key{border:2px solid var(--navy);border-radius:10px;padding:9px 12px;margin:0 0 12px;font-size:.86rem}
+.key b.k{display:block;color:var(--navy2);font-size:.95rem}
+.sub{margin:0 0 8px;font-size:.85rem;color:var(--t2)}.note{font-size:.78rem;color:var(--t3)}
+.warnbox{background:var(--warnbg);border:1px solid var(--warnline);border-radius:10px;padding:9px 12px;font-size:.82rem;color:var(--t2);margin:8px 0}
+.btn{background:var(--navy);color:#fff;border:0;border-radius:8px;padding:7px 14px;font:inherit;font-size:.82rem;font-weight:700;cursor:pointer}
+.btn.gold{background:var(--gold)}.btn.ghost{background:var(--surface);color:var(--navy2);border:1.5px solid var(--border2)}
+.row{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:8px 0}
+select,input[type=text],textarea{font:inherit;font-size:.86rem;border:1.5px solid var(--border2);border-radius:8px;background:var(--surface);color:var(--text);padding:6px 8px;max-width:100%}
+textarea{width:100%;resize:vertical;line-height:1.5}
+table{width:100%;border-collapse:collapse;font-size:.82rem}
+th,td{border:1px solid var(--border);padding:6px;text-align:left;vertical-align:top}
+th{background:var(--surface2);color:var(--navy2);font-weight:700}
+td textarea,td select,td input{border-width:1px;padding:4px 6px;font-size:.8rem;width:100%}
+tr.exrow td{color:var(--t3);font-size:.78rem;background:var(--surface2);font-style:italic}
+.tscroll{overflow-x:auto}
+.tgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:8px}
+.tcard{text-align:left;border:1.5px solid var(--border2);background:var(--surface);color:var(--text);border-radius:10px;padding:10px 12px;font:inherit;cursor:pointer}
+.tcard b{color:var(--navy2);display:block}.tcard span{font-size:.76rem;color:var(--t3)}
+.tcard.on{border-color:var(--gold);background:var(--goldbg);box-shadow:inset 0 0 0 2px var(--gold)}
+.mytask{background:var(--navy);color:#fff;border-radius:10px;padding:10px 12px;font-size:.85rem;margin-top:8px}.mytask b{color:var(--gold-ink)}
+.fl{display:flex;flex-direction:column}
+.fs2{display:grid;grid-template-columns:34px 1fr;gap:10px;align-items:start;border:1px solid var(--border);border-radius:12px;padding:9px 12px;background:var(--surface)}
+.fs2.gold{border-color:var(--gold);background:var(--goldbg)}
+.fn{width:30px;height:30px;border-radius:50%;background:var(--navy);color:#fff;font-weight:900;display:flex;align-items:center;justify-content:center;font-size:.85rem}
+.fs2.gold .fn{background:var(--gold)}
+.fb b{display:block;color:var(--navy2);font-size:.9rem}.fb span{display:block;font-size:.83rem;color:var(--t2)}
+.fb em{display:block;font-style:normal;font-size:.79rem;color:var(--gold);font-weight:700}
+.fa{text-align:center;color:var(--gold);font-weight:900;line-height:1.3}
+.fld label{display:block;font-size:.82rem;font-weight:700;color:var(--navy2);margin-bottom:2px}
+.fld .hint{font-size:.74rem;color:var(--t3);margin-bottom:3px}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:10px}@media(max-width:640px){.grid2{grid-template-columns:1fr}}
+.prompt{background:var(--code);color:var(--code-ink);border-radius:10px;padding:12px;font-size:.78rem;white-space:pre-wrap;word-break:break-word;margin:8px 0;max-height:300px;overflow:auto}
+.tot{font-weight:900;font-size:1rem;text-align:center}
+.st-ok{color:#16a34a;font-weight:900}.st-ng{color:#ea580c;font-weight:900}
+.hyp{border:2px solid var(--gold);border-radius:10px;padding:10px 12px;background:var(--goldbg);font-size:.92rem;font-weight:700;color:var(--text);margin:8px 0}
+.hyp small{display:block;font-weight:400;color:var(--t3);font-size:.74rem}
+.qgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:8px}
+.qi{display:flex;gap:9px;align-items:flex-start;border:1px solid var(--border);border-radius:10px;padding:9px 11px;font-size:.84rem}
+label.qi{cursor:pointer}.qi.ok{border-color:#86efac;background:var(--okbg)}.qi.ng{border-color:var(--warnline);background:var(--warnbg)}
+.qi .qs{flex:none;width:20px;height:20px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:.72rem;font-weight:900;color:#fff}
+.qi.ok .qs{background:#16a34a}.qi.ng .qs{background:#ea580c}
+#scTbl{min-width:700px}#scTbl th{white-space:nowrap}
+#printReport{display:none}
+@media print{@page{size:A4;margin:12mm}body{background:#fff}body>*:not(#printReport){display:none!important}#printReport{display:block;color:#000;font-size:10pt}#printReport h1{font-size:14pt}#printReport h2{font-size:11pt;color:#1b2a4a}}
+
+:root{--okc:#16a34a}@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--okc:#4ade80}}
+.ivc{border:1px solid var(--border);border-radius:12px;padding:10px 12px;margin-bottom:10px;background:var(--surface2)}
+.ivh{display:flex;flex-wrap:wrap;gap:2px 8px;align-items:baseline;margin-bottom:6px}.ivh b{white-space:nowrap}.ivh b{color:var(--navy2)}
+.fld input[type=text]{width:100%}
+#handoff th{width:22%}
+.fb span b,.fb em b{display:inline;font-size:inherit}.tcard span{display:block}
+.brief{border:2px solid var(--gold);background:var(--goldbg);border-radius:12px;padding:10px 12px;margin:0 0 10px}
+.brh{display:flex;flex-wrap:wrap;gap:2px 10px;align-items:baseline;margin-bottom:6px}.brh b{color:var(--navy2);font-size:1rem}.brh span{font-size:.74rem;color:var(--t3)}
+.brs{display:grid;grid-template-columns:110px 1fr;gap:8px;padding:5px 0;border-top:1px dashed var(--border2);font-size:.85rem}.brl{font-weight:700;color:var(--navy2);font-size:.78rem}
+@media(max-width:640px){.brs{grid-template-columns:1fr;gap:2px}}
+.lens{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:0 0 10px}.lens>div{border:1px solid var(--border);border-radius:10px;padding:8px 10px;font-size:.8rem;background:var(--surface)}.lens span{display:block;color:var(--t2)}
+@media(max-width:640px){.lens{grid-template-columns:1fr}}
+.chip{display:inline-block;font-size:.74rem;border:1px solid var(--border2);border-radius:999px;padding:1px 8px;margin:3px 4px 0 0;color:var(--t2);background:var(--surface)}
+.chip.ok{border-color:var(--okc);color:var(--okc);font-weight:700}.chip.ng{border-color:var(--warnline);color:var(--warn)}
+.divbox{margin:8px 0;font-size:.82rem}
+.flowbar{display:flex;flex-wrap:wrap;gap:4px 6px;align-items:center;font-size:.78rem;margin:0 0 8px}.flowbar span{background:var(--surface2);border:1px solid var(--border);border-radius:999px;padding:2px 9px}.flowbar i{font-style:normal;color:var(--gold)}
+.script{border-left:4px solid var(--gold);background:var(--goldbg);padding:7px 10px;border-radius:6px;font-size:.82rem;margin:0 0 8px}
+.debq{font-size:.82rem;margin:0 0 6px}
+#tgTbl{min-width:860px}#tgTbl select{min-width:84px}
+.qtbl{min-width:720px}
+.synct{font-size:.74rem;color:#d6dcea;margin-top:3px}.dot{display:inline-block;width:8px;height:8px;border-radius:4px;margin-right:5px;vertical-align:middle}.dot.on{background:#4ade80}.dot.off{background:#fb923c}
+
+.pb{display:grid;gap:8px}.pbr{display:grid;grid-template-columns:minmax(160px,1.1fr) 2fr;gap:10px;align-items:center;border:1px solid var(--border);border-radius:12px;padding:10px 12px;background:var(--surface)}
+.pbr.me{border-color:var(--gold);box-shadow:inset 0 0 0 2px var(--gold)}.pbr.top{background:var(--goldbg)}
+.pbn b{display:block;color:var(--navy2);font-size:1rem}.pbn span{display:block;font-size:.74rem;color:var(--t3)}
+.pbbar{height:12px;background:var(--surface2);border:1px solid var(--border);border-radius:6px;overflow:hidden}.pbbar i{display:block;height:100%;background:var(--gold)}
+.pbd{display:flex;flex-wrap:wrap;gap:4px;margin-top:6px}.pbd span{font-size:.7rem;border-radius:999px;padding:1px 7px;border:1px solid var(--border)}.pbd .y{color:var(--okc);border-color:var(--okc);font-weight:700}.pbd .n{color:var(--t3)}
+.pbs{font-weight:900;color:var(--navy2);font-size:.95rem;margin-bottom:4px}.pbs small{font-weight:400;color:var(--t3);margin-left:6px}
+body.pbbig .wrap{max-width:1400px}body.pbbig .pbn b{font-size:1.4rem}body.pbbig .pbs{font-size:1.3rem}body.pbbig .pbbar{height:22px}body.pbbig .pbd span{font-size:.9rem}
+@media(max-width:640px){.pbr{grid-template-columns:1fr}}
+#snsTbl a{color:var(--navy2);word-break:break-all}
+
+
+.daybar{display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin:0 0 8px}
+.dayb{border:2px solid transparent;border-radius:12px;padding:8px 18px;font:inherit;font-weight:900;font-size:.95rem;cursor:pointer;opacity:.55}
+.dayb small{font-weight:700;font-size:.78rem;margin-left:4px}
+.dayb.wed{background:#ecf8dc;color:#3f6212}.dayb.fri{background:#fde7f1;color:#9d174d}
+.dayb.on{opacity:1}.dayb.wed.on{border-color:#84cc16}.dayb.fri.on{border-color:#f472b6}
+.dsp{flex:1}
+.xb{border:1px solid var(--border2);background:var(--surface);color:var(--t2);border-radius:999px;padding:5px 11px;font:inherit;font-size:.78rem;font-weight:700;cursor:pointer}.xb.on{border-color:var(--gold);color:var(--navy2);background:var(--goldbg)}
+@media(max-width:640px){.dsp{display:none}.dayb{flex:1;padding:8px 6px}}
+
+.vop{display:flex;gap:8px;align-items:flex-start;border:1px solid var(--border);border-radius:10px;padding:7px 10px;margin:4px 0;font-size:.84rem;cursor:pointer;background:var(--surface)}
+.vop input{margin-top:3px}.vop.dis{opacity:.5;cursor:not-allowed}.vop:has(input:checked){border-color:var(--gold);background:var(--goldbg)}
+.vtop{border-left:4px solid var(--gold);padding:5px 9px;margin:5px 0;font-size:.84rem;background:var(--surface2);border-radius:6px}
+
+.collab{border:1.5px dashed var(--gold);background:var(--goldbg);border-radius:10px;padding:8px 12px;font-size:.84rem;margin:0 0 12px}
+.drow{display:grid;grid-template-columns:70px 1fr;gap:8px;align-items:start;margin:4px 0}.drow b{color:var(--navy2);font-size:.84rem;padding-top:6px}
+
+.ownb{border:1px solid var(--border);border-radius:10px;padding:6px 10px;margin:0 0 10px;background:var(--surface2)}.ownb summary{cursor:pointer;font-weight:700;color:var(--navy2);font-size:.86rem}.ownb .brief{margin-top:8px}
+
+.fball{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}@media(max-width:900px){.fball{grid-template-columns:1fr}}
+.fbt{border:1px solid var(--border);border-radius:12px;padding:10px;background:var(--surface)}.fbh b{display:block;color:var(--navy2);font-size:1rem}.fbh span{display:block;font-size:.74rem;color:var(--t3)}
+.fbc{font-weight:900;font-size:.8rem;margin:8px 0 2px}.fbi{border-left:4px solid;padding:4px 8px;margin:4px 0;font-size:.82rem;background:var(--surface2);border-radius:4px}
+body.pbbig .fbi{font-size:1rem}
+
+.givecard{border:2px solid var(--navy)}
+.givet{border:1px solid var(--border2);border-radius:12px;padding:10px;margin:10px 0;background:var(--surface)}
+.giveh{display:flex;flex-wrap:wrap;gap:2px 10px;align-items:baseline;margin-bottom:6px}.giveh b{color:var(--navy2);font-size:1.05rem}.giveh span{font-size:.76rem;color:var(--t3)}
+.givetbl{min-width:760px}.givet .brief{margin:0 0 8px}
+
+.tabpdf{justify-content:flex-end;margin:4px 0 14px}
+
+.cands{border:1px dashed var(--border2);border-radius:10px;padding:8px 10px;margin:0 0 8px;font-size:.82rem}.cand{border:1px solid var(--gold);background:var(--goldbg);color:var(--navy2);border-radius:999px;padding:3px 10px;margin:5px 5px 0 0;font:inherit;font-size:.78rem;font-weight:700;cursor:pointer}#candCls{margin-top:6px}
+
+.wrapup{border:2px solid var(--okc)}
+
+.visgrid{display:grid;grid-template-columns:1fr 1fr;gap:12px}@media(max-width:900px){.visgrid{grid-template-columns:1fr}}.svgbox svg{width:100%;height:auto;display:block}
+
+/* 11주차 추가 */
+.idea{border:1px solid var(--border);border-radius:10px;padding:8px 10px;background:var(--surface);margin:6px 0}
+.idea .ih{display:flex;gap:6px;align-items:center;flex-wrap:wrap;margin-bottom:4px}
+.idea .ih b{color:var(--navy2);font-size:.82rem}
+.idea input[type=text]{width:100%}
+.ideas{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:8px}
+.ic{border:1px solid var(--border);border-left:5px solid var(--gold);border-radius:8px;padding:7px 10px;background:var(--surface);font-size:.84rem}
+.ic b{display:block;color:var(--navy2)}.ic span{display:block;color:var(--t2);font-size:.8rem}.ic small{color:var(--t3);font-size:.72rem}
+.ic.vt{cursor:pointer}.ic.vt.on{background:var(--goldbg);box-shadow:inset 0 0 0 2px var(--gold)}.ic.vt.dis{opacity:.45;cursor:not-allowed}
+.ic .vc{float:right;font-weight:900;color:var(--gold);font-size:.9rem}
+.mh{font-weight:900;color:var(--navy2);font-size:.86rem;margin:10px 0 2px}
+.lock{border:1.5px dashed var(--border2);border-radius:10px;padding:12px;text-align:center;color:var(--t3);font-size:.84rem;background:var(--surface2)}
+.tw{display:flex;flex-wrap:wrap;gap:6px;margin:6px 0}
+.twist{border:1px solid var(--border2);background:var(--surface);color:var(--t2);border-radius:999px;padding:4px 11px;font:inherit;font-size:.78rem;cursor:pointer}
+.twist b{color:var(--gold);margin-right:4px}
+.twist:hover{border-color:var(--gold)}
+.sel5{display:inline-flex;gap:3px}.sel5 button{border:1px solid var(--border2);background:var(--surface);color:var(--t2);border-radius:6px;min-width:30px;padding:3px 6px;font:inherit;font-size:.8rem;font-weight:700;cursor:pointer}
+.sel5 button.on{background:var(--navy);color:#fff;border-color:var(--navy)}
+td.gap{background:var(--warnbg)}
+.bmc{display:grid;grid-template-columns:repeat(10,1fr);grid-auto-rows:minmax(70px,auto);gap:6px;font-size:.78rem}
+.bmc>div{border:1.5px solid var(--border2);border-radius:10px;padding:7px 8px;background:var(--surface);overflow-wrap:anywhere;white-space:pre-wrap}
+.bmc>div b{display:block;color:var(--navy2);font-size:.78rem;white-space:normal}.bmc>div i{font-style:normal;color:var(--gold);font-weight:900;margin-right:3px}
+.bmc .kp{grid-column:1/3;grid-row:1/3}.bmc .ka{grid-column:3/5;grid-row:1}.bmc .kr{grid-column:3/5;grid-row:2}
+.bmc .vp{grid-column:5/7;grid-row:1/3;border-color:var(--gold);background:var(--goldbg)}
+.bmc .cr{grid-column:7/9;grid-row:1}.bmc .ch{grid-column:7/9;grid-row:2}.bmc .cs{grid-column:9/11;grid-row:1/3}
+.bmc .cost{grid-column:1/6;grid-row:3}.bmc .rs{grid-column:6/11;grid-row:3}
+.bmc .e{color:var(--t3);font-size:.74rem}
+@media(max-width:700px){.bmc{grid-template-columns:1fr 1fr}.bmc>div{grid-column:auto!important;grid-row:auto!important}.bmc .vp,.bmc .cs{grid-column:1/3!important}}
+.blk{border:1px solid var(--border);border-radius:12px;padding:10px 12px;margin:8px 0;background:var(--surface)}
+.blk.vpk{border:2px solid var(--gold);background:var(--goldbg)}
+.blh{display:flex;flex-wrap:wrap;gap:4px 10px;align-items:center;margin-bottom:4px}
+.blh b{color:var(--navy2);font-size:.95rem}.blh .no{display:inline-flex;width:22px;height:22px;border-radius:11px;background:var(--navy);color:#fff;font-size:.74rem;align-items:center;justify-content:center;font-weight:900}
+.blh select{font-size:.78rem;padding:2px 6px}
+.blq{font-size:.8rem;color:var(--t2);margin:0 0 4px}.blq b{color:var(--navy2)}
+.from{font-size:.76rem;color:var(--t3);border-left:3px solid var(--border2);padding-left:7px;margin:0 0 5px}
+.vpout{border:2px solid var(--navy);border-radius:10px;padding:10px 12px;font-weight:700;font-size:.95rem;margin:8px 0;background:var(--surface)}
+.vpout .x{color:var(--gold)}
+.plan{display:grid;grid-template-columns:62px 1fr;gap:4px 10px;font-size:.84rem}.plan b{color:var(--gold)}
+.lec{display:grid;grid-template-columns:1fr 1fr;gap:12px}@media(max-width:760px){.lec{grid-template-columns:1fr}}
+.tk{display:flex;flex-wrap:wrap;gap:6px;margin:8px 0}.tk button{border:1.5px solid var(--border2);background:var(--surface);color:var(--text);border-radius:10px;padding:7px 11px;font:inherit;font-size:.82rem;cursor:pointer;text-align:left}.tk button:hover{border-color:var(--gold);background:var(--goldbg)}
+.tw .tab{border:1.5px solid var(--border2);background:var(--surface2);color:var(--t2);border-radius:999px;padding:5px 12px;font:inherit;font-size:.8rem;font-weight:700;cursor:pointer}.tw .tab.on{background:var(--navy);color:#fff;border-color:var(--navy)}.tw .tab i{font-style:normal;margin-left:4px;opacity:.75}
+.iq{font-size:.78rem;color:var(--gold);font-weight:700;margin-bottom:3px}.idea .x{margin-left:auto;border:0;background:none;color:var(--t3);cursor:pointer;font-size:.9rem}.pb2{border:1px solid var(--border2);background:var(--surface);border-radius:6px;font:inherit;font-size:.72rem;padding:1px 7px;cursor:pointer;color:var(--navy2);margin-top:4px}
+.lec ol{margin:4px 0 0 18px;padding:0;font-size:.84rem}.lec li{margin:3px 0}
+.miss{color:var(--warn);font-weight:700}
+.pv{display:none;position:fixed;inset:0;z-index:50;background:rgba(15,23,42,.6);padding:16px}
+.pv.on{display:flex;flex-direction:column}.pv .pvh{display:flex;justify-content:space-between;gap:8px;background:var(--navy);color:#fff;padding:8px 12px;border-radius:10px 10px 0 0;font-weight:700;font-size:.85rem}
+.pv iframe{flex:1;border:0;background:#fff;border-radius:0 0 10px 10px}
+.editing{outline:2px dashed #7c3aed!important;outline-offset:1px;background:var(--surface2)!important;cursor:not-allowed}.pend{outline:2px solid #ea580c!important}
+.lostbox{margin:4px 0 8px;border:1.5px solid #ea580c;background:#fff7ed;border-radius:8px;padding:6px 9px;font-size:.8rem;color:#7c2d12}.lostbox q{display:block;white-space:pre-wrap;margin:3px 0;color:#1f2937;quotes:none}.lostbox .btn{padding:3px 8px;font-size:.76rem}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .lostbox{background:#431407;color:#fed7aa}:root:not([data-theme="light"]) .lostbox q{color:#fff}}
+
+.fbflow{display:flex;flex-wrap:wrap;gap:6px;margin:8px 0 10px;font-size:.78rem}.fbflow span{border:1px solid var(--border2);border-radius:8px;padding:3px 9px;background:var(--surface2)}
+.bh{display:flex;flex-wrap:wrap;gap:4px 10px;align-items:center;margin-bottom:6px}.bh b{color:var(--navy2);font-size:.95rem}.bh .no{display:inline-flex;width:22px;height:22px;border-radius:11px;background:var(--navy);color:#fff;font-size:.74rem;align-items:center;justify-content:center;font-weight:900}.bh select{font-size:.78rem;padding:2px 6px;width:auto}.bh .from{flex-basis:100%}
+.ex{background:var(--surface2);border:1px dashed var(--border2);border-radius:10px;padding:8px 10px;font-size:.8rem;color:var(--t2);margin-top:8px}.ex:empty{display:none}.ex b{color:var(--gold)}
+.vpc{display:grid;grid-template-columns:1fr 1fr;gap:12px}.vpl{display:block;font-size:.84rem;color:var(--navy2);margin-bottom:4px}
+.fixrow{display:grid;grid-template-columns:1.4fr 1fr;gap:6px;margin-bottom:6px}
+.chgrid{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:6px}
+.calc{border:2px solid var(--gold);border-radius:10px;padding:10px 12px;background:var(--goldbg);margin-top:8px}.cg{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin:6px 0}.cg label{font-size:.78rem;display:flex;flex-direction:column;gap:3px}
+.calcout{font-size:.9rem;margin-top:6px}
+.kprow{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-bottom:6px}
+.costrow{display:grid;grid-template-columns:2fr 1fr .8fr;gap:6px;margin-bottom:6px}.costrow.hd{font-size:.76rem;color:var(--t3)}
+.rtrow{display:grid;grid-template-columns:auto 1fr 2fr 1.2fr 2fr;gap:6px;align-items:center;margin-bottom:6px}
+.imph,.imp{display:grid;grid-template-columns:1.3fr .8fr 1.2fr;gap:6px;align-items:center;font-size:.82rem;padding:3px 0;border-bottom:1px solid var(--border)}.imph{color:var(--t3);font-size:.76rem}
+.rm{display:grid;grid-template-columns:28px 1fr;grid-template-rows:auto auto;gap:4px;margin:10px 0}.rmy{writing-mode:vertical-rl;transform:rotate(180deg);font-size:.72rem;color:var(--t3);text-align:center}.rmg{display:grid;grid-template-columns:repeat(3,1fr);gap:4px}.rc{min-height:52px;border:1px solid var(--border2);border-radius:8px;padding:5px;font-size:.74rem;background:var(--surface)}.rc.warm{background:var(--warnbg)}.rc.hot{background:#fde2e2;border-color:#e57373}.rmx{grid-column:2;display:grid;grid-template-columns:repeat(3,1fr);font-size:.72rem;color:var(--t3);text-align:center}
+.gal{border:1px solid var(--border);border-radius:10px;padding:10px 12px;margin:8px 0}.gal h3{margin:0 0 6px}.galmini{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px;font-size:.78rem}.galmini>div{border:1px solid var(--border2);border-radius:8px;padding:6px}.galmini b{display:block;color:var(--navy2)}
+.galrow{display:grid;grid-template-columns:90px 1fr auto;gap:6px;align-items:center;margin-top:6px;font-size:.8rem}
+.bmc .stok{border-color:#16a34a!important;background:#ecfdf3}.bmc .stpt{border-color:#d97706!important;background:#fff7e6}.bmc .sthy{border-style:dashed!important}
+
+.costrow>*,.galrow>*,.kprow>*,.fixrow>*,.rtrow>*,.imp>*,.cg>*,.chgrid>*{min-width:0;width:100%}
+@media (max-width:720px){.galrow{grid-template-columns:1fr auto}.galrow span{grid-column:1/-1}.vpc,.chgrid,.cg,.kprow,.galmini{grid-template-columns:1fr}.rtrow{grid-template-columns:1fr}.fixrow{grid-template-columns:1fr}.costrow{grid-template-columns:1.6fr 1fr .9fr}}
+@media (prefers-color-scheme:dark){.bmc .stok{background:#14321f}.bmc .stpt{background:#2a1d12}.rc.hot{background:#3a1717}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<div class="hero">
+  <span class="pill">초안 · 교수 검토 후 배포</span>
+  <h1>캡스톤디자인(전자상거래의 이해) · 아이디어 발산 → 비즈니스 모델 <small style="font-weight:500;font-size:.7em">11/18(수) 50분 + 11/20(금) 110분</small></h1>
+  <p><b style="color:#f3c97a">지난주 문제 진술문·HMW</b>에서 출발해 <b style="color:#f3c97a">아이디어를 많이</b> 내고, <b style="color:#f3c97a">하나를 골라</b> 컨셉 카드·가치 제안으로 만듭니다. BMC 9칸은 <b style="color:#f3c97a">11/20(금)</b>.</p>
+  <div class="prog"><i id="progBar"></i></div><div class="progt" id="progTxt">팀을 먼저 고르세요</div><div class="synct" id="syncTxt"></div>
+</div>
+<div class="daybar" id="daybar">
+  <button type="button" class="dayb wed on" data-day="w">수요일 <small>11/18</small></button>
+  <button type="button" class="dayb fri" data-day="f">금요일 <small>11/20 BMC</small></button>
+  <span class="dsp"></span>
+  <button type="button" class="xb" data-p="pb">📊 세 팀 현황</button><button type="button" class="xb" id="pdfAll">📄 결과 PDF</button>
+</div>
+<div class="tabs" id="tabs">
+  <button data-p="p0" data-day="b" class="on">팀</button>
+  <button data-p="p1" data-day="w"><b>1</b>출발 질문</button>
+  <button data-p="p2" data-day="w"><b>2</b>아이디어 발산</button>
+  <button data-p="p3" data-day="w"><b>3</b>고르기</button>
+  <button data-p="p4" data-day="w"><b>4</b>컨셉·가치 제안</button>
+  <button data-p="p5" data-day="f"><b>5</b>고객·가치</button>
+  <button data-p="p7" data-day="f"><b>6</b>운영·숫자</button>
+  <button data-p="p8" data-day="f"><b>7</b>연결 점검·레드팀</button>
+  <button data-p="p6" data-day="f"><b>8</b>가정·갤러리·제출</button>
+</div>
+
+<!-- 팀 -->
+<section class="pane on" id="p0">
+  <div class="card">
+    <h2>오늘 흐름</h2>
+    <div class="plan" id="plan" style="grid-template-columns:28px 1fr">
+      <b>1</b><span><b style="color:var(--navy2)">팀 고르기 · 내 이름</b> → 지난주 결과 확인 <span class="miss" id="planCatch" style="display:none">· 척살은 0단계부터</span></span>
+      <b>2</b><span><b style="color:var(--navy2)">출발 질문</b> — HMW 2~3개</span>
+      <b>3</b><span><b style="color:var(--navy2)">아이디어 발산</b> — 도구를 눌러 가며 각자 많이 → 팀원 것에 얹기 → AI 진부성 테스트</span>
+      <b>4</b><span><b style="color:var(--navy2)">고르기</b> — 각자 3표 → 4기준 점수 → 최종 1개</span>
+      <b>5</b><span><b style="color:var(--navy2)">컨셉 카드·가치 제안</b> → 다른 팀 1명에게 30초 설명</span>
+      <b>11/20</b><span><b style="color:var(--navy2)">BMC 110분</b> — 고객 · 가치(Pain ↔ 해결) → 운영 · 숫자(매출 · 본전) → 연결 점검 · AI 레드팀 → 위험한 가정 · 갤러리 → LMS</span>
+    </div>
+    <p class="note" style="margin:6px 0 0">시간은 팀 진행에 맞춰 교수님이 조절합니다. 오늘 못 끝낸 칸은 11/20(금)에 이어서 씁니다.</p>
+  </div>
+  <div class="card">
+    <h2>오늘 개념</h2>
+    <div class="lec">
+      <div>
+        <div class="key"><b class="k">발산: 질보다 양</b>지금은 <b>좋은 아이디어</b>가 아니라 <b>많은 아이디어</b>를 찾습니다.</div>
+        <ol>
+          <li><b>판단은 나중에</b> — "그건 안 돼"는 3번 탭에서</li>
+          <li><b>HMW 하나에 아이디어 여러 개</b> — 질문을 바꿔 가며</li>
+          <li><b>남의 것에 얹기</b> — 읽고 "그럼 이렇게?"</li>
+          <li><b>생각 틀기 카드</b> — 반대로 · 빌려오기 · 빼기 · 극단 사용자</li>
+        </ol>
+      </div>
+      <div>
+        <div class="key"><b class="k">BMC: 고객 → 가치 → 운영 → 돈</b>9칸을 <b>번호 순서대로</b> 채웁니다. 오른쪽(고객)이 먼저입니다.</div>
+        <div class="bmc" style="grid-auto-rows:minmax(44px,auto);font-size:.72rem">
+          <div class="kp"><b><i>8</i>핵심 파트너</b></div><div class="ka"><b><i>7</i>핵심 활동</b></div><div class="kr"><b><i>6</i>핵심 자원</b></div>
+          <div class="vp"><b><i>2</i>가치 제안</b></div><div class="cr"><b><i>4</i>고객 관계</b></div><div class="ch"><b><i>3</i>채널</b></div><div class="cs"><b><i>1</i>고객 세그먼트</b></div>
+          <div class="cost"><b><i>9</i>비용 구조</b></div><div class="rs"><b><i>5</i>수익원</b></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <h2>우리 팀</h2>
+    <div class="tgrid" id="teams"></div>
+    <div id="meBox" style="display:none;margin-top:12px">
+      <div class="row"><b style="font-size:.86rem">나</b><select id="meSel"></select><span class="note" id="roleNote"></span></div>
+      <p class="note" style="margin:0">이름을 골라야 내 칸에 쓸 수 있습니다. 팀원 모두 <b>자기 폰·노트북으로 같은 팀</b>을 여세요 — 몇 초 안에 서로 보입니다.</p>
+      <h3>지금까지 우리 팀이 정한 것 <span class="note">— 10주차 W6 + <b>11/11 강의실 인터뷰</b>(진술문 · HMW는 11/11 기준)</span></h3>
+      <div id="handoff"></div>
+      <h3 style="color:var(--warn)">오늘 먼저 볼 점</h3>
+      <div id="checks"></div>
+    </div>
+  </div>
+</section>
+
+<!-- 1 출발 질문 -->
+<section class="pane" id="p1">
+  <div class="card" id="catchCard" style="display:none;border:2px solid var(--warn)">
+    <h2 style="color:var(--warn)">0단계 · 지난주 못 끝낸 것 먼저</h2>
+    <div class="key"><b class="k">문제 진술문이 없으면 아이디어가 흩어집니다</b>인터뷰에서 들은 말만 근거로, 4칸을 채우고 HMW 3개를 씁니다.</div>
+    <div class="fld"><label>주 페르소나 — 누구로 정하나</label><div class="hint">인터뷰가 50대 부모님 1명뿐입니다. 20대로 정하면 근거가 없다는 점을 [추가 인터뷰 필요]로 적으세요.</div>
+      <select data-f="c_target"><option value="">고르세요</option><option>50대 부모님 (인터뷰 근거 있음)</option><option>20대 대학생 [추가 인터뷰 필요]</option></select></div>
+    <div class="grid2">
+      <div class="fld"><label>누가 (어떤 사람은)</label><textarea data-f="c_who" rows="2" placeholder="예: 생필품 정기배송을 쓰는 50대 부모님은"></textarea></div>
+      <div class="fld"><label>무엇을 하고 싶지만</label><textarea data-f="c_want" rows="2" placeholder="예: 필요 없는 달엔 배송을 멈추고 싶지만"></textarea></div>
+      <div class="fld"><label>왜 어려워서</label><textarea data-f="c_why" rows="2" placeholder="예: 해지·일시정지 메뉴가 깊이 숨어 있고 글씨가 작아"></textarea></div>
+      <div class="fld"><label>어떤 손해를 본다</label><textarea data-f="c_res" rows="2" placeholder="예: 매번 자녀에게 부탁하거나, 필요 없는 결제를 그대로 낸다"></textarea></div>
+    </div>
+    <div class="fld"><label>HMW 3개 — "어떻게 하면 ~할 수 있을까?"</label>
+      <input type="text" data-f="c_hmw1" placeholder="어떻게 하면 ">
+      <input type="text" data-f="c_hmw2" placeholder="어떻게 하면 " style="margin-top:4px">
+      <input type="text" data-f="c_hmw3" placeholder="어떻게 하면 " style="margin-top:4px">
+      <input type="text" data-f="c_hmw4" placeholder="(선택) 어떻게 하면 " style="margin-top:4px">
+    </div>
+  </div>
+  <div class="card">
+    <h2>① 출발 질문 고르기 — HMW 2~3개</h2>
+    <div class="key"><b class="k">아이디어는 HMW에 대한 답입니다</b>오늘 풀 질문을 <b>2~3개</b>만 고르세요. 너무 많으면 아이디어가 얕아집니다.</div>
+    <div id="hmwPick"></div>
+    <p class="note" id="hmwMsg"></p>
+  </div>
+</section>
+
+<!-- 2 아이디어 발산 -->
+<section class="pane" id="p2">
+  <div class="collab"><b>판단하지 말고 양부터.</b> 아래 도구를 누르면 질문이 붙은 빈 카드가 생깁니다 — 한 카드에 아이디어 하나. <b>내 것 2개</b>를 쓰면 팀원 아이디어가 열리고, 거기에 <b>얹기</b>도 할 수 있습니다.</div>
+  <div class="card">
+    <div class="row" style="justify-content:space-between"><h2 style="margin:0">② 아이디어 발산</h2><span class="tot" id="ideaGoal"></span></div>
+    <div class="tw" id="toolTabs"></div>
+    <div id="toolBody"></div>
+    <div class="row"><button class="btn gold" type="button" id="diceBtn">🎲 아무 질문이나</button><button class="btn ghost" type="button" id="blankBtn">＋ 그냥 쓰기</button><span class="note" id="toolUse"></span></div>
+  </div>
+  <div class="card">
+    <h2>내 아이디어 <span class="note" id="myCnt"></span></h2>
+    <div id="myIdeas"></div>
+  </div>
+  <div class="card">
+    <h2>팀 아이디어 <span class="note" id="ideaCount"></span></h2>
+    <div id="allIdeas"></div>
+  </div>
+  <div class="card">
+    <h2>AI 진부성 테스트 <span class="note">팀에서 한 명이 진행</span></h2>
+    <div class="sub">같은 HMW로 AI에게 아이디어 10개를 받고 우리와 <b>겹친 것</b>을 표시 → 겹친 것 하나를 비틀어 새 아이디어로.</div>
+    <div class="row"><button class="btn ghost" type="button" id="aiCopy">AI 프롬프트 복사</button><span class="note" id="aiMsg">이름·연락처는 들어가지 않습니다.</span></div>
+    <div class="prompt" id="aiPrompt"></div>
+    <div class="grid2">
+      <div class="fld"><label>AI 아이디어 중 우리와 겹친 것</label><textarea data-f="ai_over" rows="2" placeholder="예: 마감 알림 · 맞춤 추천 (10개 중 4개 겹침)"></textarea></div>
+      <div class="fld"><label>AI가 내지 못한 우리 아이디어</label><textarea data-f="ai_ours" rows="2"></textarea></div>
+    </div>
+    <div class="grid2">
+      <div class="fld"><label>비틀기 기법</label><select data-f="sc_tech"><option value="">고르세요</option><option>S 대체하기</option><option>C 결합하기</option><option>A 응용하기</option><option>M 변형·확대·축소</option><option>P 다른 용도로</option><option>E 없애기</option><option>R 순서 바꾸기·뒤집기</option></select></div>
+      <div class="fld"><label>비튼 결과</label><input type="text" data-f="sc_res" placeholder="예: 마감 알림 + 학과 선배 서류 체크리스트"></div>
+    </div>
+  </div>
+</section>
+
+<!-- 3 고르기 -->
+<section class="pane" id="p3">
+  <div class="card">
+    <h2>③-1 각자 3표</h2>
+    <div class="key"><b class="k">"페르소나가 실제로 쓸까?"로 고릅니다</b>3표를 다 쓰기 전에는 팀 표가 보이지 않습니다. <b>내 아이디어에는 1표까지</b>.</div>
+    <div id="voteBox"></div><p class="note" id="voteMsg"></p>
+  </div>
+  <div class="card">
+    <h2>③-2 후보 점수 — 4기준 · 1 · 2 · 3</h2>
+    <div class="sub">표가 많은 후보(최대 5개)를 매깁니다. <b>① 근거가 1점이면 탈락</b> · 동점이면 <b>④</b>가 높은 쪽. 1점과 3점으로 갈린 칸은 주황색 — 그 칸만 이야기하세요.</div>
+    <div class="lens">
+      <div><b>① 고객 불편 해결 근거</b><span>3 = 지난주 Pain·인터뷰 말을 직접 풀어 줌 · 1 = 연결 안 됨 → <b>탈락</b></span></div>
+      <div><b>② 전자상거래 구조</b><span>3 = 거래·구독·중개·추천 등 돈과 데이터가 오가는 구조 · 1 = 안내만 있음</span></div>
+      <div><b>③ 차별성</b><span>3 = AI가 못 냈거나 기존 서비스가 못 푸는 지점 · 1 = 이미 있는 서비스와 같음</span></div>
+      <div><b>④ 6주 안에 실현</b><span>3 = BMC·CJM·화면 시안까지 가능 · 1 = 규모·규제·데이터 때문에 어려움</span></div>
+    </div>
+    <div id="scoreBox"></div>
+  </div>
+  <div class="card">
+    <h2>③-3 팀 결정 — 하나만</h2>
+    <div class="key"><b class="k">하나만 고릅니다</b>장면·BMC가 서비스 하나에서 나와야 합니다. 합치려면 "합친 안"을 고르고 무엇을 합쳤는지 쓰세요.</div>
+    <div class="fld"><label>최종 아이디어</label><select data-f="pick" id="pickSel"></select></div>
+    <div class="fld" id="mergeFld" style="display:none"><label>합친 안 — 무엇과 무엇을</label><input type="text" data-f="pickMerge" placeholder="예: 마감 알림 + 자격 자동 판정"></div>
+    <div class="fld"><label>왜 이것인가 — 근거 하나 (인터뷰 말 또는 점수)</label><textarea data-f="pickWhy" rows="2" placeholder="예: 인터뷰 B &quot;신청기간이 지나서 아깝다&quot; — 사용자 가치 점수 4명 모두 5"></textarea></div>
+    <div class="fld"><label>아깝지만 버린 안 하나와 이유</label><textarea data-f="pickDrop" rows="2"></textarea></div>
+  </div>
+</section>
+
+<!-- 4 컨셉·가치 제안 -->
+<section class="pane" id="p4">
+  <div class="card">
+    <h2>④-1 컨셉 — 이름과 사용 장면 3줄</h2>
+    <div class="hyp" id="pickShow"></div>
+    <div class="fld"><label>서비스 이름 (임시)</label><input type="text" data-f="cname" placeholder="예: 장학콕"></div>
+    <div class="fld"><label>누구를 위한 — 지난주 페르소나</label><input type="text" data-f="cwho"></div>
+    <div class="fld"><label>장면 1 — 누가, 언제</label><input type="text" data-f="sc1" placeholder="예: 시험기간, 단톡방을 못 본 3학년이"></div>
+    <div class="fld"><label>장면 2 — 무엇을 보고 / 누르면</label><input type="text" data-f="sc2" placeholder="예: 마감 3일 전 '신청 가능 장학금 1건' 알림을 받고 누르면"></div>
+    <div class="fld"><label>장면 3 — 쓰고 나면 무엇이 달라지나 (기능 목록 말고 변화)</label><input type="text" data-f="sc3" placeholder="예: 공지를 뒤지지 않아도 마감 전에 신청한다"></div>
+    <div class="fld"><label>핵심 화면 1개 — 말로 그리기 (12주차 시안의 첫 화면)</label><textarea data-f="cscreen" rows="2" placeholder="예: 맨 위 '이번 주 마감 1건' 카드 → 요건 3개 ✓ → 서류 체크리스트 → 신청 링크"></textarea></div>
+    <div class="fld"><label>기존 서비스와 다른 점 — 지난주 조사한 서비스 중 하나와 비교</label><div class="hint" id="compHint"></div><textarea data-f="cdiff" rows="2"></textarea></div>
+  </div>
+  <div class="card">
+    <h2>④-2 가치 제안 문장</h2>
+    <div class="key"><b class="k">BMC 9칸보다 이 한 문장이 먼저</b>이 문장이 분명해야 나머지 칸이 채워집니다. 최종 보고서 "가치 제안"의 핵심 문장이 됩니다.</div>
+    <div class="grid2">
+      <div class="fld"><label>[타깃 고객]은(는)</label><input type="text" data-f="vp_who"></div>
+      <div class="fld"><label>[우리 서비스] 덕분에</label><input type="text" data-f="vp_svc"></div>
+      <div class="fld"><label>[기존 방식] 대신</label><input type="text" data-f="vp_old" placeholder="지금 쓰는 방법 — 인터뷰의 '한 일'"></div>
+      <div class="fld"><label>[구체적 이득]을 얻는다</label><input type="text" data-f="vp_gain" placeholder="시간·돈·불안 — 숫자면 더 좋음"></div>
+    </div>
+    <div class="vpout" id="vpOut"></div>
+    <div class="fld"><label>이 문장이 푸는 Pain Point — 하나 이상 체크</label><div id="ppLink"></div></div>
+    <div class="fld"><label>다른 팀 1명에게 30초 설명 → 들은 말 그대로 (수업 중)</label><div class="hint">이름은 쓰지 않습니다. "3학년 A"처럼.</div><textarea data-f="react" rows="2" placeholder="예: 3학년 A — &quot;마감 알림은 이미 있지 않아? 서류까지 챙겨 주면 쓸 듯&quot;"></textarea></div>
+    <div class="warnbox"><b>잘 쓴 예와 약한 예</b><br>✔ "자취생이 냉장고 재료만으로 5분 안에 레시피를 받고, 부족한 재료는 바로 주문" — 누구에게·무엇을·어떻게<br>△ "자취생을 위한 레시피 추천 서비스" — 차별점 없음 · ✖ "요리 앱" — 누구를 위한지 모름</div>
+  </div>
+  <div class="card wrapup">
+    <h2>✅ 오늘(11/18) 마무리</h2>
+    <div class="row"><button class="btn gold" type="button" id="printBtn2">📄 오늘까지 PDF</button><span class="note">→ 팀 구글 드라이브 <b>03_회의록_PDF</b>. 쓴 내용은 서버에 남아 11/20(금)에 그대로 이어집니다.</span></div>
+  </div>
+</section>
+
+<!-- 5 고객 · 가치 (금) -->
+<section class="pane" id="p5">
+  <div class="card">
+    <h2>금요일 시작 — 수요일 컨셉을 「사업」으로 바꾸는 110분</h2>
+    <div class="hyp" id="vpShow5"></div>
+    <div class="row"><button class="btn ghost" type="button" id="autoOwn">칸 담당 자동 나누기</button><span class="note">칸마다 담당 1명이 먼저 쓰고, 다른 팀원은 읽고 고칩니다.</span></div>
+    <div class="fbflow"><span>⑤ 고객 · 가치 30분</span><span>휴식</span><span>⑥ 운영 · 숫자 20분</span><span>⑦ 연결 점검 · AI 레드팀 15분</span><span>⑧ 위험한 가정 · 갤러리 · 제출 25분</span></div>
+    <div class="key"><b class="k">핵심 개념 1 · BMC는 칸 9개가 아니라 서로 연결된 가설 9개</b>오른쪽(고객이 원하는 것) → 가운데(우리가 주는 것) → 왼쪽(우리가 감당할 것) → 아래(돈). 한 칸을 바꾸면 이어진 칸이 같이 바뀝니다. 그래서 이 워크시트는 칸마다 <b>앞 칸에서 가져올 것</b>을 보여 주고, ⑦에서 연결이 끊긴 곳을 자동으로 찾습니다.</div>
+    <div class="key"><b class="k">핵심 개념 2 · 가치 제안은 「기능」이 아니라 「고객의 아픔(Pain)을 줄이는 것」</b>가치 제안 캔버스: 왼쪽에 고객이 실제로 겪는 Pain(11/11에 들은 말), 오른쪽에 그 Pain을 줄이는 우리 해결. <b>Pain에 연결되지 않은 해결은 「만들고 싶은 기능」</b>일 뿐입니다.</div>
+    <div class="fld"><label>30초 반응(수요일 과제)으로 바뀐 것</label><div class="hint" id="reactShow"></div>
+      <select data-f="m_react"><option value="">고르세요</option><option>그대로 — 반응이 컨셉을 지지</option><option>가치 제안 문장을 고침</option><option>고객을 좁힘 · 바꿈</option><option>아직 반응을 못 받음 — 오늘 다른 팀 1명에게</option></select>
+      <input type="text" data-f="m_react_w" placeholder="무엇을 어떻게 고쳤나 한 줄 (예: '마감 알림은 이미 있다' → 알림이 아니라 '요건 자동 판정'을 앞세움)" style="margin-top:4px"></div>
+  </div>
+
+  <div class="card">
+    <div class="bh" data-b="cs"></div>
+    <h2>① 고객 세그먼트 — 누가 쓰고, 누가 돈을 내나</h2>
+    <div class="sub">이용자와 돈 내는 사람이 다르면 <b>둘 다</b> 고객입니다(양면 시장). 근거 칸에 「11/11 인터뷰 몇 명 중 몇 명」을 쓰면 ⑦에서 근거로 셉니다.</div>
+    <div class="ex" id="exCs"></div>
+    <div class="grid2">
+      <div class="fld"><label>주 고객 — 누구 · 어떤 상황</label><input type="text" data-f="m_cs1"></div>
+      <div class="fld"><label>근거 — 들은 사람 · 숫자</label><input type="text" data-f="m_cs1_ev" placeholder="예: 11/11 인터뷰 4명 중 3명 '놓친 적 있음'"></div>
+      <div class="fld"><label>돈 내는 쪽 (이용자와 같으면 「같음」)</label><input type="text" data-f="m_cs2"></div>
+      <div class="fld"><label>그쪽이 돈을 낼 이유</label><input type="text" data-f="m_cs2_why" placeholder="예: 학교 — 장학 공지 미신청률을 줄이면 행정 부담이 준다 [가정]"></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="bh" data-b="vp"></div>
+    <h2>② 가치 제안 — Pain ↔ 해결 짝짓기</h2>
+    <div class="sub">왼쪽에서 고객 Pain을 고르고(11/11 들은 말 · 지난주 Pain Point), 오른쪽 해결마다 <b>어느 Pain을 줄이는지</b> 고릅니다. 연결 안 된 해결은 빨간색입니다.</div>
+    <div class="vpc">
+      <div><b class="vpl">고객 Pain (11/11 · 10주차)</b><div id="painPick"></div>
+        <input type="text" data-f="m_pain_x" placeholder="직접 추가할 Pain (선택)"></div>
+      <div><b class="vpl">우리 해결 — 기능 이름 말고 「무엇이 줄어드나」</b>
+        <div class="fixrow"><input type="text" data-f="m_fix1" placeholder="해결 1"><select data-f="m_fixp1" class="painSel"></select></div>
+        <div class="fixrow"><input type="text" data-f="m_fix2" placeholder="해결 2"><select data-f="m_fixp2" class="painSel"></select></div>
+        <div class="fixrow"><input type="text" data-f="m_fix3" placeholder="해결 3 (선택)"><select data-f="m_fixp3" class="painSel"></select></div>
+        <div id="fitOut" class="note"></div></div>
+    </div>
+    <div class="ex" id="exVp"></div>
+  </div>
+
+  <div class="card">
+    <div class="bh" data-b="ch"></div>
+    <h2>③ 채널 — 고객이 지나가는 5단계마다 「어디서」</h2>
+    <div class="sub">「SNS 홍보」는 채널이 아닙니다. <b>어떤 계정 · 어떤 게시판 · 어떤 화면</b>인지. 1 · 2단계에서 직접 운영해 본 SNS 경험(무엇이 반응이 있었나)을 쓰세요.</div>
+    <div class="chgrid">
+      <div class="fld"><label>1 알게 됨</label><input type="text" data-f="m_ch1"></div>
+      <div class="fld"><label>2 따져 봄</label><input type="text" data-f="m_ch2"></div>
+      <div class="fld"><label>3 처음 씀</label><input type="text" data-f="m_ch3"></div>
+      <div class="fld"><label>4 돈 냄 · 결제</label><input type="text" data-f="m_ch4"></div>
+      <div class="fld"><label>5 다시 옴</label><input type="text" data-f="m_ch5"></div>
+    </div>
+    <div id="chWarn" class="note"></div>
+    <div class="ex" id="exCh"></div>
+  </div>
+
+  <div class="card">
+    <div class="bh" data-b="cr"></div>
+    <h2>④ 고객 관계 — 한 번 쓰고 떠나지 않게</h2>
+    <div class="grid2">
+      <div class="fld"><label>관계 방식</label><select data-f="m_cr_t"><option value="">고르세요</option><option>셀프 서비스 (혼자 쓰게)</option><option>자동화 (알림 · 추천)</option><option>커뮤니티 (사용자끼리)</option><option>개인 도움 (상담 · 대신 해 줌)</option></select></div>
+      <div class="fld"><label>다시 오게 하는 장치 하나</label><input type="text" data-f="m_cr_hook"></div>
+    </div>
+    <div class="fld"><label>받은 부정 의견에 대한 답</label><div class="hint" id="negShow"></div><input type="text" data-f="m_cr_neg"></div>
+    <div class="ex" id="exCr"></div>
+  </div>
+
+  <div class="card">
+    <div class="bh" data-b="rs"></div>
+    <h2>⑤ 수익원 — 누가 · 무엇에 · 얼마 · 몇 명</h2>
+    <div class="grid2">
+      <div class="fld"><label>수익모델 유형</label><select data-f="rtype"><option value="">고르세요</option><option>중개 수수료 (거래가 성사되면 일부)</option><option>판매 마진 (직접 사서 팔기)</option><option>구독 (월·연 정액)</option><option>광고·노출비</option><option>부분 유료 (기본 무료 + 고급 기능 유료)</option><option>제휴·연결 수수료</option></select></div>
+      <div class="fld"><label>이용자와 돈 내는 사람</label><select data-f="payer"><option value="">고르세요</option><option>같다</option><option>다르다 (이용자 무료, 다른 쪽이 낸다)</option></select></div>
+    </div>
+    <div class="fld"><label>무엇에 돈을 내나 — 한 줄</label><input type="text" data-f="m_rs_what" placeholder="예: 학과가 학기마다 '장학 공지 정리 · 알림 대행'에"></div>
+    <div class="fld"><label>그 금액의 근거 — 비슷한 서비스 가격 · 인터뷰 · 계산</label><input type="text" data-f="m_rs_ev" placeholder="예: 캠퍼스 앱 광고 단가 ○○원 확인(출처) / 인터뷰 '월 3천 원이면 쓴다' 2명"></div>
+    <div class="calc">
+      <b>한 달 매출 계산 (가설)</b>
+      <div class="cg">
+        <label>월 이용자 수<input type="text" inputmode="numeric" data-f="m_users" placeholder="예: 300"></label>
+        <label>그중 돈 내는 비율 %<input type="text" inputmode="decimal" data-f="m_conv" placeholder="예: 5 (지불자가 따로면 100)"></label>
+        <label>1명(1건)당 월 금액 원<input type="text" inputmode="numeric" data-f="m_price" placeholder="예: 2900"></label>
+      </div>
+      <div id="revOut" class="calcout"></div>
+      <p class="note">중개 수수료면 「1건당 금액 = 거래액 × 수수료율」로 넣습니다. 모든 숫자는 [가정] — 근거가 생기면 ⑧에서 확인할 가정이 됩니다.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 6 운영 · 숫자 (금) -->
+<section class="pane" id="p7">
+  <div class="card">
+    <h2>⑥ 왼쪽 칸 — 가치 제안을 매일 지키려면 무엇이 필요한가</h2>
+    <div class="key"><b class="k">왼쪽은 오른쪽에서 나온다</b>핵심 활동은 ②의 해결마다 하나씩, 자원은 그 활동에 필요한 것, 파트너는 우리가 못 하는 것, 비용은 활동 · 자원 · 파트너에서 나옵니다. 오른쪽에 없는 것을 왼쪽에 쓰면 ⑦에서 「끊긴 연결」로 잡힙니다.</div>
+  </div>
+  <div class="card">
+    <div class="bh" data-b="ka"></div>
+    <h2>⑦ 핵심 활동 — 해결마다 우리가 하는 일</h2>
+    <div id="kaRows"></div>
+  </div>
+  <div class="card">
+    <div class="bh" data-b="kr"></div>
+    <h2>⑥ 핵심 자원 — 이게 없으면 서비스가 멈춘다</h2>
+    <div class="fld"><label>데이터 — 어디서 얻나 (필수)</label><input type="text" data-f="m_kr_data" placeholder="예: 학교 장학 공지(공개 게시판) — 자동 수집 허용 여부 [확인 필요]"></div>
+    <div class="grid2">
+      <div class="fld"><label>기술 · 도구</label><input type="text" data-f="m_kr_tech" placeholder="예: 노코드 앱(글라이드) + 카카오 알림톡"></div>
+      <div class="fld"><label>사람</label><input type="text" data-f="m_kr_people" placeholder="예: 공지 확인 담당 1명(주 3회)"></div>
+    </div>
+    <div class="ex" id="exKr"></div>
+  </div>
+  <div class="card">
+    <div class="bh" data-b="kp"></div>
+    <h2>⑧ 핵심 파트너 — 우리가 못 하는 것, 그들이 얻는 것</h2>
+    <div class="sub">파트너도 「왜 우리와 하나」에 답이 있어야 합니다. 협의 가능 여부는 대부분 [확인 필요].</div>
+    <div class="kprow"><input type="text" data-f="m_kp1" placeholder="파트너 1 — 누구"><input type="text" data-f="m_kp1_g" placeholder="그들이 얻는 것"></div>
+    <div class="kprow"><input type="text" data-f="m_kp2" placeholder="파트너 2 (선택)"><input type="text" data-f="m_kp2_g" placeholder="그들이 얻는 것"></div>
+    <div class="ex" id="exKp"></div>
+  </div>
+  <div class="card">
+    <div class="bh" data-b="cost"></div>
+    <h2>⑨ 비용 구조 — 큰 비용 3개와 「몇 명이면 본전」</h2>
+    <div class="costrow hd"><span>비용 항목</span><span>월 금액(원)</span><span>고정/변동</span></div>
+    <div class="costrow"><input type="text" data-f="m_co1" placeholder="예: 알림 발송비"><input type="text" inputmode="numeric" data-f="m_co1_a" placeholder="50000"><select data-f="m_co1_t"><option value="">—</option><option>고정</option><option>변동</option></select></div>
+    <div class="costrow"><input type="text" data-f="m_co2" placeholder="예: 공지 정리 인건비"><input type="text" inputmode="numeric" data-f="m_co2_a" placeholder="800000"><select data-f="m_co2_t"><option value="">—</option><option>고정</option><option>변동</option></select></div>
+    <div class="costrow"><input type="text" data-f="m_co3" placeholder="예: 서버 · 도구 구독"><input type="text" inputmode="numeric" data-f="m_co3_a" placeholder="30000"><select data-f="m_co3_t"><option value="">—</option><option>고정</option><option>변동</option></select></div>
+    <div id="beOut" class="calcout"></div>
+    <div class="ex" id="exCo"></div>
+  </div>
+</section>
+
+<!-- 7 연결 점검 · AI 레드팀 (금) -->
+<section class="pane" id="p8">
+  <div class="card">
+    <h2>⑦ 캔버스 한눈에 — 근거 색으로</h2>
+    <div class="sub">초록 = 확인 · 노랑 = 일부 · 점선 = 가설. 점선이 많아도 정상입니다 — 어디가 가장 약한지 아는 것이 목표입니다.</div>
+    <div class="bmc" id="bmcView"></div>
+  </div>
+  <div class="card">
+    <h2>연결 점검 — 끊긴 곳 찾기 (자동)</h2>
+    <div class="qgrid" id="linkChk"></div>
+    <div class="qgrid" id="bmcChk" style="display:none"></div>
+  </div>
+  <div class="card">
+    <h2>AI 레드팀 — 심사위원이 찌를 곳 3개</h2>
+    <div class="key"><b class="k">AI는 칸을 채우는 데가 아니라 약점을 찾는 데 씁니다</b>아래 질문을 복사해 AI에게 → 지적 3개를 칸 이름과 함께 옮기고 → 받아들일지 <b>우리 근거로</b> 판단합니다. 모두 「받아들임」이거나 모두 「거절」이면 다시 따져 봅니다.</div>
+    <div class="prompt" id="rtPrompt"></div>
+    <div class="row"><button class="btn ghost" type="button" id="rtCopy">질문 복사</button><span class="note" id="rtReg"></span></div>
+    <div id="rtRows"></div>
+  </div>
+</section>
+
+<!-- 8 위험한 가정 · 갤러리 · 제출 (금) -->
+<section class="pane" id="p6">
+  <div class="card">
+    <h2>⑧-1 가장 위험한 가정 — 중요한데 근거가 약한 칸</h2>
+    <div class="key"><b class="k">틀리면 모델 전체가 무너지는 가정을 먼저 확인한다</b>칸마다 「틀리면 모델이 얼마나 흔들리나」를 고르면, 근거 상태와 함께 지도에 찍힙니다. 오른쪽 위(중요 · 근거 약함)가 12주차에 먼저 확인할 가정입니다.</div>
+    <div id="impRows"></div>
+    <div class="risk" id="riskMap"></div>
+    <div class="fld"><label>가장 위험한 가정 — "[고객]은 [무엇을 보면] [어떻게 행동할 것이다]"</label><input type="text" data-f="ra_1"></div>
+    <div class="grid2">
+      <div class="fld"><label>무엇을 누구에게 보여 주나 (12주차 시안 · 종이 화면)</label><input type="text" data-f="ra_how"></div>
+      <div class="fld"><label>통과 기준 (숫자로)</label><input type="text" data-f="ra_pass" placeholder="예: 5명 중 3명이 조건 입력 화면까지 간다"></div>
+    </div>
+    <div class="fld"><label>틀리면 바뀌는 BMC 칸과 바꿀 방향</label><input type="text" data-f="ra_chg"></div>
+  </div>
+  <div class="card">
+    <h2>⑧-2 갤러리 — 다른 두 팀 캔버스에 한 줄씩</h2>
+    <div class="sub">좋은 점(Like) · 바라는 점(Wish) · 물음(Question). 물음은 그 팀의 「가장 약한 칸」을 겨냥합니다.</div>
+    <div id="galOther"></div>
+    <h3 style="margin-top:14px">우리 팀이 받은 피드백</h3>
+    <div id="galMine"></div>
+    <div class="fld"><label>받은 물음 중 하나에 대한 답 · 고칠 것</label><input type="text" data-f="m_gal_resp"></div>
+  </div>
+  <div class="card">
+    <h2>⑧-3 결정 로그 — "왜"에 답하기</h2>
+    <div class="sub">"왜 이 고객인가, 왜 이 가치 제안인가, 왜 이 수익원인가"에 답하지 못하면 칸만 채운 BMC입니다. 최종 보고서 「사업 모델」 장의 뼈대가 됩니다.</div>
+    <div class="fld"><label>① 이번에 결정한 것</label><textarea data-f="dl1" rows="2"></textarea></div>
+    <div class="fld"><label>② 다른 대안은 무엇이었나</label><textarea data-f="dl2" rows="2"></textarea></div>
+    <div class="fld"><label>③ 이 안을 고른 가장 중요한 근거</label><textarea data-f="dl3" rows="2"></textarea></div>
+    <div class="fld"><label>④ 이 결정 때문에 지난 산출물에서 고칠 것</label><textarea data-f="dl4" rows="2" placeholder="예: 페르소나의 상황을 '시험기간'으로 좁힌다 / 없으면 '없음'"></textarea></div>
+  </div>
+  <div class="card wrapup">
+    <h2>✅ 제출 점검</h2>
+    <div class="qgrid" id="subChk"></div>
+    <div class="row" style="margin-top:10px"><button class="btn gold" id="printBtn" type="button">📄 결과 보고서 PDF (LMS 제출용)</button><button class="btn ghost" id="bkDl" type="button">백업 파일 받기</button><label class="btn ghost" style="display:inline-block">백업 불러오기<input type="file" id="bkUp" accept=".json" style="display:none"></label></div>
+    <p class="note" id="prMsg"><b>11/18 끝날 때:</b> PDF → 팀 구글 드라이브 <b>[팀명]_혁신모델 › 03_회의록_PDF</b> (LMS는 아직 아님).<br><b>11/20 끝날 때:</b> 같은 버튼 → 파일 이름 <b>CAPEC_아이디어BMC_팀명.pdf</b> → <b>LMS 제출</b>. 이 PDF가 최종 보고서 「사업 모델」 장과 발표 BMC 1장의 재료입니다.</p>
+    <label class="qi" style="margin-top:6px"><input type="checkbox" data-ck="wedsaved"><div><b>11/18 PDF를 팀 드라이브에 올렸다</b></div></label>
+    <label class="qi" style="margin-top:6px"><input type="checkbox" data-ck="saved"><div><b>11/20 최종 PDF를 LMS에 냈다</b></div></label>
+  </div>
+</section>
+
+<!-- 현황 -->
+<section class="pane" id="pb">
+  <div class="card">
+    <h2>세 팀 현황 <span class="note">— 강의실 화면에 띄웁니다</span></h2>
+    <div class="row"><button class="btn ghost" id="pbRefresh" type="button">새로고침</button><button class="btn ghost" id="pbBig" type="button">크게 보기</button><span class="note" id="pbMsg"></span></div>
+    <div id="pbBoard"></div>
+  </div>
+</section>
+</div>
+<div class="pv" id="pv"><div class="pvh"><span>결과 보고서 미리보기 — 인쇄 버튼으로 PDF 저장</span><span><button class="btn gold" type="button" id="pvPrint">인쇄 / PDF</button> <button class="btn ghost" type="button" id="pvClose">닫기</button></span></div><iframe id="pvFrame" title="보고서 미리보기"></iframe></div>
+<script>
+(function(){
+var TEAMS=['혁~신','ACE','척살'];
+var T={
+ '혁~신':{m:[['박민성','기록자'],['김승환','리서처'],['최지민','사용자 담당'],['태주환','디자인·발표']],
+  topic:'대학생 장학금 신청 기한 놓침',
+  ps:['시험기간에 학과 단톡방을 늦게 확인하는 자취하는 대학생은','자신에게 해당되는 장학금을 신청기간 안에 신청하고 싶지만','장학금 공지가 학교 공지사항, 단톡방, 커뮤니티 등에 흩어져 있고 자세한 요건은 공지에 직접 들어가 봐야 알 수 있어서 놓치는 것이 많고 신청기간이 지난 뒤에야 알게 되어','신청하지 못하고 장학금을 놓친다'],
+  persona:'홍길동(가명) · 24세 · 3학년 · 자취 · 하루 대부분을 카톡·에브리타임·단톡방에서 확인 · 목표: 요건 되는 장학금을 놓치지 않기',
+  pp:['"자세한 장학금 신청 요건을 장학공지에 들어가서 살펴봐야만 알 수 있어 놓친 장학금이 많다"','"신청하기 위해 필요한 자료가 많다 보니 직접 담당 부서에 가서 신청하는게 편할 지경이었다"','"나는 별로 대상에 선정된 적이 없는 것 같은데"','"시험기간이라서 학과단톡방을 늦게봤는데 장학금 신청기간이 지나 신청하지 못해서 아깝다"'],
+  hmw:['어떻게 하면 학생이 자신이 지원할 수 있는 장학금이 있다는 사실 자체를 몰라서 놓치는 일을 줄일 수 있을까?','어떻게 하면 시험기간처럼 학교 소식을 챙기기 어려운 때에도 신청 기한이 임박한 장학금을 놓치지 않을 수 있을까?','어떻게 하면 공지에 일일이 들어가지 않고도 내가 신청 요건에 맞는지 빠르게 알 수 있을까?','어떻게 하면 여러 곳에 흩어진 장학금 공지를 하나하나 뒤져야 하는 수고를 줄일 수 있을까?','어떻게 하면 학생이 스스로 대상이 아니라고 단정해 신청을 포기하는 일을 줄일 수 있을까?','어떻게 하면 부모님이나 지인의 도움이 없어도 장학금 정보를 제때 얻을 수 있을까?'],
+  comps:[['드림스폰','정보가 많고 모집 현황을 한눈에','필요 없는 정보도 많아 내 것만 알기 어려움'],['한국장학재단','여러 유형 장학금 신청 가능','직접 확인하지 않으면 모름'],['캠퍼스칼라','자격·금액·시기를 보기 쉽게 정리','개인 조건으로 신청 가능 여부 자동 판정은 확인 안 됨'],['장학금 정보 알리미','나에게 맞는 장학금 찾기','결국 학생이 조건을 직접 설정해 찾아야 함']],
+  neg:['학교·기관마다 공지 형식·조건이 달라 정보 수집·최신 유지가 어렵다','장학금 시즌에만 쓰고 이탈 → 매출·이용 유지가 어렵다'],
+  checks:['<b>11/11 판정: 진술문 그대로</b> — 근거 "비슷한 정보들이 많아 찾는데 불편함이 있었음". 오늘 HMW는 <b>11/11 HMW 3개</b>가 맨 위(H1~H3)입니다.','진술문은 <b>"자취하는 대학생"</b>인데, 11/11에 들은 4명은 <b>모두 가족과 거주</b>합니다 → "자취"를 빼거나, 자취생 인터뷰를 [추가 확인]으로 남기기.','기존 서비스 4곳이 이미 <b>"맞춤 찾기"</b>를 합니다 → 아이디어는 그들이 <b>못 하는 지점</b>(요건 자동 판정 · 마감 직전 놓침 · 흩어진 공지)에서.','받은 부정 의견 <b>"시즌에만 쓰고 이탈"</b> → 금요일 BMC <b>고객 관계·수익원</b> 칸에서 답하기.'],
+  twist:[['반대로','학생이 찾지 않아도 장학금이 학생을 찾아온다면?'],['빌려오기','택배 "오늘 도착"처럼 "오늘 마감"을 알려 준다면?'],['극단 사용자','시험기간에 폰을 거의 안 보는 학생이라면?'],['빼기','조건 입력을 거의 빼고 시작한다면? (개인정보 주의)'],['그 순간','단톡방 공지를 늦게 본 바로 그 순간, 무엇이 있었으면?'],['사람','과대·조교·친구가 대신 챙겨 주는 구조라면?'],['돈','학생은 무료, 학교·기관이 돈을 낼 이유가 있다면?'],['합치기','학사 일정·시간표 앱과 합친다면?']],
+  bmcEx:'예(가설): 수익원 — 지불자 후보 2개를 비교 (① 학교·장학재단 홍보 대행 ② 기업 장학처 공고 게재비). 위험한 가정 후보: 학생이 소득분위 같은 조건을 입력할까',
+  hint:{cs:'인터뷰: 자취생 · 시험기간에 공지를 늦게 보는 학생 · 가족과 사는 학생(정보 적음)',rs:'받은 의견 "시즌에만 쓰고 이탈"에 답하는 방식인가?',kp:'학교 장학 부서·한국장학재단 공지 — 데이터를 받을 수 있는지 [확인 필요]'}},
+ 'ACE':{m:[['임성훈','기록자'],['부석현','디자인·발표'],['류연성','리서처'],['이종현','사용자 담당']],
+  topic:'대학생 투자 손절·리밸런싱 기준 부재',
+  ps:['토스증권 앱을 일상적으로 사용하며 정보를 탐색하는 대학생 3학년은','근거 없는 소음에 휘둘리지 않고 객관적 데이터에 기반해 안전하게 투자하고 싶지만','매도/손절 및 리밸런싱의 구체적인 타이밍을 파악하기 어렵고 커뮤니티 소음에 쉽게 불안해하기 때문에','자산을 방치하게 되어 큰 손실을 입거나 불안감 속에 잘못된 판단을 내리기 쉽다'],
+  persona:'김기술(가명) · 22세 · 3학년 · 토스증권 매일 사용 · 종목 토론방·유튜브·오픈채팅으로 정보 · 목표: 수업에 방해받지 않고 폭락 위험을 막기',
+  pp:['주가가 폭락할 때 기준이 없어 언제 팔지(손절·리밸런싱) 몰라 방치하다 큰 손실','커뮤니티의 근거 없는 선동·소음 때문에 갈팡질팡, 스트레스','수업·과제·일상 때문에 장 대응·공부 시간이 부족','원금 손실 공포와 지식 부족으로 시작조차 못 함'],
+  hmw:['어떻게 하면 주가 급락 시 감정적인 판단 대신 데이터에 기반한 명확한 매도·리밸런싱 타점을 잡게 할 수 있을까?','어떻게 하면 바쁜 일정 중에도 자신의 투자 자산을 방치하지 않고 적시에 관리하도록 도울 수 있을까?','어떻게 하면 시장 변동성이나 하락장에서 큰 손실로 이어지는 위험 상황을 사전에 예방할 수 있을까?','어떻게 하면 투자 결과나 운용 변동 이유를 초보 대학생도 쉽게 이해할 수 있는 투명한 설명으로 제공할 수 있을까?','어떻게 하면 원금 손실 공포와 지식 부족으로 투자를 주저하는 대학생이 자신의 가치관에 맞는 테마로 안전하게 첫 투자를 시작하게 할 수 있을까?','어떻게 하면 대학생 사용자가 지속적으로 자산 관리 가치를 느끼고 부담 없이 지불할 수 있는 구독 모델을 구축할 수 있을까?'],
+  comps:[['토스증권','주식 자동 모으기 · 쉬운 화면','리밸런싱은 사용자가 직접 계산해 사고팔아야 함'],['트레이딩뷰','차트·지표·뉴스가 풍부','초보는 무엇이 중요한지 판단하기 어려움'],['SAVE(오선)','실적·거시경제 뉴스를 빠르게','내 보유 종목에 맞춘 판단으로 이어지지 않음'],['인베스팅닷컴','금리·환율 등 지표 실시간','내 포트폴리오 비중 조절까지는 해결 못 함']],
+  neg:['AI를 믿을 수 있나, 보안 구멍은 없나','"매달 돈 내면 뭘 해 주는 건지" 한 줄이 없다'],
+  checks:['<b>11/11 판정: 진술문 그대로</b> — 근거 "전문적이지 않은 글들로 인해 감정적 변화를 느꼈다". 오늘 HMW는 <b>11/11 HMW 3개</b>가 맨 위입니다.','11/11 질문 중 "AI가 타이밍을 알려주면 이용할 의향?"은 <b>답을 정해 놓은 질문</b>입니다 → 의향은 근거로 쓰지 말고, 실제로 한 행동(물타기 · 방치 · 손절)만 근거로.','자동 매도·리밸런싱(투자 일임·자문)은 <b>법적 등록이 필요할 수 있습니다 [확인 필요]</b> → 아이디어마다 <b>"알림·설명(정보 제공)"</b>인지 <b>"자동 실행"</b>인지 표시.','들은 사람이 둘로 갈립니다: <b>투자 1년 이상(손실 경험)</b> / <b>1년 미만(유튜브 의존)</b> → 금요일 BMC 고객 세그먼트를 둘로 나눠 보기.'],
+  twist:[['반대로','사는 법 대신 "멈추는 법·안 사는 법"만 알려 준다면?'],['빌려오기','내비게이션처럼 "이 길 위험" 경고만 준다면?'],['극단 사용자','수업 중이라 장중에 폰을 못 보는 학생이라면?'],['빼기','종목 추천을 완전히 빼면 무엇이 남나?'],['그 순간','-26% 알림을 받은 바로 그 순간, 화면에 무엇이?'],['사람','친구들과 규칙을 함께 정하고 서로 지켜 주는 구조라면?'],['돈','구독료 대신 누가 돈을 낼 수 있나? (증권사·교육)'],['합치기','증권 앱 안의 기능이라면? 따로 앱이라면?']],
+  bmcEx:'예(가설): 범위를 "관심 테마 정보 정리 + 모의 포트폴리오로 배우기"로 좁힌 안 — 자동 매매·추천은 규제 대상일 수 있음 [확인 필요], 범위는 교수 지도',
+  hint:{cs:'인터뷰 A·C(투자 중, 손실 방치) / B(투자 안 함, 손실 공포) — 다른 고객',rs:'"매달 돈 내면 뭘 해 주는지"에 답하는 금액·방식인가? 숫자는 [가정] 표시',kp:'증권사 데이터 연동 · 투자자문 관련 규정 [확인 필요]'}},
+ '척살':{m:[['이성준','기록자'],['김동혁','디자인·발표'],['문서진','리서처'],['박민진','사용자 담당']],
+  topic:'20대 학생의 구독(OTT·앱·쇼핑 멤버십·정기배송) 해지 불편',
+  catchup:true,
+  ps:null,
+  persona:'11/11 강의실 인터뷰 3명(20대 학생) — 쓰지 않는 구독을 해지하려다 메뉴를 찾지 못해 검색·AI에 묻거나, 해지를 미뤄 한 달 치가 더 결제됨',
+  pp:['"구독을 해지하지 않아서 1개월 더 결제가 되었는데 1만원 정도의 비용이 발생해 짜증이 났었음" (11/11)','"앱 서비스가 대체적으로 해지 전에 많은 고민을 유도하려고 해지를 복잡하게 해 놓음" (11/11)','"구독을 해지를 하려면 컴퓨터로 해야 하는 불편함이 있다" (11/11)','(10주차) 50대 부모님: 해지를 몰라 자녀에게 부탁 — 지금 주 고객은 20대 학생'],
+  hmw:null,
+  comps:[['네이버페이·카카오페이 정기결제 관리','정기결제를 모아 보고 결제일 알림','쇼핑몰별 옵션 변경·배송 일시정지는 직접 못 함'],['왓섭','카드·은행 연동 구독 탐색 · 결제 전 알림','쇼핑몰 로그인 벽 때문에 원클릭 해지 불가 · 배송 주기 변경 미비'],['페이인포(금융결제원)','자동이체·자동납부 한곳에서 조회','서비스 자체의 해지·일시정지는 각 앱에서']],
+  neg:['플랫폼마다 해지·변경 절차가 달라 직접 대행·연동이 기술적·제도적으로 어렵다','기존 통합 관리는 모아보기·링크 이동 수준 — 옵션 변경·일시정지는 못 함'],
+  checks:['<b>11/11에 주 고객이 바뀌었습니다</b>: 50대 부모님 정기배송 → <b>구독을 쓰는 20대 학생</b>. 진술문 · HMW는 11/11 것을 씁니다.','반대 사례: 넷플릭스 해지는 <b>3단계 · 약 1분</b>(11/11 직접 확인) → "해지가 어렵다"는 <b>모든 서비스</b>의 문제가 아닙니다. <b>어느 서비스</b>(쿠팡 등)에서 <b>무엇 때문에</b> 막혔는지로 좁힌 아이디어가 강합니다.','손해는 들은 말에 있습니다: <b>"1개월 더 결제 · 1만원"</b> — 해지 메뉴 찾기보다 <b>결제일을 놓치는 것</b>이 진짜 손해일 수 있음 → 아이디어 후보에 넣어 보기.','기존 서비스(네이버·카카오페이, 왓섭, 페이인포)가 <b>"모아보기·결제 알림"은 이미 합니다</b> · 다크 패턴 규정은 <b>[확인 필요]</b>, 단정하지 않기.'],
+  twist:[['반대로','쇼핑몰이 먼저 "다음 배송 멈출까요?"라고 묻는다면?'],['빌려오기','택시 앱 "도착 5분 전"처럼 결제 3일 전에 한 번에 결정하게 한다면?'],['극단 사용자','글씨가 잘 안 보이는 60대 / 바쁜 자취생이라면?'],['빼기','로그인·메뉴 찾기를 빼고 문자 한 통으로 끝낸다면?'],['그 순간','"아 해지 안 했네" — 카드 결제 문자를 본 바로 그 순간, 무엇이 있었으면?'],['사람','자녀가 부모님 구독을 원격으로 대신 관리해 준다면?'],['돈','해지 대신 "일시정지"로 고객을 지키면 쇼핑몰이 돈을 낼까?'],['합치기','카드사 결제 알림 + 쇼핑몰 변경 버튼을 합친다면?']],
+  bmcEx:'예(가설): 위험한 가정 후보 — 사용자가 구독 정보를 직접 등록할까 / 쇼핑몰이 일시정지 연동을 허락할까 [확인 필요]',
+  hint:{cs:'11/11 인터뷰 근거: 20대 학생 3명(OTT·앱·쿠팡 구독) · 10주차 50대 부모님 1명은 보조 고객 후보',rs:'누가 돈을 내나 — 이용자? 쇼핑몰(해지 방지)? 숫자는 [가정] 표시',kp:'쇼핑몰·카드사 연동 가능 여부 [확인 필요]'}}
+};
+
+/* 11/11 강의실 인터뷰 워크시트(ec11p) 결과 — 11/17 기준 사본. 진술문 · HMW는 이것을 기준으로 씁니다 */
+var P11={"척살": {"ps": ["구독 서비스를 사용하는 20대 학생은", "구독을 원활하게 해지하고 싶은데", "정기 구독을 해지하는 화면이 잘 나타내지 않아서 번거롭고 복잡해서", "불필요한 월 구독 이용료를 잃음"], "hmw": ["어떻게 하면 구독 서비스를 사용하는 20대 학생이 복잡하고 찾아보기 힘든 해지 절차 없이, 자신의 구독 서비스를 한눈에 알아보고 필요 없는 구독 서비스를 해지할 수 있을까?", "어떻게 하면 구독 서비스를 사용하는 20대 학생이 해지 과정에서 불필요한 시간과 돈을 낭비하지 않고 원하는 구독을 해지할 수 있을까?", "어떻게 하면 구독 서비스를 사용하는 20대 학생이 복잡한 절차에 어려움을 겪지 않고 몇 번의 간단한 과정만으로 원하는 구독을 쉽고 정확하게 해지할 수 있을까?"], "rep": "2", "why": "원치 않는 결제와 번거로운 절차를 피하고 싶다\n구독 해지 과정에서 발생하는 복잡한 절차와 불필요한 시간, 비용 낭비를 줄여, 20대 학생이 원하는 구독을 쉽고 합리적으로 해지할 수 있기 때문이다.", "dec": "그대로 — 들은 말이 지지", "decw": "해지하는 방법이 어려워 직접 찾아봐야 했다 - 1라운드, 혁~신 학생"}, "혁~신": {"ps": ["시험기간에 학과 단톡방을 늦게 확인하고, 공지가 와도 잠깐 보고 넘기기 쉬운 자취하는 대학생은", "자신에게 해당되는 장학금을 신청기간 안에 신청하고 싶지만", "비슷한 장학 공지가 학교 공지사항·단톡방·커뮤니티 등 여러 곳에 많이 흩어져 있어 찾기 어렵고, 자세한 요건은 공지에 직접 들어가 봐야 알 수 있어서 놓치는 일이 많아", "신청기간이 지난 뒤에야 알게 되어, 한 학기 수십만~수백만 원의 장학금을 받지 못한다"], "hmw": ["어떻게 하면 시험기간에 바쁜 대학생이 여러 곳에 흩어진 비슷한 장학 공지를 하나하나 뒤지지 않고도 자신에게 해당되는 장학금을 찾을 수 있을까?", "어떻게 하면 공지를 잠깐 보고 넘기기 쉬운 대학생이 공지에 직접 들어가 보지 않고도 자신이 신청 요건에 맞는지 바로 알 수 있을까?", "어떻게 하면 단톡방을 늦게 확인하는 대학생이 신청기간이 지난 뒤에야 알게 되어 받을 수 있던 장학금을 놓치는 일을 줄일 수 있을까?"], "rep": "2", "why": "지원 하고 싶은 지원금이 있어서 신청 요건을 알아보는 것에 많은 시간을 쓰는 학생들이 있기 때문에", "dec": "그대로 — 들은 말이 지지", "decw": "\"비슷한 정보들이 많아 찾는데 불편함이 있었음\" — (2라운드 · ACE 학생)"}, "ACE": {"ps": ["토스증권 앱을 일상적으로 사용하며 정보를 탐색하는 대학생 3학년은", "근거 없는 소음에 휘둘리지 않고 객관적 데이터에 기반해 안전하게 투자하고 싶지만", "매도/손절 및 리밸런싱의 구체적인 타이밍을 파악하기 어렵고 커뮤니티 소음에 쉽게 불안해하기 때문에", "자산을 방치하게 되어 큰 손실을 입거나 불안감 속에 잘못된 판단을 내리기 쉽다"], "hmw": ["어떻게 하면 주가 급락 시 감정적인 판단 대신 데이터에 기반한 명확한 매도·리밸런싱 타점을 잡게 할 수 있을까?", "어떻게 하면 원금 손실 공포와 지식 부족으로 투자를 주저하는 대학생이 자신의 가치관에 맞는 테마로 안전하게 첫 투자를 시작하게 할 수 있을까?", "어떻게 하면 시장 변동성이나 하락장에서 큰 손실로 이어지는 위험 상황을 사전에 예방할 수 있을까?"], "rep": "1", "why": "어떻게 하면 감정적인 판단 대신 현명하고 객관적이게 판단할 수 있을까?", "dec": "그대로 — 들은 말이 지지", "decw": "전문적이지 않은 글들로인해 감정적 변화를 느꼈다"}};
+Object.keys(P11).forEach(function(k){var t=T[k],p=P11[k];if(!t||!p)return;if(p.ps&&p.ps.every(Boolean)){t.ps=p.ps;t.catchup=false;}
+ var old=(t.hmw||[]).filter(function(x){return p.hmw.indexOf(x)<0;});t.hmw=p.hmw.concat(old);t.h11=p.hmw.length;t.hrep=parseInt(p.rep,10)||0;});
+var TK={
+ '혁~신':{obj:'장학 공지',step:'조건을 찾아 읽는 일',rev:'장학금이 학생을 먼저 찾아온다면?',
+  ext:['처음 학교 시스템을 쓰는 신입생이라면?','휴학 뒤 복학한 학생이라면?','시험 3일 전, 단톡방을 끈 학생이라면?','방학이라 고향에 내려간 학생이라면?','가족과 살아 정보가 적은 학생이라면?','한국어 공지가 어려운 유학생이라면?'],
+  worst:['어떻게 하면 학생이 장학금을 확실히 놓치게 만들까? → 그걸 뒤집으면?','공지를 최대한 찾기 어렵게 만드는 방법은? → 하나씩 뒤집기','신청 서류를 가장 귀찮게 만드는 방법은? → 뒤집기']},
+ 'ACE':{obj:'매도·리밸런싱 판단',step:'시세창을 계속 보는 일',rev:'사기 전에 팔 기준부터 정한다면?',
+  ext:['투자를 아직 한 번도 안 해 본 학생이라면?','지금 -50% 손실 중인 학생이라면?','수업이 4시간 연속인 날이라면?','시드가 30만 원뿐이라면?','부모님 돈을 대신 관리한다면?','증권 앱을 쓰기 싫어하는 친구라면?'],
+  worst:['어떻게 하면 초보가 폭락장에서 최악의 선택을 하게 만들까? → 뒤집으면?','커뮤니티 소음을 최대로 키우는 방법은? → 뒤집기','수업 중에 계좌를 완전히 방치하게 만드는 방법은? → 뒤집기']},
+ '척살':{obj:'구독 해지·변경 메뉴',step:'앱에 로그인해 메뉴를 찾는 일',rev:'결제 전에 쇼핑몰이 먼저 물어본다면?',
+  ext:['휴대폰 글씨를 최대로 키운 70대라면?','자녀가 대신 관리해 주는 부모님이라면?','구독이 7개인 사람이라면?','해외 출장 중이라 앱을 못 여는 사람이라면?','자취 1년차라 생필품 양을 모르는 학생이라면?','이번 달만 쉬고 싶은 사람이라면?'],
+  worst:['어떻게 하면 해지를 절대 못 하게 만들까? → 뒤집으면?','부모님이 혼자서는 못 하게 만드는 화면은? → 뒤집기','결제일을 확실히 잊게 만드는 방법은? → 뒤집기']}};
+var BORROW=['쿠팡 "오늘 도착"처럼 시점을 약속한다면?','토스처럼 숨은 돈(놓친 혜택·손실)을 찾아 준다면?','배민처럼 흩어진 것을 한 화면에 모은다면?','당근처럼 같은 학교·동네 사람끼리 연결한다면?','넷플릭스처럼 내 기록으로 골라 준다면?','카카오T처럼 지금 상태를 실시간으로 보여 준다면?','헬스장 PT처럼 사람이 옆에서 챙겨 준다면?','게임 퀘스트처럼 단계마다 보상을 준다면?'];
+var DEAL=['구독 — 매달 무엇을 해 주고 얼마를 받나?','중개 — 누구와 누구를 이어 주고 수수료를 받나?','공동구매·단체 — 여럿이 모이면 무엇이 싸지나?','광고·스폰서 — 누가 왜 여기에 돈을 낼까?','부분 유료 — 무료로 주고 무엇을 유료로?','B2B — 학생 대신 학교·기업·기관이 산다면?','라이브커머스·SNS 콘텐츠로 푼다면? (1·2단계 경험)','제휴 — 이미 있는 앱 안에 들어간다면?'];
+function tools(){var t=T[team],k=TK[team],hs=hsel(),L=hmwList();
+ return [['생각 틀기',t.twist.map(function(w){return '['+w[0]+'] '+w[1];})],
+  ['SCAMPER',['S 대체: '+k.obj+'을(를) 사람·문자·종이로 바꾼다면?','C 결합: '+k.obj+' + 학교·카톡·캘린더를 합친다면?','A 응용: 병원 예약·택배 조회에서 쓰는 방식을 가져온다면?','M 확대·축소: 한 번에 딱 하나만 / 1년 치를 한눈에 보여 준다면?','P 다른 용도: 이 정보를 학교·부모·기업이 쓴다면?','E 없애기: '+k.step+'을(를) 아예 없앤다면?','R 뒤집기: '+k.rev]],
+  ['빌려오기',BORROW],['극단 사용자',k.ext],['거래 구조',DEAL],['반대로',k.worst],
+  ['HMW 쪼개기',(hs.length?hs:[1,2]).filter(function(i){return L[i-1];}).reduce(function(a,i){return a.concat(['H'+i+' — 돈이 하나도 안 드는 방법은?','H'+i+' — 앱 없이 사람이 해 준다면?','H'+i+' — 내일 당장 종이·카톡으로 해 본다면?','H'+i+' — 100배 많은 사람이 쓴다면?']);},[])]];}
+var curTool=0;
+var BL=[
+ ['cs','고객 세그먼트','누가 가장 먼저 쓰나? <b>2개 이상</b> — 주 고객 + 다른 고객(돈 내는 쪽일 수도)','진술문의 "누가"'],
+ ['vp','가치 제안','고객이 얻는 것 <b>2개 이상</b> — 첫 줄은 4번 탭 문장','4번 탭 가치 제안 문장'],
+ ['ch','채널','고객이 우리를 <b>어떻게 알고, 어디서</b> 쓰나? "SNS로 홍보"처럼 막연하면 안 됨 — 인지 → 관심 → 신뢰 → 전환','SNS 단계: 인지·관심·신뢰·전환'],
+ ['cr','고객 관계','한 번 쓰고 끝나지 않게 — <b>다시 오게 하는 장치</b>는? (알림·기록·커뮤니티·자동화)','받은 부정 의견'],
+ ['rs','수익원','<b>누가 · 얼마를 · 어떤 방식으로</b> 내나? <b>숫자 필수</b> (예: 월 2,900원 구독 [가정])','라이브커머스 원가·수익률 계산'],
+ ['kr','핵심 자원','이게 없으면 서비스가 안 되는 것 — 데이터 · 기술 · 사람',''],
+ ['ka','핵심 활동','매일·매주 우리가 해야 하는 일','장면 3줄'],
+ ['kp','핵심 파트너','우리 혼자 못 하는 것을 <b>누가</b> 해 주나? 협의 가능 여부는 [확인 필요]',''],
+ ['cost','비용 구조','가장 큰 비용 <b>3개</b> — 무엇에 돈이 가장 많이 드나','']];
+var IDN=12, KEY='capec-w11-', PFX='ec11:';
+var team='', me='', S=null, curDay='w';
+function $(i){return document.getElementById(i);}
+function esc(s){return String(s==null?'':s).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];});}
+function lsGet(k){try{return localStorage.getItem(k);}catch(e){return null;}}
+function lsSet(k,v){try{localStorage.setItem(k,v);return true;}catch(e){return false;}}
+function blank(){return {f:{},chk:{},_at:0};}
+function F(k){return S&&S.f[k]!=null?String(S.f[k]):'';}
+function C(k){return !!(S&&S.chk[k]);}
+function members(){return team?T[team].m.map(function(x){return x[0];}):[];}
+function here(){var a=members().filter(function(n){return F('here_'+n)==='1';});return a;}
+function J(k,d){try{var v=JSON.parse(F(k));return v==null?d:v;}catch(e){return d;}}
+var lsWarned=false;
+function save(){if(!team)return;S._at=Date.now();if(!lsSet(KEY+team,JSON.stringify(S))&&!lsWarned){lsWarned=true;alert('이 브라우저에 저장할 수 없습니다(사생활 보호 모드?). 공유 서버에는 계속 올라갑니다. 끝나면 꼭 PDF를 받으세요.');}progress();syncKick();}
+
+/* ---------- 팀 ---------- */
+function renderTeams(){$('teams').innerHTML=TEAMS.map(function(t){return '<button type="button" class="tcard'+(t===team?' on':'')+'" data-t="'+esc(t)+'"><b>'+esc(t)+'</b><span>'+esc(T[t].topic)+'</span><span>'+T[t].m.map(function(x){return esc(x[0]);}).join(' · ')+'</span></button>';}).join('');}
+$('teams').addEventListener('click',function(e){var b=e.target.closest('.tcard');if(b)pick(b.dataset.t);});
+function pick(t){team=t;try{S=JSON.parse(lsGet(KEY+t))||blank();}catch(e){S=blank();}if(!S.f)S.f={};if(!S.chk)S.chk={};
+ lsSet(KEY+'team',t);me=lsGet(KEY+t+':me')||'';if(members().indexOf(me)<0)me='';
+ renderTeams();$('meBox').style.display='block';
+ $('meSel').innerHTML='<option value="">내 이름 고르기</option>'+T[t].m.map(function(x){return '<option'+(x[0]===me?' selected':'')+'>'+esc(x[0])+'</option>';}).join('');
+ $('planCatch').style.display=T[t].catchup?'inline':'none';
+ renderHandoff();renderAll();progress();syncStart();}
+$('meSel').addEventListener('change',function(){me=this.value;lsSet(KEY+team+':me',me);if(me&&F('here_'+me)!=='1'){S.f['here_'+me]='1';save();}renderAll();});
+function role(n){var r='';T[team].m.forEach(function(x){if(x[0]===n)r=x[1];});return r;}
+function psText(){var t=T[team];if(t.ps)return t.ps.join(' ');var a=[F('c_who'),F('c_want'),F('c_why'),F('c_res')];return a.some(Boolean)?a.join(' ').trim():'';}
+function hmwList(){var t=T[team];if(t.hmw)return t.hmw;return [1,2,3,4].map(function(i){return F('c_hmw'+i).trim();}).filter(Boolean);}
+function ppList(){return team&&T[team]?T[team].pp:[];}
+function renderHandoff(){var t=T[team];
+ var h='<div class="brief"><div class="brh"><b>'+esc(team)+'</b><span>'+esc(t.topic)+'</span></div>'+
+  '<div class="brs"><div class="brl">문제 진술문</div><div>'+(t.ps?esc(t.ps.join(' ')):'<span class="miss">비어 있음 → 1번 탭 0단계</span>')+'</div></div>'+
+  '<div class="brs"><div class="brl">페르소나</div><div>'+esc(t.persona)+'</div></div>'+
+  '<div class="brs"><div class="brl">Pain Point</div><div>'+t.pp.map(function(x){return '• '+esc(x);}).join('<br>')+'</div></div>'+
+  '<div class="brs"><div class="brl">HMW</div><div>'+(t.hmw?t.hmw.length+'개 → 1번 탭에서 고르기':'<span class="miss">비어 있음 → 0단계</span>')+'</div></div>'+
+  '<div class="brs"><div class="brl">기존 서비스</div><div>'+t.comps.map(function(c){return '<b>'+esc(c[0])+'</b> — 못 하는 것: '+esc(c[2]);}).join('<br>')+'</div></div>'+
+  '<div class="brs"><div class="brl">받은 부정 의견</div><div>'+t.neg.map(function(x){return '• '+esc(x);}).join('<br>')+'</div></div></div>';
+ $('handoff').innerHTML=h;
+ $('checks').innerHTML=t.checks.map(function(c){return '<div class="qi ng"><span class="qs">!</span><div>'+c+'</div></div>';}).join('');
+ $('catchCard').style.display=t.catchup?'block':'none';}
+
+/* ---------- 필드 바인딩 ---------- */
+function fillFields(root){var ae=document.activeElement;(root||document).querySelectorAll('[data-f]').forEach(function(el){var v=F(el.dataset.f);if(el.value!==v&&el!==ae)el.value=v;var dis=!team||(el.dataset.mine&&!me);el.disabled=dis;});
+ (root||document).querySelectorAll('[data-ck]').forEach(function(el){el.checked=C(el.dataset.ck);el.disabled=!team;});if(typeof renderLost==='function'&&team){try{renderLost();lockMark();}catch(e){}}}
+document.addEventListener('input',function(e){var el=e.target;if(!team)return;if(el.dataset.f!=null){S.f[el.dataset.f]=el.value;save();live(el.dataset.f);}});
+document.addEventListener('change',function(e){var el=e.target;if(!team)return;
+ if(el.dataset.f!=null&&el.tagName==='SELECT'){S.f[el.dataset.f]=el.value;save();live(el.dataset.f);}
+ if(el.dataset.ck!=null){S.chk[el.dataset.ck]=el.checked;save();live('c:'+el.dataset.ck);}});
+function live(k){
+ if(/^c_/.test(k)){renderHmw();if(curPane==='p0')renderHandoff();}
+ if(/^id_/.test(k)){renderIdeaCount();renderAllIdeas();$('myCnt').textContent='· '+myCount(me)+'개';}
+ if(k==='pick'){$('mergeFld').style.display=F('pick')==='x'?'block':'none';renderPickShow();}
+ if(/^vp_/.test(k)||/^c:pp/.test(k)){renderVp();}
+ if(/^b_|^bo_/.test(k))renderBmcView();
+ if(k==='cname'||k==='pickMerge')renderPickShow();if(/^c_/.test(k))renderAi();
+ if(curPane==='p6')$('subChk').innerHTML=subHtml();}
+function renderAll(){if(!team)return;renderAi();renderHmw();renderTwists();renderMyIdeas();renderAllIdeas();renderVotes();renderScores();renderPickSel();renderPickShow();renderVp();renderComp();renderBlocks();renderBmcView();fillFields();$('mergeFld').style.display=F('pick')==='x'?'block':'none';$('subChk').innerHTML=subHtml();}
+
+/* ---------- 1 출발 질문 ---------- */
+function renderHmw(){var L=hmwList();if(!L.length){$('hmwPick').innerHTML='<div class="lock">'+(T[team].catchup?'위 0단계에서 HMW를 먼저 쓰세요.':'HMW가 없습니다.')+'</div>';$('hmwMsg').textContent='';return;}
+ $('hmwPick').innerHTML=L.map(function(h,i){var T_=T[team],tag=(T_.h11&&i<T_.h11)?' <span class="note" style="color:var(--navy2)">11/11'+(T_.hrep===i+1?' · <b>팀 투표 대표</b>':'')+'</span>':' <span class="note">10주차</span>';return '<label class="qi'+(C('h'+(i+1))?' ok':'')+'"><input type="checkbox" data-ck="h'+(i+1)+'"><div><b>H'+(i+1)+'</b> '+esc(h)+tag+'</div></label>';}).join('');
+ fillFields($('hmwPick'));var n=hsel().length;$('hmwMsg').innerHTML=n<2?'<span class="miss">'+n+'개 골랐습니다 — 2~3개 고르세요.</span>':(n>3?'<span class="miss">'+n+'개 — 3개 이하로 줄이면 아이디어가 깊어집니다.</span>':'<b style="color:var(--okc)">'+n+'개 — 좋습니다. 2번 탭으로.</b>');}
+document.addEventListener('change',function(e){if(e.target.dataset&&/^h\d$/.test(e.target.dataset.ck||'')){setTimeout(function(){renderHmw();renderMyIdeas();renderAi();},0);}});
+function hsel(){var L=hmwList();return L.map(function(h,i){return i+1;}).filter(function(i){return C('h'+i);});}
+
+/* ---------- 2 아이디어 ---------- */
+function mi(n){return members().indexOf(n);}
+function ideaKey(n,i,p){return 'id_'+mi(n)+'_'+i+'_'+p;}
+function myCount(n){var c=0;for(var i=1;i<=IDN;i++)if(F(ideaKey(n,i,'t')).trim())c++;return c;}
+function allIdeas(){var a=[];members().forEach(function(n){for(var i=1;i<=IDN;i++){var t=F(ideaKey(n,i,'t')).trim();if(t)a.push({id:'m'+mi(n)+'i'+i,who:n,t:t,d:F(ideaKey(n,i,'d')).trim(),h:F(ideaKey(n,i,'h')),k:F(ideaKey(n,i,'k')),q:F(ideaKey(n,i,'q'))});}});return a;}
+function ideaById(id){var r=null;allIdeas().forEach(function(x){if(x.id===id)r=x;});return r;}
+function used(n,i){return !!(F(ideaKey(n,i,'t')).trim()||F(ideaKey(n,i,'q'))||F(ideaKey(n,i,'k')));}
+function nextSlot(){for(var i=1;i<=IDN;i++)if(!used(me,i))return i;return 0;}
+function addIdea(tool,q){if(!me){alert('팀 탭에서 내 이름을 먼저 고르세요.');return;}var i=nextSlot();if(!i){alert('아이디어 칸 '+IDN+'개를 다 썼습니다. 빈 칸을 지우거나 팀원 것에 얹어 보세요.');return;}
+ S.f[ideaKey(me,i,'k')]=tool;S.f[ideaKey(me,i,'q')]=q;save();renderMyIdeas();var el=document.querySelector('[data-f="'+ideaKey(me,i,'t')+'"]');if(el){el.focus();el.scrollIntoView({block:'center',behavior:'smooth'});}}
+function renderTwists(){if(!team)return;var TT=tools();if(curTool>=TT.length)curTool=0;
+ var cnt={};allIdeas().forEach(function(x){if(x.k)cnt[x.k]=(cnt[x.k]||0)+1;});
+ $('toolTabs').innerHTML=TT.map(function(t,i){return '<button type="button" class="tab'+(i===curTool?' on':'')+'" data-tt="'+i+'">'+esc(t[0])+'<i>'+(cnt[t[0]]||0)+'</i></button>';}).join('');
+ $('toolBody').innerHTML='<div class="tk">'+TT[curTool][1].map(function(q,j){return '<button type="button" data-q="'+j+'">'+esc(q)+'</button>';}).join('')+'</div>';
+ var un=TT.filter(function(t){return !cnt[t[0]];}).map(function(t){return t[0];});
+ $('toolUse').innerHTML=un.length?'팀이 아직 안 쓴 도구: <b class="miss">'+un.map(esc).join(' · ')+'</b>':'<b style="color:var(--okc)">7개 도구를 모두 써 봤습니다</b>';
+ var hv=here().length||members().length,goal=Math.max(8,hv*5),n=allIdeas().length;$('ideaGoal').innerHTML='팀 '+n+' / '+goal+'개'+(n>=goal?' 🎉':'');}
+$('toolTabs').addEventListener('click',function(e){var b=e.target.closest('[data-tt]');if(!b)return;curTool=+b.dataset.tt;renderTwists();});
+$('toolBody').addEventListener('click',function(e){var b=e.target.closest('[data-q]');if(!b)return;var TT=tools();addIdea(TT[curTool][0],TT[curTool][1][+b.dataset.q]);});
+$('diceBtn').addEventListener('click',function(){var TT=tools(),t=TT[Math.floor(Math.random()*TT.length)];addIdea(t[0],t[1][Math.floor(Math.random()*t[1].length)]);});
+$('blankBtn').addEventListener('click',function(){addIdea('직접 쓰기','');});
+function renderMyIdeas(){if(!me){$('myIdeas').innerHTML='<div class="lock">팀 탭에서 <b>내 이름</b>을 먼저 고르세요.</div>';$('myCnt').textContent='';return;}
+ var hs=hsel(),c=myCount(me);$('myCnt').textContent='· '+c+'개';
+ var opt='<option value="">연결 HMW</option>'+hs.map(function(i){return '<option value="'+i+'">H'+i+'</option>';}).join('')+'<option value="0">기타</option>';
+ var h='',any=false;for(var i=1;i<=IDN;i++){if(!used(me,i))continue;any=true;var q=F(ideaKey(me,i,'q')),k=F(ideaKey(me,i,'k'));
+  h+='<div class="idea"><div class="ih"><b>'+i+'</b>'+(k&&k!=='직접 쓰기'?'<span class="chip">'+esc(k)+'</span>':'')+'<select data-f="'+ideaKey(me,i,'h')+'" data-mine="1" style="width:auto">'+opt+'</select><button type="button" class="x" data-del="'+i+'" title="이 카드 비우기">✕</button></div>'+(q?'<div class="iq">'+esc(q)+'</div>':'')+
+  '<input type="text" data-f="'+ideaKey(me,i,'t')+'" data-mine="1" placeholder="아이디어 한 줄" maxlength="80">'+
+  '<input type="text" data-f="'+ideaKey(me,i,'d')+'" data-mine="1" placeholder="어떻게? (선택)" style="margin-top:4px" maxlength="140"></div>';}
+ if(!any)h='<div class="lock">위 도구에서 질문을 하나 누르거나 <b>＋ 그냥 쓰기</b>를 누르세요.</div>';
+ $('myIdeas').innerHTML=h;fillFields($('myIdeas'));}
+$('myIdeas').addEventListener('click',function(e){var b=e.target.closest('[data-del]');if(!b||!me)return;var i=+b.dataset.del;['t','d','h','k','q'].forEach(function(p){S.f[ideaKey(me,i,p)]='';});save();renderMyIdeas();renderTwists();renderAllIdeas();});
+$('allIdeas').addEventListener('click',function(e){var b=e.target.closest('[data-pb]');if(!b)return;var x=ideaById(b.dataset.pb);if(x)addIdea('얹기','↳ '+x.who+': '+x.t+' — 여기에 더하거나 바꾸면?');});
+function renderIdeaCount(){var a=allIdeas();$('ideaCount').textContent='· '+a.length+'개';try{renderTwists();}catch(e){}}
+function renderAllIdeas(){renderIdeaCount();if(!me){$('allIdeas').innerHTML='<div class="lock">이름을 고르세요.</div>';return;}
+ if(myCount(me)<2){$('allIdeas').innerHTML='<div class="lock">🔒 내 아이디어 <b>2개</b>를 쓰면 열립니다 — 지금 '+myCount(me)+'개<br><span class="note">팀원 진행: '+members().map(function(n){return esc(n)+' '+myCount(n);}).join(' · ')+'</span></div>';return;}
+ var L=hmwList();$('allIdeas').innerHTML=members().map(function(n){var my=allIdeas().filter(function(x){return x.who===n;});
+  return '<div class="mh">'+esc(n)+' <span class="note">'+my.length+'개</span></div>'+(my.length?'<div class="ideas">'+my.map(function(x){return '<div class="ic"><b>'+esc(x.t)+'</b>'+(x.d?'<span>'+esc(x.d)+'</span>':'')+'<small>'+(x.k?esc(x.k)+' · ':'')+(x.h&&x.h!=='0'?'H'+esc(x.h):'기타')+'</small><br><button type="button" class="pb2" data-pb="'+x.id+'">↳ 얹기</button></div>';}).join('')+'</div>':'<p class="note">아직 없음</p>');}).join('');}
+
+function aiText(){if(!team)return '';var L=hmwList(),hs=hsel(),hm=(hs.length?hs:[1,2,3]).filter(function(i){return L[i-1];}).map(function(i){return 'HMW '+i+': '+L[i-1];}).join('\n');
+ return '너는 전자상거래 서비스 기획자다. 아래 질문에 대해 아이디어를 10개 내라. 각 아이디어는 한 줄 컨셉 + 어떤 거래·구독·중개 구조인지 한 줄. 실존 서비스 이름이나 통계를 지어내지 마라.\n\n[고객] '+(T[team].catchup?(F('c_who')||'-'):T[team].persona.replace(/^[^·]*·\s*/,''))+'\n[핵심 불편] '+T[team].pp.slice(0,2).join(' / ')+'\n'+(hm||'[HMW를 먼저 고르세요]')+'\n\n번호를 붙여 표로: 번호 | 컨셉 | 구조 | 어느 HMW';}
+function renderAi(){$('aiPrompt').textContent=aiText();}
+$('aiCopy').addEventListener('click',function(){var t=aiText();function ok(){$('aiMsg').innerHTML='<b style="color:var(--okc)">복사했습니다.</b> AI 답의 서비스 이름·숫자는 사실 확인 전까지 쓰지 않습니다.';}
+ function fb(){var a=document.createElement('textarea');a.value=t;document.body.appendChild(a);a.select();try{document.execCommand('copy');ok();}catch(e){$('aiMsg').textContent='복사가 막혔습니다. 위 글을 길게 눌러 복사하세요.';}a.remove();}
+ if(navigator.clipboard&&navigator.clipboard.writeText)navigator.clipboard.writeText(t).then(ok,fb);else fb();});
+
+/* ---------- 3 고르기 ---------- */
+function votesOf(n){var v=J('vt_'+mi(n),[]);return Array.isArray(v)?v.filter(function(id){return !!ideaById(id);}):[];}
+function tally(){var m={};members().forEach(function(n){votesOf(n).forEach(function(id){m[id]=(m[id]||0)+1;});});return m;}
+function shortlist(){var tl=tally(),a=allIdeas().filter(function(x){return tl[x.id];}).sort(function(x,y){return tl[y.id]-tl[x.id];});
+ if(a.length<=3)return a;var cut=tl[a[2].id];return a.filter(function(x,i){return i<3||tl[x.id]===cut;}).slice(0,5);}
+function renderVotes(){if(!me){$('voteBox').innerHTML='<div class="lock">이름을 고르세요.</div>';return;}
+ var a=allIdeas(),mine=votesOf(me),tl=tally(),done=mine.length>=3;
+ if(a.length<3){$('voteBox').innerHTML='<div class="lock">팀 아이디어가 3개 이상 모이면 투표할 수 있습니다.</div>';$('voteMsg').textContent='';return;}
+ var ownV=mine.filter(function(id){var x=ideaById(id);return x&&x.who===me;}).length;
+ $('voteBox').innerHTML='<div class="ideas">'+a.map(function(x){var on=mine.indexOf(x.id)>=0,dis=!on&&(mine.length>=3||(x.who===me&&ownV>=1));
+  return '<div class="ic vt'+(on?' on':'')+(dis?' dis':'')+'" data-v="'+x.id+'">'+(done?'<span class="vc">'+(tl[x.id]||0)+'표</span>':'')+'<b>'+(on?'✔ ':'')+esc(x.t)+'</b><small>'+esc(x.who)+(x.who===me?' (나)':'')+'</small></div>';}).join('')+'</div>';
+ var hv=here(),notYet=hv.filter(function(n){return votesOf(n).length<3;});
+ $('voteMsg').innerHTML='내 표 <b>'+mine.length+'/3</b>'+(done?' · 팀 표가 열렸습니다':' · 3표를 다 쓰면 팀 표가 보입니다')+(notYet.length?' · 아직: '+notYet.map(esc).join(', '):' · <b style="color:var(--okc)">모두 투표 완료</b>');}
+$('voteBox').addEventListener('click',function(e){var b=e.target.closest('.ic.vt');if(!b||!me||b.classList.contains('dis'))return;var id=b.dataset.v,v=votesOf(me),i=v.indexOf(id);if(i>=0)v.splice(i,1);else if(v.length<3)v.push(id);S.f['vt_'+mi(me)]=JSON.stringify(v);save();renderVotes();renderScores();renderPickSel();});
+var CR=[['e','① 근거'],['s','② 구조'],['d','③ 차별성'],['f','④ 6주 실현']];var SC=[1,2,3];
+function scK(n,id,c){return 'sc_'+mi(n)+'_'+id+'_'+c;}
+function myScDone(n,sl){return sl.length&&sl.every(function(x){return CR.every(function(c){return F(scK(n,x.id,c[0]));});});}
+function renderScores(){var sl=shortlist();if(!me){$('scoreBox').innerHTML='<div class="lock">이름을 고르세요.</div>';return;}
+ if(!sl.length){$('scoreBox').innerHTML='<div class="lock">투표가 끝나면 후보가 여기에 나옵니다.</div>';return;}
+ if(votesOf(me).length<3){$('scoreBox').innerHTML='<div class="lock">🔒 내 3표를 먼저 쓰세요.</div>';return;}
+ var mineDone=myScDone(me,sl),hv=here().length?here():members(),tl=tally();
+ var h='<div class="tscroll"><table><tr><th>후보</th>'+CR.map(function(c){return '<th>'+c[1]+' <span class="note">(나)</span></th>';}).join('')+(mineDone?CR.map(function(c){return '<th>'+c[1]+' 팀</th>';}).join('')+'<th>합계</th>':'')+'</tr>';
+ sl.forEach(function(x){h+='<tr><td><b>'+esc(x.t)+'</b><br><span class="note">'+esc(x.who)+' · '+(tl[x.id]||0)+'표</span></td>';
+  CR.forEach(function(c){var k=scK(me,x.id,c[0]),v=F(k);h+='<td><span class="sel5" data-k="'+k+'">'+SC.map(function(s){return '<button type="button" class="'+(v===String(s)?'on':'')+'" data-s="'+s+'">'+s+'</button>';}).join('')+'</span></td>';});
+  if(mineDone){var tot=0;CR.forEach(function(c){var vals=hv.map(function(n){return +F(scK(n,x.id,c[0]))||0;}).filter(Boolean),gap=vals.length>1&&(Math.max.apply(null,vals)-Math.min.apply(null,vals))>=2,s=vals.reduce(function(a,b){return a+b;},0);tot+=s;
+    h+='<td class="'+(gap?'gap':'')+'" title="'+hv.map(function(n){return n+': '+(F(scK(n,x.id,c[0]))||'-');}).join(', ')+'">'+s+' <span class="note">('+vals.join('·')+')</span>'+(gap?' ⚠':'')+'</td>';});var ev=hv.map(function(n){return +F(scK(n,x.id,'e'))||0;}).filter(Boolean),out=ev.length&&ev.reduce(function(p,q){return p+q;},0)/ev.length<1.5;h+='<td class="tot">'+(out?'<span class="miss">탈락</span><br><span class="note">'+tot+'</span>':tot)+'</td>';}
+  h+='</tr>';});
+ h+='</table></div>';
+ var notYet=hv.filter(function(n){return !myScDone(n,sl);});
+ h+='<p class="note">'+(mineDone?'⚠ = 1점과 3점으로 갈린 칸 — 이유를 물어보세요. ① 평균 1.5 미만이면 탈락.':'🔒 내 점수를 다 매기면 팀 점수가 보입니다.')+(notYet.length?' · 아직: '+notYet.map(esc).join(', '):' · <b style="color:var(--okc)">모두 완료</b>')+'</p>';
+ $('scoreBox').innerHTML=h;}
+$('scoreBox').addEventListener('click',function(e){var b=e.target.closest('.sel5 button');if(!b||!me)return;var k=b.parentNode.dataset.k;S.f[k]=b.dataset.s;save();renderScores();});
+function renderPickSel(){var sl=shortlist(),cur=F('pick'),o='<option value="">고르세요</option>'+sl.map(function(x){return '<option value="'+x.id+'">'+esc(x.t)+' ('+esc(x.who)+')</option>';}).join('');
+ if(cur&&cur!=='x'&&!sl.some(function(x){return x.id===cur;})){var x=ideaById(cur);if(x)o+='<option value="'+x.id+'">'+esc(x.t)+'</option>';}
+ o+='<option value="x">합친 안</option>';$('pickSel').innerHTML=o;$('pickSel').value=cur;$('pickSel').disabled=!team;}
+function pickText(){var p=F('pick');if(!p)return '';if(p==='x')return '합친 안: '+F('pickMerge');var x=ideaById(p);return x?x.t:'';}
+function renderPickShow(){var t=pickText();var h=t?'<small>최종 아이디어</small>'+esc(t)+(F('cname')?' — <span style="color:var(--gold)">'+esc(F('cname'))+'</span>':''):'<small>3번 탭에서 최종 아이디어를 먼저 고르세요</small>';$('pickShow').innerHTML=h;}
+
+/* ---------- 4 컨셉·가치 제안 ---------- */
+function vpText(){var a=[F('vp_who'),F('vp_svc'),F('vp_old'),F('vp_gain')].map(function(s){return s.trim();});if(!a.some(Boolean))return '';
+ return (a[0]||'[타깃 고객]')+'은(는) '+(a[1]||'[우리 서비스]')+' 덕분에 '+(a[2]||'[기존 방식]')+' 대신 '+(a[3]||'[구체적 이득]')+'을(를) 얻는다.';}
+function renderVp(){if(!team)return;var v=vpText();$('vpOut').innerHTML=v?esc(v).replace(/\[[^\]]+\]/g,function(m){return '<span class="x">'+m+'</span>';}):'<span class="note">네 칸을 채우면 문장이 완성됩니다.</span>';
+ var L=ppList();$('ppLink').innerHTML=L.map(function(p,i){return '<label class="qi'+(C('pp'+(i+1))?' ok':'')+'"><input type="checkbox" data-ck="pp'+(i+1)+'"><div>'+esc(p)+'</div></label>';}).join('');fillFields($('ppLink'));
+ $('vpShow5').innerHTML=v?'<small>가치 제안 (4번 탭)</small>'+esc(v):'<small>4번 탭 가치 제안 문장을 먼저 쓰면 여기에 보입니다</small>';}
+function renderComp(){if(!team)return;$('compHint').innerHTML=T[team].comps.map(function(c){return '<b>'+esc(c[0])+'</b>: '+esc(c[2]);}).join(' · ');}
+
+/* ---------- 5 BMC ---------- */
+function renderBlocks(){var t=T[team],ms=members();
+ $('blocks').innerHTML='<p class="note">대부분 <b>가설</b>이어도 정상입니다. 1·2단계 SNS·라이브커머스 경험은 채널·고객 관계 칸에 쓰세요.</p>'+BL.map(function(b,i){var hint=t.hint[b[0]];
+  return '<div class="blk'+(b[0]==='vp'?' vpk':'')+'"><div class="blh"><span class="no">'+(i+1)+'</span><b>'+b[1]+'</b><select data-f="bo_'+b[0]+'"><option value="">담당</option>'+ms.map(function(n){return '<option>'+esc(n)+'</option>';}).join('')+'</select></div>'+
+  '<p class="blq">'+b[2]+'</p>'+(b[3]||hint?'<p class="from">'+(b[3]?'가져올 것: '+esc(b[3]):'')+(hint?(b[3]?' · ':'')+'우리 팀: '+esc(hint):'')+'</p>':'')+
+  '<textarea data-f="b_'+b[0]+'" rows="3" placeholder="한 줄에 하나씩"></textarea><div class="row" style="margin:4px 0 0"><span class="note">근거 상태</span><select data-f="bs_'+b[0]+'"><option value="">고르세요</option><option>확인</option><option>일부</option><option>가설</option></select></div></div>';}).join('')+(t.bmcEx?'<div class="warnbox">'+esc(t.bmcEx)+'</div>':'');fillFields($('blocks'));}
+$('autoOwn').addEventListener('click',function(){if(!team)return;var ms=here().length?here():members();BL.forEach(function(b,i){if(!F('bo_'+b[0]))S.f['bo_'+b[0]]=ms[i%ms.length];});save();fillFields($('blocks'));renderBmcView();});
+function lines(k){return F(k).split(/\n/).map(function(s){return s.trim();}).filter(Boolean);}
+function bmcChecks(){return [
+ [BL.every(function(b){return F('b_'+b[0]).trim();}),'9칸 모두 작성'],
+ [lines('b_cs').length>=2,'고객 세그먼트 2개 이상 (줄 수)'],
+ [lines('b_vp').length>=2,'가치 제안 2개 이상 (줄 수)'],
+ [/\d/.test(F('b_rs'))&&!!F('rtype')&&!!F('payer'),'수익모델 유형 + 지불자 + 금액·비율 숫자'],
+ [BL.every(function(b){return F('bs_'+b[0]);}),'칸마다 근거 상태 (확인·일부·가설)'],
+ [/[가-힣]/.test(F('b_ch'))&&!/^\s*sns\s*(홍보|마케팅)?\s*$/i.test(F('b_ch').trim()),'채널이 구체적 ("SNS 홍보"만은 안 됨)'],
+ [BL.every(function(b){return F('bo_'+b[0]);}),'칸마다 담당']];}
+function renderBmcView(){if(!team)return;$('bmcView').innerHTML=BL.map(function(b,i){var v=F('b_'+b[0]).trim(),o=F('bo_'+b[0]);return '<div class="'+b[0]+'"><b><i>'+(i+1)+'</i>'+b[1]+(o?' <span class="note">· '+esc(o)+'</span>':'')+(F('bs_'+b[0])?' <span class="note">['+esc(F('bs_'+b[0]))+']</span>':'')+'</b>'+(v?esc(v):'<span class="e">비어 있음</span>')+'</div>';}).join('');
+ $('bmcChk').innerHTML=bmcChecks().map(function(c){return '<div class="qi '+(c[0]?'ok':'ng')+'"><span class="qs">'+(c[0]?'✓':'!')+'</span><div>'+c[1]+'</div></div>';}).join('');}
+
+/* ---------- 진행 ---------- */
+function status(){if(!team)return [];var hv=here(),sl=shortlist(),cu=T[team].catchup,bc=bmcChecks();
+ var catchOk=!cu||([F('c_who'),F('c_want'),F('c_why'),F('c_res')].every(function(s){return s.trim();})&&hmwList().length>=3);
+ return [
+  [catchOk&&hsel().length>=2,'출발 질문(HMW) 2개 이상'+(cu?' · 진술문·HMW 먼저':'')],
+  [hv.length>=2&&hv.every(function(n){return myCount(n)>=2;}),'아이디어: 모두 각자 2개 이상'],
+  [allIdeas().length>=8,'팀 아이디어 8개 이상'],
+  [!!(F('ai_over').trim()&&F('sc_tech')&&F('sc_res').trim()),'AI 진부성 테스트 + 비틀기'],
+  [hv.length>=2&&hv.every(function(n){return votesOf(n).length>=3;}),'투표: 모두 3표'],
+  [hv.length>=2&&sl.length>0&&hv.every(function(n){return myScDone(n,sl);}),'4기준 점수: 모두'],
+  [!!(F('pick')&&(F('pick')!=='x'||F('pickMerge').trim())&&F('pickWhy').trim()&&F('pickDrop').trim()),'최종 1개 + 근거 + 버린 안'],
+  [!!(F('sc1').trim()&&F('sc2').trim()&&F('sc3').trim()&&F('cscreen').trim()&&F('react').trim()&&[F('vp_who'),F('vp_svc'),F('vp_old'),F('vp_gain')].every(function(s){return s.trim();})&&ppList().some(function(p,i){return C('pp'+(i+1));})),'컨셉 카드 + 가치 제안 + 30초 반응'],
+  [bc[0][0]&&bc[4][0]&&bc[6][0],'BMC 9칸 + 칸마다 근거 상태 · 담당'],
+  [linkChecks().filter(function(c){return c[0];}).length>=7,'연결 점검 9개 중 7개 이상 (Pain↔해결 · 채널 · 지불자 · 매출 · 활동 · 데이터 · 비용)'],
+  [[1,2,3].filter(function(i){return F('m_rt'+i+'_t').trim()&&F('m_rt'+i+'_d')&&F('m_rt'+i+'_w').trim();}).length>=3,'AI 레드팀 지적 3개 + 우리 판단 · 근거'],
+  [BL.filter(function(b){return F('m_imp_'+b[0]);}).length>=9&&!!(F('ra_1').trim()&&F('ra_pass').trim()&&/\d/.test(F('ra_pass'))&&F('ra_chg').trim()),'위험 지도(9칸) + 가장 위험한 가정 · 숫자 통과 기준'],
+  [TEAMS.filter(function(o){return o!==team&&['l','w','q'].some(function(k){return F('gf_'+o+'_'+k);});}).length>=1&&!!F('m_gal_resp').trim(),'갤러리 피드백 받고 답하기'],
+  [[1,2,3,4].every(function(i){return F('dl'+i).trim();}),'결정 로그 4문항']];}
+function progress(){var st=status(),d=st.filter(function(x){return x[0];}).length;$('progBar').style.width=(st.length?d/st.length*100:0)+'%';
+ $('progTxt').textContent=team?(team+' · '+d+' / '+st.length+' 완료'+(me?' · 나: '+me:' · 이름을 고르세요')):'팀을 먼저 고르세요';}
+function subHtml(){return status().map(function(x){return '<div class="qi '+(x[0]?'ok':'ng')+'"><span class="qs">'+(x[0]?'✓':'!')+'</span><div>'+esc(x[1])+'</div></div>';}).join('');}
+
+/* ---------- 탭·요일 ---------- */
+var curPane='p0',DAYOF={p1:'w',p2:'w',p3:'w',p4:'w',p5:'f',p7:'f',p8:'f',p6:'f'};
+function go(p){if(!team&&p!=='p0'&&p!=='pb'){p='p0';var tn=$('teams');if(tn){tn.scrollIntoView({block:'center'});tn.style.outline='3px solid var(--gold)';setTimeout(function(){tn.style.outline='';},1500);}}curPane=p;document.querySelectorAll('.pane').forEach(function(x){x.classList.toggle('on',x.id===p);});document.querySelectorAll('#tabs button').forEach(function(b){b.classList.toggle('on',b.dataset.p===p);});
+ document.querySelectorAll('#daybar .xb[data-p]').forEach(function(b){b.classList.toggle('on',b.dataset.p===p);});
+ if(DAYOF[p]&&DAYOF[p]!==curDay)showDay(DAYOF[p]);
+ if(p==='p2'){renderMyIdeas();renderAllIdeas();renderAi();}if(p==='p3'){renderVotes();renderScores();renderPickSel();fillFields($('p3'));}if(p==='p4'){renderPickShow();renderVp();}if(/^p[5-8]$/.test(p)){renderVp();renderFri();}if(p==='p8')renderBmcView();if(p==='p6'){galLoad();galMine();$('subChk').innerHTML=subHtml();}if(p==='pb')pbLoad();
+ window.scrollTo(0,0);}
+function showDay(d){curDay=d;document.querySelectorAll('.dayb').forEach(function(b){b.classList.toggle('on',b.dataset.day===d);});document.querySelectorAll('#tabs button').forEach(function(b){b.style.display=(b.dataset.day==='b'||b.dataset.day===d)?'':'none';});}
+$('tabs').addEventListener('click',function(e){var b=e.target.closest('button');if(b)go(b.dataset.p);});
+$('daybar').addEventListener('click',function(e){var b=e.target.closest('button');if(!b)return;if(b.dataset.day){showDay(b.dataset.day);go(b.dataset.day==='w'?(team?'p1':'p0'):(team?'p5':'p0'));}else if(b.dataset.p)go(b.dataset.p);});
+
+/* ---------- 공유 서버 ---------- */
+var SYNC_URL='https://script.google.com/macros/s/AKfycbxtSZUz1V81-N0-DUjKk-FQL-R1aNBBAmVTucZLfWcVSUcVA4nfDKG91nat5GczAZki/exec';
+var SYNC_KEY='capec-2026-2';
+var DEV=(function(){var d=null;try{d=localStorage.getItem('ws-dev');}catch(e){}if(!d){d=Math.random().toString(36).slice(2,10);lsSet('ws-dev',d);}return d;})();
+var sy={seq:0,sent:{},fly:{},doneAt:{},mine:{},pend:{},ed:{},busy:false,at:0,fail:0,pushT:null,pollT:null,team:'',lastPres:'',presQ:false};
+function syMetaSave(){if(!sy.team)return;var ok={};Object.keys(sy.sent).forEach(function(k){if(!sy.fly[k])ok[k]=sy.sent[k];});lsSet(KEY+sy.team+':sy',JSON.stringify({sent:ok,mine:sy.mine}));}
+function syncSet(ok,msg){var e=$('syncTxt');if(!SYNC_URL){e.innerHTML='<span class="dot off"></span>이 기기에만 저장';return;}
+ var eds=Object.keys(sy.ed).map(function(k){return sy.ed[k];});
+ e.innerHTML=(ok?'<span class="dot on"></span>팀 실시간 공유 중 · '+new Date(sy.at).toLocaleTimeString('ko-KR',{hour:'2-digit',minute:'2-digit',second:'2-digit'}):'<span class="dot off"></span>'+(msg||'서버 응답 대기 — 이 기기에는 저장됨. 새로 고침해도 지워지지 않고, 연결되면 자동으로 보냅니다'))+(eds.length?' · 쓰는 중: '+eds.map(function(x){return esc(x.r);}).join(', '):'');}
+function flatState(){var o={};Object.keys(S.f).forEach(function(k){o['f:'+k]=S.f[k]==null?'':String(S.f[k]);});Object.keys(S.chk).forEach(function(k){o['c:'+k]=S.chk[k]?'1':'';});
+ var st=status();o._prog=JSON.stringify({d:st.filter(function(x){return x[0];}).length,n:st.length,w:st.slice(0,8).filter(function(x){return x[0];}).length,it:st.map(function(x){return [x[0]?1:0,x[1].replace(/ ·.*$/,'')];}),idea:allIdeas().length});return o;}
+function curKey(){var a=document.activeElement;return a&&a.dataset&&a.dataset.f!=null&&!a.dataset.mine&&a.tagName!=='SELECT'?a.dataset.f:'';}
+function syncPush(){if(!SYNC_URL||!team||sy.team!==team)return Promise.resolve(false);var cur=flatState(),items=[];
+ Object.keys(cur).forEach(function(k){if(sy.fly[k])return;if(cur[k]!==sy.sent[k]&&!(cur[k]===''&&sy.sent[k]===undefined))items.push({k:k,v:k.charAt(0)==='_'?JSON.parse(cur[k]):cur[k]});});
+ var onlyProg=items.length===1&&items[0].k==='_prog';if(onlyProg)items=[];
+ var ck=curKey(),pv=ck+'|'+me;if(sy.presQ||(ck&&pv!==sy.lastPres)||(items.length&&ck)){items.push({k:'_ed_'+DEV,v:{k:ck,r:me||'팀원',t:Date.now()}});sy.lastPres=pv;sy.presQ=false;}
+ if(!items.length)return Promise.resolve(true);var t=team;
+ items.forEach(function(it){if(it.k.indexOf('_ed_')===0)return;sy.sent[it.k]=cur[it.k];sy.fly[it.k]=1;if(it.k.charAt(1)===':')sy.mine[it.k]=cur[it.k];});syMetaSave();
+ return fetch(SYNC_URL,{method:'POST',body:JSON.stringify({key:SYNC_KEY,team:PFX+t,items:items})}).then(function(r){return r.json();}).then(function(j){if(!j||!j.ok)throw 0;var n=Date.now();items.forEach(function(it){delete sy.fly[it.k];sy.doneAt[it.k]=n;});syMetaSave();sy.at=n;sy.fail=0;syncSet(true);return true;})
+  .catch(function(){items.forEach(function(it){delete sy.fly[it.k];if(t===team&&it.k.charAt(1)===':')delete sy.sent[it.k];});syMetaSave();sy.fail++;syncSet(false);return false;});}
+function syncKick(){if(!SYNC_URL)return;clearTimeout(sy.pushT);sy.pushT=setTimeout(syncPush,1200);}
+/* 내가 쓴 글이 팀원 글로 바뀌면 버리지 않고 칸 아래에 보관 */
+function keepLost(key,old){S.lost=S.lost||{};var L=S.lost[key]=S.lost[key]||[];if(L.some(function(x){return x.v===old;}))return;L.push({v:old,at:Date.now()});if(L.length>3)L.shift();}
+function renderLost(){document.querySelectorAll('.lostbox').forEach(function(x){x.remove();});if(!S||!S.lost)return;
+ Object.keys(S.lost).forEach(function(key){var L=S.lost[key];if(!L||!L.length)return;var el=document.querySelector('[data-f="'+key.replace(/"/g,'')+'"]');if(!el||el.offsetParent===null&&!el.closest('.pane'))return;
+  el.insertAdjacentHTML('afterend','<div class="lostbox">'+L.map(function(x,i){return '<div><b>↺ 팀원이 이 칸을 바꿔서, 내가 쓴 글을 여기 보관했어요</b><q>'+esc(x.v)+'</q><span><button type="button" class="btn ghost" data-lost="'+esc(key)+'" data-i="'+i+'" data-act="add">내 글 뒤에 다시 붙이기</button> <button type="button" class="btn ghost" data-lost="'+esc(key)+'" data-i="'+i+'" data-act="x">지우기</button></span></div>';}).join('')+'</div>');});}
+document.addEventListener('click',function(e){var b=e.target.closest('[data-lost]');if(!b||!team)return;var key=b.dataset.lost,i=+b.dataset.i,L=(S.lost||{})[key]||[],x=L[i];if(!x)return;
+ if(b.dataset.act==='add'){var cur=F(key).trim(),el0=document.querySelector('[data-f="'+key.replace(/"/g,'')+'"]');S.f[key]=cur?cur+(el0&&el0.tagName==='TEXTAREA'?'\n':' / ')+x.v:x.v;}
+ L.splice(i,1);if(!L.length)delete S.lost[key];save();fillFields();refreshComputed();renderLost();});
+/* 다른 팀원이 쓰는 공동 칸은 잠시 잠금 */
+function lockMark(){var ae=document.activeElement,bk={};Object.keys(sy.ed).forEach(function(x){bk[sy.ed[x].k]=sy.ed[x].r;});
+ document.querySelectorAll('[data-f]').forEach(function(el){if(el.dataset.mine||el.tagName==='SELECT')return;var who=bk[el.dataset.f];
+  if(who&&el!==ae){el.readOnly=true;el.classList.add('editing');el.title=who+' 쓰는 중 — 끝나면 쓸 수 있어요';}
+  else if(el.classList.contains('editing')){el.readOnly=false;el.classList.remove('editing');el.title='';}});}
+function applyRemote(f,sentAt){var changed=0,skip=false,ae=document.activeElement,now=Date.now();sy.ed={};
+ Object.keys(f).forEach(function(k){
+  if(k.indexOf('_ed_')===0){var o=f[k];if(typeof o==='string'){try{o=JSON.parse(o);}catch(e){o=null;}}if(o&&o.k&&k!=='_ed_'+DEV&&now-o.t<40000)sy.ed[k]=o;return;}
+  if(k.charAt(0)==='_')return;var v=f[k]==null?'':String(f[k]);
+  if(sy.fly[k])return;
+  if(sy.doneAt[k]&&sy.doneAt[k]>=sentAt){skip=true;return;}
+  if(k.indexOf('f:')===0){var key=k.slice(2),local=S.f[key]==null?'':String(S.f[key]);if(sy.sent[k]!==undefined&&local!==sy.sent[k])return;
+   if(local!==v){var els=document.querySelectorAll('[data-f="'+key.replace(/"/g,'')+'"]'),foc=[].some.call(els,function(el){return el===ae&&el.tagName!=='SELECT';});
+    if(foc){sy.pend[key]={v:v,local:local};ae.classList.add('pend');ae.title='팀원이 이 칸을 바꿨습니다. 칸 밖을 누르면 팀원 글이 보이고, 내 글은 칸 아래에 보관됩니다.';return;}
+    var lt=local.trim();if(lt.length>=2&&sy.mine[k]===local&&v.indexOf(lt)<0)keepLost(key,local);
+    S.f[key]=v;changed++;els.forEach(function(el){el.value=v;});}sy.sent[k]=v;}
+  else if(k.indexOf('c:')===0){var ck=k.slice(2),lv=S.chk[ck]?'1':'';if(sy.sent[k]!==undefined&&lv!==sy.sent[k])return;if(lv!==v){S.chk[ck]=v==='1';changed++;document.querySelectorAll('[data-ck="'+ck+'"]').forEach(function(el){el.checked=v==='1';});}sy.sent[k]=v;}});
+ lockMark();
+ if(changed){S._at=Date.now();lsSet(KEY+team,JSON.stringify(S));refreshComputed();progress();renderLost();}
+ syMetaSave();return skip;}
+document.addEventListener('focusin',function(e){var el=e.target;if(el&&el.dataset&&el.dataset.f!=null&&!el.dataset.mine&&!el.readOnly){sy.presQ=true;syncKick();}});
+document.addEventListener('focusout',function(e){var el=e.target;if(!el||!el.dataset||el.dataset.f==null)return;var key=el.dataset.f,p=sy.pend[key];
+ if(p){delete sy.pend[key];var now=S.f[key]==null?'':String(S.f[key]);
+  if(now===p.local){var lt=now.trim();if(lt.length>=2&&sy.mine['f:'+key]===now&&p.v.indexOf(lt)<0)keepLost(key,now);S.f[key]=p.v;sy.sent['f:'+key]=p.v;el.value=p.v;S._at=Date.now();lsSet(KEY+team,JSON.stringify(S));syMetaSave();refreshComputed();progress();renderLost();}}
+ el.classList.remove('pend');if(!el.classList.contains('editing'))el.title='';if(!el.dataset.mine){sy.presQ=true;syncKick();}});
+function refreshComputed(){var ae=document.activeElement,inPane=function(id){return ae&&$(id).contains(ae)&&ae.tagName!=='BUTTON';};
+ try{if(!inPane('p1'))renderHmw();renderIdeaCount();renderAllIdeas();if(!inPane('myIdeas'))renderMyIdeas();renderVotes();renderScores();if(!inPane('p3'))renderPickSel();renderPickShow();if(!inPane('ppLink'))renderVp();else{$('vpOut').textContent=vpText();}renderBmcView();$('mergeFld').style.display=F('pick')==='x'?'block':'none';if(curPane==='p6')$('subChk').innerHTML=subHtml();if(curPane==='p0')renderHandoff();}catch(e){}
+ try{renderLost();lockMark();}catch(e){}}
+function syncPull(){if(!SYNC_URL||!team||sy.busy)return;var t=team,sentAt=Date.now();sy.busy=true;
+ fetch(SYNC_URL+'?key='+encodeURIComponent(SYNC_KEY)+'&op=pull&team='+encodeURIComponent(PFX+t)+'&since='+sy.seq+'&t='+sentAt).then(function(r){return r.json();}).then(function(j){sy.busy=false;if(!j||!j.ok)throw 0;if(t!==team)return;
+  var first=sy.seq===0;var skip=applyRemote(j.f||{},sentAt);if(!skip)sy.seq=Math.max(sy.seq,+j.seq||0);sy.at=Date.now();sy.fail=0;syncSet(true);syncPush();})
+  .catch(function(){sy.busy=false;sy.fail++;syncSet(false);});}
+function syncStart(){sy.team=team;sy.seq=0;sy.sent={};sy.fly={};sy.doneAt={};sy.mine={};sy.pend={};sy.ed={};
+ try{var m=JSON.parse(localStorage.getItem(KEY+team+':sy')||'null');if(m){sy.sent=m.sent||{};sy.mine=m.mine||{};}}catch(e){}
+ syncSet(false,'연결 중…');if(!SYNC_URL)return;syncPull();clearTimeout(sy.pollT);
+ (function loop(){sy.pollT=setTimeout(function(){if(document.visibilityState!=='hidden'){syncPull();if(curPane==='pb')pbLoad();}loop();},8000+Math.floor(Math.random()*4000));})();}
+window.addEventListener('beforeunload',function(e){if(!team||sy.team!==team)return;var cur=flatState(),un=Object.keys(cur).some(function(k){return k.charAt(0)!=='_'&&cur[k]!==sy.sent[k]&&!(cur[k]===''&&sy.sent[k]===undefined);});if(un){syncPush();e.preventDefault();e.returnValue='';}});
+
+/* ---------- 현황 ---------- */
+var pbLast=null;
+function pbDraw(list,msg){var map={};(list||[]).forEach(function(r){if(String(r.team).indexOf(PFX)===0)map[String(r.team).slice(PFX.length)]=r;});
+ var rows=TEAMS.map(function(t){var r=map[t];return {t:t,p:r?r.p:null,at:r?r.at:0};});var mx=Math.max.apply(null,rows.map(function(r){return r.p?r.p.d:0;}));
+ rows.sort(function(a,b){return ((b.p?b.p.d:0)-(a.p?a.p.d:0))||TEAMS.indexOf(a.t)-TEAMS.indexOf(b.t);});
+ $('pbBoard').innerHTML='<div class="pb">'+rows.map(function(r){var p=r.p||{d:0,n:10,w:0,it:[],idea:0};
+  return '<div class="pbr'+(r.t===team?' me':'')+(mx>0&&p.d===mx?' top':'')+'"><div class="pbn"><b>'+esc(r.t)+'</b><span>'+esc(T[r.t].topic)+'</span><span>'+T[r.t].m.map(function(x){return esc(x[0]);}).join(' · ')+'</span><span>아이디어 <b style="display:inline;font-size:inherit">'+(p.idea||0)+'</b>개</span></div>'+
+  '<div><div class="pbs">'+p.d+' / '+p.n+'<small>11/18 '+p.w+'/8'+(r.at?' · '+new Date(r.at).toLocaleTimeString('ko-KR',{hour:'2-digit',minute:'2-digit'})+' 갱신':' · 아직 시작 전')+'</small></div><div class="pbbar"><i style="width:'+(p.n?p.d/p.n*100:0)+'%"></i></div>'+
+  '<div class="pbd">'+(p.it||[]).map(function(x){return '<span class="'+(x[0]?'y':'n')+'">'+(x[0]?'✓ ':'● ')+esc(x[1])+'</span>';}).join('')+'</div></div></div>';}).join('')+'</div>';$('pbMsg').textContent=msg||'';}
+function pbLoad(){if(!SYNC_URL){pbDraw(team?[{team:PFX+team,p:JSON.parse(flatState()._prog),at:Date.now()}]:[],'공유 서버 연결 전 — 이 기기의 팀만 보입니다.');return;}
+ fetch(SYNC_URL+'?key='+encodeURIComponent(SYNC_KEY)+'&op=board&t='+Date.now()).then(function(r){return r.json();}).then(function(j){if(!j||!j.ok)throw 0;pbLast=j.teams;pbDraw(j.teams,'세 팀 공유 현황 · '+new Date().toLocaleTimeString('ko-KR')+' 기준');})
+  .catch(function(){var L=[],n=0;TEAMS.forEach(function(t){fetch(SYNC_URL+'?key='+encodeURIComponent(SYNC_KEY)+'&op=pull&team='+encodeURIComponent(PFX+t)+'&since=0&t='+Date.now()).then(function(r){return r.json();}).then(function(j){var pr=j&&j.f&&j.f._prog;if(typeof pr==='string'){try{pr=JSON.parse(pr);}catch(e){pr=null;}}if(pr)L.push({team:PFX+t,p:pr,at:Date.now()});}).catch(function(){}).then(function(){n++;if(n===TEAMS.length){pbLast=L;pbDraw(L,L.length?'팀별로 불러온 현황 · '+new Date().toLocaleTimeString('ko-KR'):'현황을 확인할 수 없습니다.');}});});});}
+$('pbRefresh').addEventListener('click',pbLoad);
+$('pbBig').addEventListener('click',function(){var on=document.body.classList.toggle('pbbig');this.textContent=on?'원래 크기':'크게 보기';});
+
+/* ---------- 백업 ---------- */
+$('bkDl').addEventListener('click',function(){if(!team)return;var a=document.createElement('a');a.href=URL.createObjectURL(new Blob([JSON.stringify({w:'capec-w11',team:team,S:S},null,1)],{type:'application/json'}));a.download='CAPEC_w11_backup_'+(TEAMS.indexOf(team)+1)+'_'+new Date().toISOString().slice(5,16).replace(/[-:T]/g,'')+'.json';document.body.appendChild(a);a.click();a.remove();});
+$('bkUp').addEventListener('change',function(){var f=this.files[0];if(!f)return;var rd=new FileReader();rd.onload=function(){try{var o=JSON.parse(rd.result);if(o.w!=='capec-w11'||!o.S||!o.S.f)throw 0;if(o.team!==team&&!confirm('다른 팀('+o.team+') 백업입니다. 그래도 불러올까요?'))return;
+  if(!confirm('빈 칸만 백업 내용으로 채웁니다(이미 쓴 칸은 그대로). 계속할까요?'))return;Object.keys(o.S.f).forEach(function(k){if(!F(k)&&o.S.f[k])S.f[k]=o.S.f[k];});Object.keys(o.S.chk||{}).forEach(function(k){if(o.S.chk[k])S.chk[k]=true;});save();renderAll();alert('불러왔습니다.');}catch(e){alert('이 워크시트의 백업 파일이 아닙니다.');}};rd.readAsText(f);this.value='';});
+
+/* ---------- 결과 보고서 ---------- */
+var DOCCSS='@page{size:A4;margin:16mm 15mm 16mm;@bottom-center{content:counter(page);font-size:8pt;color:#6b7280}@top-right{content:var(--rh,"");font-size:8pt;color:#6b7280}}@page:first{@bottom-center{content:none}@top-right{content:none}}'+
+ 'body{font-family:"Noto Sans KR",sans-serif;color:#111;font-size:9.6pt;line-height:1.55;margin:0}.tb{position:sticky;top:0;background:#1b2a4a;color:#fff;padding:8px 12px;font-size:12px;display:flex;justify-content:space-between;gap:8px}.tb button{background:#b98a3d;color:#fff;border:0;border-radius:6px;padding:5px 10px;font-weight:700}@media print{.tb{display:none}}'+
+ '.page{max-width:180mm;margin:0 auto;padding:6mm 0}.cover{min-height:245mm;display:flex;flex-direction:column;page-break-after:always}.cover .k{font-size:10pt;color:#b98a3d;font-weight:700}.cover h1{font-size:22pt;margin:6mm 0 2mm;color:#1b2a4a;line-height:1.3}.cover .sub{font-size:11pt;color:#374151}'+
+ '.cbox{border:2px solid #1b2a4a;border-radius:8px;padding:5mm;margin:8mm 0 4mm}.cbox b{color:#1b2a4a}.meta{display:grid;grid-template-columns:28mm 1fr;gap:2mm 4mm;font-size:9.5pt;margin-top:4mm}.meta div:nth-child(odd){color:#6b7280}'+
+ '.toc{margin-top:auto;border-top:1px solid #cbd5e1;padding-top:4mm;font-size:9.5pt}.toc ol{margin:2mm 0 0 5mm;padding:0}'+
+ 'h2{font-size:13pt;color:#1b2a4a;border-bottom:2px solid #1b2a4a;padding-bottom:1.5mm;margin:8mm 0 3mm;page-break-after:avoid}h3{font-size:10.5pt;color:#28406e;margin:4mm 0 1.5mm;page-break-after:avoid}'+
+ 'table{width:100%;border-collapse:collapse;font-size:8.8pt;margin:2mm 0}th,td{border:1px solid #cbd5e1;padding:1.6mm 2mm;vertical-align:top;text-align:left}th{background:#eef1f6;color:#1b2a4a;-webkit-print-color-adjust:exact;print-color-adjust:exact}tr{page-break-inside:avoid}'+
+ '.sum{border:1.5px solid #b98a3d;background:#fbf5ea;border-radius:6px;padding:4mm;-webkit-print-color-adjust:exact;print-color-adjust:exact}.sum div{margin:1mm 0}.sum b{color:#1b2a4a}.e{color:#9ca3af}.warn{color:#c2410c}'+
+ '.bmcg{display:grid;grid-template-columns:repeat(10,1fr);gap:1.5mm;font-size:8.2pt;page-break-inside:avoid}.bmcg div{border:1px solid #94a3b8;border-radius:4px;padding:2mm;white-space:pre-wrap;min-height:18mm}.bmcg b{display:block;color:#1b2a4a;font-size:8pt;white-space:normal}'+
+ '.kp{grid-column:1/3;grid-row:1/3}.ka{grid-column:3/5;grid-row:1}.kr{grid-column:3/5;grid-row:2}.vp{grid-column:5/7;grid-row:1/3;background:#fbf5ea;-webkit-print-color-adjust:exact;print-color-adjust:exact}.cr{grid-column:7/9;grid-row:1}.ch{grid-column:7/9;grid-row:2}.cs{grid-column:9/11;grid-row:1/3}.cost{grid-column:1/6;grid-row:3}.rs{grid-column:6/11;grid-row:3}';
+function V(s){s=String(s==null?'':s).trim();return s?esc(s).replace(/\n/g,'<br>'):'<span class="e">(비어 있음)</span>';}
+function reportDoc(){var t=T[team],L=hmwList(),hs=hsel(),a=allIdeas(),tl=tally(),sl=shortlist(),hv=here().length?here():members(),st=status(),d=st.filter(function(x){return x[0];}).length;
+ var todo=[];t.checks.forEach(function(c){var s=c.replace(/<[^>]+>/g,'');if(/확인 필요|추가 인터뷰|확인하고/.test(s))todo.push(s);});
+ st.forEach(function(x){if(!x[0])todo.push('미완료: '+x[1]);});
+ var h='<div class="cover"><div class="k">캡스톤디자인(전자상거래의 이해) · 11~12주차 (11/18 아이디어 · 11/20 BMC)</div><h1>아이디어 발산과<br>비즈니스 모델 캔버스</h1><div class="sub">디자인씽킹: 공감 · 정의 → <b>아이디어 발산</b> → 프로토타입(12주차 고객 여정 지도)</div>'+
+  '<div class="cbox"><div><b>최종 아이디어</b> · '+V(pickText())+(F('cname')?' — <b>'+esc(F('cname'))+'</b>':'')+'</div><div style="margin-top:2mm"><b>가치 제안</b> · '+V(vpText())+'</div></div>'+
+  '<div class="meta"><div>팀</div><div><b>'+esc(team)+'</b> · '+esc(t.topic)+'</div><div>팀원</div><div>'+t.m.map(function(x){return esc(x[0])+'('+esc(x[1])+')';}).join(' · ')+'</div><div>오늘 참여</div><div>'+(here().length?here().map(esc).join(' · '):'<span class="e">이름 선택 기록 없음</span>')+'</div><div>진행</div><div>'+d+' / '+st.length+' 완료</div><div>작성일</div><div>'+new Date().toLocaleString('ko-KR')+'</div></div>'+
+  '<div class="toc"><b>목차</b><ol><li>한눈에 보기</li><li>10주차에서 이어받은 것</li><li>아이디어 발산</li><li>후보 평가와 결정</li><li>컨셉 카드와 가치 제안</li><li>비즈니스 모델 캔버스</li><li>가장 위험한 가정</li><li>결정 로그</li></ol><div style="color:#6b7280;font-size:8.5pt;margin-top:2mm">부록: 진행 점검</div></div></div>';
+ h+='<h2>1. 한눈에 보기</h2><div class="sum"><div><b>최종 아이디어</b> '+V(pickText())+'</div><div><b>장면</b> '+V([F('sc1'),F('sc2'),F('sc3')].filter(Boolean).join(' → '))+'</div><div><b>가치 제안</b> '+V(vpText())+'</div><div><b>고객 세그먼트</b> '+V(lines('b_cs').join(' / '))+'</div><div><b>수익원</b> '+V(lines('b_rs').join(' / '))+'</div><div><b>아이디어</b> '+a.length+'개 · 후보 '+sl.length+'개 · 참여 '+hv.length+'명</div></div>'+
+  '<h3>아직 확인할 것</h3>'+(todo.length?'<ul>'+todo.map(function(x){return '<li>'+esc(x)+'</li>';}).join('')+'</ul>':'<p>없음</p>');
+ h+='<h2>2. 10주차 · 11/11 인터뷰에서 이어받은 것</h2><table><tr><th style="width:24%">문제 진술문</th><td>'+V(psText())+(t.catchup?' <span class="warn">(11주차 0단계에서 작성)</span>':'')+'</td></tr>'+(t.catchup?'<tr><th>주 페르소나</th><td>'+V(F('c_target'))+'</td></tr>':'<tr><th>페르소나</th><td>'+esc(t.persona)+'</td></tr>')+
+  '<tr><th>Pain Point</th><td>'+t.pp.map(esc).join('<br>')+'</td></tr><tr><th>오늘 고른 HMW</th><td>'+(hs.length?hs.map(function(i){return 'H'+i+' '+esc(L[i-1]);}).join('<br>'):'<span class="e">(고르지 않음)</span>')+'</td></tr></table>';
+ h+='<h2>3. 아이디어 발산</h2><p>팀 아이디어 <b>'+a.length+'</b>개 (목표 8개 이상)</p><table><tr><th style="width:5%">#</th><th style="width:13%">작성</th><th>아이디어</th><th style="width:30%">어떻게</th><th style="width:12%">도구</th><th style="width:7%">HMW</th><th style="width:6%">표</th></tr>'+
+  (a.length?a.map(function(x,i){return '<tr><td>'+(i+1)+'</td><td>'+esc(x.who)+'</td><td>'+esc(x.t)+'</td><td>'+V(x.d)+'</td><td>'+esc(x.k||'')+'</td><td>'+(x.h&&x.h!=='0'?'H'+esc(x.h):'기타')+'</td><td>'+(tl[x.id]||0)+'</td></tr>';}).join(''):'<tr><td colspan="7" class="e">(없음)</td></tr>')+'</table>'+'<h3>AI 진부성 테스트</h3><table><tr><th style="width:24%">AI와 겹친 것</th><td>'+V(F('ai_over'))+'</td></tr><tr><th>AI가 못 낸 우리 것</th><td>'+V(F('ai_ours'))+'</td></tr><tr><th>비틀기</th><td>'+V((F('sc_tech')?F('sc_tech')+' → ':'')+F('sc_res'))+'</td></tr></table>';
+ h+='<h2>4. 후보 평가와 결정</h2><table><tr><th>후보</th>'+CR.map(function(c){return '<th style="width:15%">'+c[1]+'</th>';}).join('')+'<th style="width:9%">합계</th></tr>'+
+  (sl.length?sl.map(function(x){var tot=0;return '<tr><td>'+esc(x.t)+' <span class="e">('+esc(x.who)+' · '+(tl[x.id]||0)+'표)</span></td>'+CR.map(function(c){var vals=hv.map(function(n){return +F(scK(n,x.id,c[0]))||0;}).filter(Boolean),s=vals.reduce(function(p,q){return p+q;},0);tot+=s;return '<td>'+s+' ('+vals.join('·')+')</td>';}).join('')+'<td><b>'+tot+'</b></td></tr>';}).join(''):'<tr><td colspan="6" class="e">(투표 전)</td></tr>')+'</table>'+
+  '<table><tr><th style="width:24%">최종 아이디어</th><td>'+V(pickText())+'</td></tr><tr><th>근거</th><td>'+V(F('pickWhy'))+'</td></tr><tr><th>버린 안과 이유</th><td>'+V(F('pickDrop'))+'</td></tr></table>';
+ h+='<h2>5. 컨셉 카드와 가치 제안</h2><table><tr><th style="width:24%">서비스 이름</th><td>'+V(F('cname'))+'</td></tr><tr><th>누구를 위한</th><td>'+V(F('cwho'))+'</td></tr><tr><th>누가, 언제</th><td>'+V(F('sc1'))+'</td></tr><tr><th>무엇을 보고 / 누르면</th><td>'+V(F('sc2'))+'</td></tr><tr><th>무엇이 달라지나</th><td>'+V(F('sc3'))+'</td></tr><tr><th>핵심 화면</th><td>'+V(F('cscreen'))+'</td></tr><tr><th>기존 서비스와 다른 점</th><td>'+V(F('cdiff'))+'</td></tr><tr><th>30초 설명 반응</th><td>'+V(F('react'))+'</td></tr>'+
+  '<tr><th>가치 제안 문장</th><td><b>'+V(vpText())+'</b></td></tr><tr><th>푸는 Pain Point</th><td>'+(ppList().filter(function(p,i){return C('pp'+(i+1));}).map(esc).join('<br>')||'<span class="e">(체크 없음)</span>')+'</td></tr></table>';
+ composeB();var fxr=fixes(),PA=painAll();
+ h+='<h2>6. 비즈니스 모델 캔버스</h2><div class="bmcg">'+BL.map(function(b,i){return '<div class="'+b[0]+'"><b>'+(i+1)+'. '+b[1]+(F('bo_'+b[0])?' · '+esc(F('bo_'+b[0])):'')+(F('bs_'+b[0])?' ['+esc(F('bs_'+b[0]))+']':'')+'</b><br>'+(esc(F('b_'+b[0])).replace(/\n/g,'<br>')||'<span class="e">(비어 있음)</span>')+'</div>';}).join('')+'</div>';
+ h+='<h3>6-1. 가치 제안 캔버스 — Pain ↔ 해결</h3><table><tr><th>우리 해결</th><th>줄이는 Pain</th></tr>'+(fxr.length?fxr.map(function(x){var pi=x.p?parseInt(x.p.slice(1),10):0;return '<tr><td>'+esc(x.t)+'</td><td>'+(pi&&PA[pi-1]?esc(x.p+' '+PA[pi-1]):'<span class="warn">연결 안 됨</span>')+'</td></tr>';}).join(''):'<tr><td colspan="2"><span class="e">(비어 있음)</span></td></tr>')+'</table>';
+ h+='<h3>6-2. 숫자 (모두 가설)</h3><table><tr><th style="width:30%">월 매출</th><td>'+(revenue()!=null?esc(F('m_users'))+'명 × '+esc(F('m_conv'))+'% × '+esc(F('m_price'))+'원 = <b>'+won(revenue())+'</b>':'<span class="e">(계산 안 됨)</span>')+'</td></tr><tr><th>금액 근거</th><td>'+V(F('m_rs_ev'))+'</td></tr><tr><th>월 비용</th><td>'+(costSum()!=null?won(costSum()):'<span class="e">(없음)</span>')+'</td></tr><tr><th>본전 이용자</th><td>'+((costSum()!=null&&num('m_conv')&&num('m_price'))?Math.ceil(costSum()/(num('m_conv')/100*num('m_price'))).toLocaleString('ko-KR')+'명':'—')+'</td></tr></table>';
+ h+='<h3>6-3. 연결 점검</h3><table>'+linkChecks().map(function(c){return '<tr><td style="width:8%">'+(c[0]?'✓':'<span class="warn">✗</span>')+'</td><td>'+esc(c[1])+'</td></tr>';}).join('')+'</table>';
+ h+='<h3>6-4. AI 레드팀</h3><table><tr><th>칸</th><th>AI 지적</th><th>우리 판단 · 근거</th></tr>'+[1,2,3].map(function(i){return '<tr><td>'+V(F('m_rt'+i+'_b'))+'</td><td>'+V(F('m_rt'+i+'_t'))+'</td><td>'+V(F('m_rt'+i+'_d'))+' — '+V(F('m_rt'+i+'_w'))+'</td></tr>';}).join('')+'</table>';
+ h+='<h2>7. 가장 위험한 가정</h2><table><tr><th style="width:30%">위험 지도 (근거 · 틀리면)</th><td>'+BL.map(function(b){return b[1]+' ['+(F('bs_'+b[0])||'—')+' · '+(F('m_imp_'+b[0])||'—')+']';}).join(' · ')+'</td></tr><tr><th>가장 위험한 가정</th><td><b>'+V(F('ra_1'))+'</b></td></tr><tr><th>무엇을 누구에게</th><td>'+V(F('ra_how'))+'</td></tr><tr><th>통과 기준</th><td>'+V(F('ra_pass'))+'</td></tr><tr><th>틀리면 바뀌는 칸</th><td>'+V(F('ra_chg'))+'</td></tr></table>';
+ h+='<h3>7-1. 갤러리에서 받은 피드백</h3><table>'+(TEAMS.filter(function(o){return o!==team;}).map(function(o){return ['l','w','q'].map(function(k){var v=F('gf_'+o+'_'+k);return v?'<tr><td style="width:18%">'+esc(o)+' '+{l:'Like',w:'Wish',q:'Question'}[k]+'</td><td>'+esc(v)+'</td></tr>':'';}).join('');}).join('')||'<tr><td><span class="e">(없음)</span></td></tr>')+'<tr><td>우리 답</td><td>'+V(F('m_gal_resp'))+'</td></tr></table>';
+ h+='<h2>8. 결정 로그</h2><table><tr><th style="width:30%">① 이번에 결정한 것</th><td>'+V(F('dl1'))+'</td></tr><tr><th>② 다른 대안</th><td>'+V(F('dl2'))+'</td></tr><tr><th>③ 가장 중요한 근거</th><td>'+V(F('dl3'))+'</td></tr><tr><th>④ 지난주 산출물에서 고칠 것</th><td>'+V(F('dl4'))+'</td></tr></table>';
+ h+='<h2>부록. 진행 점검</h2><table>'+st.map(function(x){return '<tr><td style="width:8%">'+(x[0]?'✓':'<span class="warn">✗</span>')+'</td><td>'+esc(x[1])+'</td></tr>';}).join('')+'</table><p class="e">다음: 12주차 고객 여정 지도·화면 시안 — 가장 위험한 가정을 확인하는 화면부터.</p>';
+ return '<!doctype html><html lang="ko"><head><meta charset="utf-8"><title>CAPEC_11주차_아이디어BMC_'+esc(team)+'</title><link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700;900&display=swap" rel="stylesheet"><style>'+DOCCSS.replace('var(--rh,"")','"'+esc(team).replace(/"/g,'')+' · 11주차 아이디어 발산·BMC"')+'</style></head><body><div class="tb">인쇄 창에서 대상: "PDF로 저장"<button onclick="window.print()">인쇄 / PDF로 저장</button></div><div class="page">'+h+'</div><script>window.onload=function(){setTimeout(function(){window.print();},700);};<\/script></body></html>';}
+function openReport(){if(!team){alert('팀을 먼저 고르세요.');go('p0');return;}var html=reportDoc();var w=null;try{w=window.open('','_blank');}catch(e){}
+ if(w&&w.document){try{w.document.open();w.document.write(html);w.document.close();$('prMsg').innerHTML='새 창에서 보고서가 열렸습니다. 인쇄 창 "대상"에서 <b>PDF로 저장</b> → <b>LMS 제출</b> + 팀 드라이브 <b>03_회의록_PDF</b>.';return;}catch(e){}}
+ $('pvFrame').srcdoc=html.replace('window.print();','');$('pv').classList.add('on');}
+$('printBtn').addEventListener('click',openReport);$('printBtn2').addEventListener('click',openReport);$('pdfAll').addEventListener('click',openReport);
+$('pvClose').addEventListener('click',function(){$('pv').classList.remove('on');});
+$('pvPrint').addEventListener('click',function(){try{$('pvFrame').contentWindow.focus();$('pvFrame').contentWindow.print();}catch(e){alert('인쇄를 열 수 없습니다. 가이드의 "새 탭에서 열기"로 다시 시도하세요.');}});
+
+/* ---------- 시작 ---------- */
+renderTeams();fillFields();showDay((function(){var n=new Date();return (n.getMonth()===10&&n.getDate()>=18)||n.getMonth()>10?'f':'w';})());
+
+/* ================= 금요일 BMC (11/20) — 연결된 가설로 세우기 ================= */
+var BLN={};BL.forEach(function(b,i){BLN[b[0]]=[i+1,b[1]];});
+var EXB={
+ '혁~신':{cs:'주 고객: 시험기간에 단톡방 공지를 늦게 보는 3학년 · 근거: 11/11 4명 중 3명 「잠깐 보고 넘김 · 놓친 적」 / 돈 내는 쪽: 학과 · 장학 부서(공지 대행) [가정]',
+  vp:'해결 「공지를 열지 않아도 내 요건 3개가 ✓/✗로 보인다」 → Pain 「요건은 공지에 들어가야 안다」',ch:'1 학과 단톡 공지 · DAP 장학 게시판 배너 / 2 요건 3칸만 체크하는 1분 미리보기 / 3 학년 · 소득분위 · 성적 3칸 입력 / 4 학생 무료 — 학과가 학기 대행료 / 5 다음 장학 시즌 3일 전 알림',
+  cr:'자동화 — 시즌 사이에는 「받은 장학금 기록 · 다음 마감 달력」으로 다시 열게 함 → 「시즌에만 쓰고 이탈」에 대한 답',kr:'데이터: 학교 장학 공지(공개 게시판) — 수집 허용 [확인 필요]',kp:'학과 사무실 — 공지를 먼저 넘겨 주는 대신 미신청 학생이 준다',co:'공지 정리 인건비 월 80만 원 · 알림 발송 월 5만 원 · 도구 구독 월 3만 원 [모두 가정]'},
+ 'ACE':{cs:'주 고객: 토스증권을 쓰는 투자 1년 이상 3학년 · 근거: 11/11 4명 중 2명 손실 경험 / 다른 고객: 1년 미만 · 유튜브로 배우는 학생 — 같은 서비스로 묶을지 결정',
+  vp:'해결 「급락 때 내가 미리 정한 기준과 비교해 보여 준다(자동 매도 아님)」 → Pain 「커뮤니티 소음에 감정적으로 판다」',ch:'1 토스 커뮤니티 · 교내 투자 동아리 / 2 내 보유 종목 3개 무료 점검 / 3 「팔 기준」 3칸 입력 / 4 월 구독 / 5 기준 도달 알림',
+  cr:'자동화 — 기준 도달 알림 + 월 1회 「내 기준 지켰나」 기록 · 「매달 돈 내면 뭘 해 주나」에 한 줄로 답',kr:'데이터: 시세 — 무료 API 이용 조건 [확인 필요] · 투자 일임 · 자문 해당 여부 [확인 필요]',kp:'증권사 오픈 API — 우리는 사용자를 보내고, 그들은 거래가 는다 [가정 · 확인 필요]',co:'시세 데이터 이용료 · 서버 · 법률 검토(1회) [모두 가정]'},
+ '척살':{cs:'주 고객: OTT · 앱 · 쇼핑 멤버십을 3개 이상 쓰는 20대 학생 · 근거: 11/11 3명 모두 해지 미루다 결제 경험 / 돈 내는 쪽: 같음(또는 제휴사) — 결정 필요',
+  vp:'해결 「결제 3일 전 "이번 달도 쓸 건가요?" 한 번에 묻고, 해지 화면으로 바로 보낸다」 → Pain 「해지를 미뤄 1개월 더 결제(1만 원)」',ch:'1 에브리타임 · 자취생 커뮤니티 「이번 달 새는 구독료」 글 / 2 구독 3개만 넣으면 월 합계 보여 주기 / 3 카드 결제 문자 붙여 넣기 / 4 기본 무료 · 대체 요금제 제휴 / 5 결제 3일 전 알림',
+  cr:'자동화 — 매달 결제 전 알림이 곧 재방문 · 「모아보기는 이미 있다」에 대한 답: 우리는 결제 직전 결정을 돕는다',kr:'데이터: 사용자가 직접 넣는 구독 목록 / 카드 결제 문자 [확인 필요]',kp:'통신사 · 카드사 결합 요금제 — 우리가 해지 대신 「싼 요금제로 바꾸기」를 보내면 그들은 고객을 지킨다 [가정]',co:'알림 발송비 · 앱 도구 구독 · 제휴 영업 시간 [모두 가정]'}};
+function fixes(){return [1,2,3].map(function(i){return {i:i,t:F('m_fix'+i).trim(),p:F('m_fixp'+i)};}).filter(function(x){return x.t;});}
+function painAll(){if(!team)return [];var L=(ppList()||[]).slice();var p=(typeof P11!=='undefined'&&P11[team])?P11[team].decw:'';if(p&&L.indexOf(p)<0)L.push('11/11 근거가 된 말: '+p);var x=F('m_pain_x').trim();if(x)L.push(x);return L;}
+function num(k){var v=parseFloat(String(F(k)).replace(/[^0-9.]/g,''));return isNaN(v)?null:v;}
+function won(n){return n==null?'—':Math.round(n).toLocaleString('ko-KR')+'원';}
+function revenue(){var u=num('m_users'),c=num('m_conv'),p=num('m_price');return (u!=null&&c!=null&&p!=null)?u*c/100*p:null;}
+function costSum(){var s=0,n=0;[1,2,3].forEach(function(i){var a=num('m_co'+i+'_a');if(a!=null){s+=a;n++;}});return n?s:null;}
+function composeB(){if(!team)return;var ln=function(a){return a.filter(function(s){return String(s||'').trim();}).join('\n');};
+ S.f.b_cs=ln([F('m_cs1')&&('주 고객: '+F('m_cs1')+(F('m_cs1_ev')?' (근거: '+F('m_cs1_ev')+')':'')),F('m_cs2')&&('돈 내는 쪽: '+F('m_cs2')+(F('m_cs2_why')?' — '+F('m_cs2_why'):''))]);
+ S.f.b_vp=ln([vpText()].concat(fixes().map(function(x){return '해결: '+x.t;})));
+ S.f.b_ch=ln([1,2,3,4,5].map(function(i){return F('m_ch'+i)&&(['알게 됨','따져 봄','처음 씀','돈 냄','다시 옴'][i-1]+': '+F('m_ch'+i));}));
+ S.f.b_cr=ln([F('m_cr_t'),F('m_cr_hook')&&('다시 오게: '+F('m_cr_hook')),F('m_cr_neg')&&('부정 의견에 답: '+F('m_cr_neg'))]);
+ var r=revenue();S.f.b_rs=ln([F('rtype'),F('m_rs_what'),(F('m_price')?'1명(건)당 '+F('m_price')+'원 [가정]':''),(r!=null?'월 매출(가설) '+won(r):'')]);
+ S.f.b_kr=ln([F('m_kr_data')&&('데이터: '+F('m_kr_data')),F('m_kr_tech')&&('기술: '+F('m_kr_tech')),F('m_kr_people')&&('사람: '+F('m_kr_people'))]);
+ S.f.b_ka=ln([1,2,3].map(function(i){return F('m_ka'+i);}).concat([F('m_ka_x')]));
+ S.f.b_kp=ln([1,2].map(function(i){return F('m_kp'+i)&&(F('m_kp'+i)+(F('m_kp'+i+'_g')?' — 얻는 것: '+F('m_kp'+i+'_g'):''));}));
+ S.f.b_cost=ln([1,2,3].map(function(i){return F('m_co'+i)&&(F('m_co'+i)+(F('m_co'+i+'_a')?' 월 '+F('m_co'+i+'_a')+'원':'')+(F('m_co'+i+'_t')?' ('+F('m_co'+i+'_t')+')':''));}));}
+function renderHeads(){if(!team)return;var ms=members();document.querySelectorAll('.bh[data-b]').forEach(function(h){if(h.contains(document.activeElement))return;var b=h.dataset.b,d=BL.filter(function(x){return x[0]===b;})[0],hint=T[team].hint[b];
+ h.innerHTML='<span class="no">'+BLN[b][0]+'</span><b>'+BLN[b][1]+'</b><select data-f="bo_'+b+'"><option value="">담당</option>'+ms.map(function(n){return '<option>'+esc(n)+'</option>';}).join('')+'</select><select data-f="bs_'+b+'"><option value="">근거 상태</option><option>확인</option><option>일부</option><option>가설</option></select>'+((d&&d[3])||hint?'<span class="from">'+(d&&d[3]?'가져올 것: '+esc(d[3]):'')+(hint?(d&&d[3]?' · ':'')+'우리 팀: '+esc(hint):'')+'</span>':'');fillFields(h);});}
+function renderFri(){if(!team)return;var e=EXB[team]||{},ae=document.activeElement,ins=function(id){var n=$(id);return n&&n.contains(ae);};
+ renderHeads();
+ [['exCs','cs'],['exVp','vp'],['exCh','ch'],['exCr','cr'],['exKr','kr'],['exKp','kp'],['exCo','co']].forEach(function(x){var n=$(x[0]);if(n)n.innerHTML=e[x[1]]?'<b>우리 팀 예시 [가정] — 그대로 옮기지 말고 우리 근거로 고치기</b><br>'+esc(e[x[1]]):'';});
+ $('reactShow').textContent=F('react')?'수요일에 들은 말: '+F('react'):'수요일 30초 반응 기록이 없습니다 (4번 탭).';
+ $('negShow').textContent='받은 부정 의견: '+T[team].neg.join(' / ');
+ var P=painAll();if(!ins('painPick')){$('painPick').innerHTML=P.map(function(p,i){return '<label class="qi'+(C('mp'+(i+1))?' ok':'')+'"><input type="checkbox" data-ck="mp'+(i+1)+'"><div><b>P'+(i+1)+'</b> '+esc(p)+'</div></label>';}).join('');fillFields($('painPick'));}
+ document.querySelectorAll('select.painSel').forEach(function(s){if(s===ae)return;var v=F(s.dataset.f);s.innerHTML='<option value="">어느 Pain?</option>'+P.map(function(p,i){return '<option value="P'+(i+1)+'">P'+(i+1)+' '+esc(p.slice(0,28))+'</option>';}).join('');s.value=v;});
+ var fx=fixes(),bad=fx.filter(function(x){return !x.p||!C('mp'+x.p.slice(1));});
+ $('fitOut').innerHTML=!fx.length?'해결을 쓰고 Pain을 고르면 짝이 맞는지 봅니다.':(bad.length?'<span class="warn">✗ Pain에 연결 안 된 해결 '+bad.length+'개 — 체크한 Pain을 고르거나, 연결할 Pain이 없으면 「만들고 싶은 기능」이니 빼기</span>':'<b style="color:var(--okc)">✓ 해결 '+fx.length+'개가 모두 체크한 Pain에 연결됨</b>');
+ var gen=[1,2,3,4,5].filter(function(i){var v=F('m_ch'+i).replace(/\s/g,'');return v&&(v.length<6||/^(sns|SNS|광고|홍보|앱|인스타|온라인|마케팅|SNS홍보|SNS광고)$/.test(v));});
+ $('chWarn').innerHTML=gen.length?'<span class="warn">'+gen.join(' · ')+'단계가 막연합니다 — 어떤 계정 · 게시판 · 화면인지</span>':'';
+ var r=revenue();$('revOut').innerHTML=r==null?'세 칸을 채우면 월 매출(가설)이 나옵니다.':'월 매출(가설) = '+esc(F('m_users'))+'명 × '+esc(F('m_conv'))+'% × '+esc(F('m_price'))+'원 = <b>'+won(r)+'</b>';
+ if(!ins('kaRows')){$('kaRows').innerHTML=(fx.length?fx.map(function(x){return '<div class="fld"><label>해결 '+x.i+' 「'+esc(x.t.slice(0,40))+'」를 지키려면 우리가 매주 하는 일</label><input type="text" data-f="m_ka'+x.i+'"></div>';}).join(''):'<p class="warn">⑤ ② 가치 제안에서 해결을 먼저 쓰면 여기에 칸이 생깁니다.</p>')+'<div class="fld"><label>그 밖의 활동 (선택)</label><input type="text" data-f="m_ka_x" placeholder="예: 제휴처 관리 · 고객 문의 응대"></div>';fillFields($('kaRows'));}
+ var c=costSum(),per=(num('m_conv')!=null&&num('m_price')!=null)?num('m_conv')/100*num('m_price'):null;
+ $('beOut').innerHTML=c==null?'금액을 넣으면 합계와 본전 인원이 나옵니다.':'월 비용 합계 <b>'+won(c)+'</b>'+(r!=null?' · 월 매출(가설) '+won(r)+' → <b style="color:'+(r>=c?'var(--okc)':'var(--warn)')+'">'+(r>=c?'남음 ':'모자람 ')+won(Math.abs(r-c))+'</b>':'')+(per?'<br>본전이 되려면 월 이용자 <b>'+Math.ceil(c/per).toLocaleString('ko-KR')+'명</b> (돈 내는 비율 · 금액이 지금 가정대로일 때)':'');
+ composeB();renderBmcView();renderLinks();renderRt();renderImp();}
+function linkChecks(){var fx=fixes(),pay=F('payer'),gen=[1,2,3,4,5].filter(function(i){var v=F('m_ch'+i).replace(/\s/g,'');return !v||v.length<6;}).length;
+ return [
+ [fx.length>=2&&fx.every(function(x){return x.p&&C('mp'+x.p.slice(1));}),'가치 제안 ↔ 고객 Pain: 해결 2개 이상이 모두 Pain에 연결'],
+ [!!F('m_cs1_ev').trim()&&/\d/.test(F('m_cs1_ev')),'고객 세그먼트에 근거 숫자(몇 명 중 몇 명)'],
+ [gen===0,'채널 5단계가 모두 구체적 (6자 이상 · 장소 이름)'],
+ [pay!==''&&(pay==='같다'||(!!F('m_cs2').trim()&&F('m_cs2').trim()!=='같음'&&!!F('m_cs2_why').trim())),'돈 내는 쪽이 고객 세그먼트에 있고, 낼 이유가 있음'],
+ [revenue()!=null&&!!F('m_rs_ev').trim(),'수익원: 월 매출 계산 + 금액 근거'],
+ [fx.length>0&&fx.every(function(x){return F('m_ka'+x.i).trim();}),'핵심 활동이 해결마다 하나씩'],
+ [!!F('m_kr_data').trim(),'핵심 자원에 데이터 출처'],
+ [[1,2].some(function(i){return F('m_kp'+i).trim()&&F('m_kp'+i+'_g').trim();})||!F('m_kp1').trim()&&/없음/.test(F('m_kp1')),'파트너가 「얻는 것」까지'],
+ [costSum()!=null&&[1,2,3].filter(function(i){return F('m_co'+i).trim();}).length>=3,'비용 3개 + 금액 → 본전 인원']];}
+function renderLinks(){var n=$('linkChk');if(!n)return;n.innerHTML=linkChecks().map(function(c){return '<div class="qi '+(c[0]?'ok':'ng')+'"><span class="qs">'+(c[0]?'✓':'!')+'</span><div>'+esc(c[1])+'</div></div>';}).join('');
+ var hy=BL.filter(function(b){return F('bs_'+b[0])==='가설';}).length;n.insertAdjacentHTML('beforeend','<p class="note">가설 칸 '+hy+'/9 — ⑧에서 이 중 가장 위험한 것을 고릅니다.</p>');}
+function rtPrompt(){var ln=function(k){return F(k).replace(/\n/g,' / ');};
+ return '너는 전자상거래 창업 심사위원이다. 아래 비즈니스 모델 캔버스에서 칸과 칸이 연결되지 않는 곳, 근거가 가장 약한 곳 3개를 찾아라.\n각 지적은 「칸 이름 — 문제 — 확인 방법」 한 줄로. 칭찬과 새 아이디어 제안은 하지 마라. 법 · 규제는 "확인 필요"로만 표시하라.\n\n'+BL.map(function(b){return b[1]+(F('bs_'+b[0])?' ['+F('bs_'+b[0])+']':'')+': '+(ln('b_'+b[0])||'(비어 있음)');}).join('\n');}
+function renderRt(){var p=$('rtPrompt');if(!p)return;p.textContent=rtPrompt();$('rtReg').textContent=team==='ACE'?'ACE: 자동 매도 · 리밸런싱 · 종목 추천은 투자자문 · 일임 등록 대상일 수 있음 [확인 필요] — AI 답을 사실로 쓰지 않기':'';
+ if($('rtRows').contains(document.activeElement))return;
+ $('rtRows').innerHTML=[1,2,3].map(function(i){return '<div class="rtrow"><b>지적 '+i+'</b><select data-f="m_rt'+i+'_b"><option value="">칸</option>'+BL.map(function(b){return '<option>'+b[1]+'</option>';}).join('')+'</select><input type="text" data-f="m_rt'+i+'_t" placeholder="AI 지적 요약"><select data-f="m_rt'+i+'_d"><option value="">우리 판단</option><option>받아들임 — 칸을 고침</option><option>거절 — 우리 근거가 있음</option><option>확인 필요 — 12주차에</option></select><input type="text" data-f="m_rt'+i+'_w" placeholder="판단 근거 · 고친 것"></div>';}).join('');fillFields($('rtRows'));
+ var ds=[1,2,3].map(function(i){return F('m_rt'+i+'_d');}).filter(Boolean);if(ds.length===3&&(ds.every(function(d){return /^받아/.test(d);})||ds.every(function(d){return /^거절/.test(d);})))$('rtRows').insertAdjacentHTML('beforeend','<p class="warn">세 개가 모두 같은 판단입니다 — AI를 그대로 믿거나 그대로 무시한 것은 아닌지 하나씩 다시 따져 보기</p>');}
+function renderImp(){var n=$('impRows');if(!n)return;
+ if(!n.contains(document.activeElement)){n.innerHTML='<div class="imph"><span>칸</span><span>근거 상태</span><span>틀리면 모델이</span></div>'+BL.map(function(b){return '<div class="imp"><span>'+BLN[b[0]][0]+' '+b[1]+'</span><span>'+(esc(F('bs_'+b[0]))||'<span class="warn">미정</span>')+'</span><select data-f="m_imp_'+b[0]+'"><option value="">고르기</option><option value="1">1 조금 흔들림</option><option value="2">2 크게 흔들림</option><option value="3">3 무너짐</option></select></div>';}).join('');fillFields(n);}
+ var ev={'확인':1,'일부':2,'가설':3},cells={};BL.forEach(function(b){var x=ev[F('bs_'+b[0])],y=parseInt(F('m_imp_'+b[0]),10);if(x&&y){(cells[x+'-'+y]=cells[x+'-'+y]||[]).push(b[1]);}});
+ var h='<div class="rm"><div class="rmy">틀리면 모델이 ↑</div><div class="rmg">';for(var y=3;y>=1;y--)for(var x=1;x<=3;x++){var hot=x>=2&&y>=2;h+='<div class="rc'+(x===3&&y===3?' hot':hot?' warm':'')+'">'+(cells[x+'-'+y]||[]).map(esc).join('<br>')+'</div>';}
+ h+='</div><div class="rmx"><span>확인</span><span>일부</span><span>가설 → 근거 약함</span></div></div>';$('riskMap').innerHTML=h+'<p class="note">빨간 칸(가설 · 무너짐)에 있는 칸이 1순위 후보입니다.</p>';}
+/* 갤러리: 다른 팀 캔버스 읽기 · 한 줄 보내기 */
+var GAL={};
+function galLoad(){if(!team)return;TEAMS.filter(function(t){return t!==team;}).forEach(function(o){if(!SYNC_URL){GAL[o]=null;galDraw();return;}
+ fetch(SYNC_URL+'?key='+encodeURIComponent(SYNC_KEY)+'&op=pull&team='+encodeURIComponent(PFX+o)+'&since=0&t='+Date.now()).then(function(r){return r.json();}).then(function(j){var f=(j&&j.f)||{},g={};Object.keys(f).forEach(function(k){if(k.indexOf('f:')===0)g[k.slice(2)]=String(f[k]==null?'':f[k]);});GAL[o]=g;galDraw();}).catch(function(){GAL[o]='x';galDraw();});});galDraw();}
+function galDraw(){var n=$('galOther');if(!n||!team)return;if(n.contains(document.activeElement))return;
+ n.innerHTML=TEAMS.filter(function(t){return t!==team;}).map(function(o){var g=GAL[o];
+  var body=g===undefined?'<p class="note">불러오는 중…</p>':(g==='x'||g===null)?'<p class="note">불러오지 못했습니다 — 미리보기에서는 안 됩니다(GitHub 주소에서).</p>':
+   '<div class="galmini">'+['vp','cs','rs'].map(function(b){return '<div><b>'+BLN[b][1]+'</b>'+(esc(g['b_'+b]||'').replace(/\n/g,'<br>')||'<span class="note">(아직 없음)</span>')+'</div>';}).join('')+'</div>'+(g.ra_1?'<p class="note">그 팀의 가장 위험한 가정: '+esc(g.ra_1)+'</p>':'');
+  return '<div class="gal"><h3>'+esc(o)+'</h3>'+body+['l','w','q'].map(function(k){return '<div class="galrow"><span>'+{l:'👍 Like',w:'🙏 Wish',q:'❓ Question'}[k]+'</span><input type="text" id="gal_'+esc(o)+'_'+k+'" placeholder="한 줄"><button class="btn ghost" type="button" data-gal="'+esc(o)+'|'+k+'">보내기</button></div>';}).join('')+'</div>';}).join('');}
+document.addEventListener('click',function(e){var b=e.target.closest&&e.target.closest('[data-gal]');if(!b)return;var a=b.dataset.gal.split('|'),inp=document.getElementById('gal_'+a[0]+'_'+a[1]),v=inp?inp.value.trim():'';
+ if(!me){alert('팀 탭에서 내 이름을 먼저 고르세요.');return;}if(v.length<4){b.textContent='한 줄을 먼저';return;}if(!SYNC_URL){b.textContent='서버 연결 필요';return;}
+ b.disabled=true;fetch(SYNC_URL,{method:'POST',body:JSON.stringify({key:SYNC_KEY,team:PFX+a[0],items:[{k:'f:gf_'+team+'_'+a[1],v:v+' — '+me}]})}).then(function(r){return r.json();}).then(function(j){if(!j||!j.ok)throw 0;b.textContent='✓ 보냄';b.disabled=false;}).catch(function(){b.textContent='다시 보내기';b.disabled=false;});});
+function galMine(){var n=$('galMine');if(!n||!team)return;var rows=TEAMS.filter(function(t){return t!==team;}).map(function(o){var a=['l','w','q'].map(function(k){var v=F('gf_'+o+'_'+k);return v?'<div>'+{l:'👍',w:'🙏',q:'❓'}[k]+' '+esc(v)+'</div>':'';}).join('');return a?'<div class="gal"><b>'+esc(o)+'</b>'+a+'</div>':'';}).join('');n.innerHTML=rows||'<p class="note">아직 받은 피드백이 없습니다. 몇 초 뒤 자동으로 보입니다.</p>';}
+/* 캔버스 보기: 근거 색 */
+renderBmcView=function(){if(!team)return;composeB();$('bmcView').innerHTML=BL.map(function(b,i){var v=F('b_'+b[0]).trim(),o=F('bo_'+b[0]),s=F('bs_'+b[0]);return '<div class="'+b[0]+' st'+({'확인':'ok','일부':'pt','가설':'hy'}[s]||'')+'"><b><i>'+(i+1)+'</i>'+b[1]+(o?' <span class="note">· '+esc(o)+'</span>':'')+(s?' <span class="note">['+esc(s)+']</span>':'')+'</b>'+(v?esc(v).replace(/\n/g,'<br>'):'<span class="note">(비어 있음)</span>')+'</div>';}).join('');
+ var bc=$('bmcChk');if(bc)bc.innerHTML=bmcChecks().map(function(c){return '<div class="qi '+(c[0]?'ok':'ng')+'"><span class="qs">'+(c[0]?'✓':'!')+'</span><div>'+c[1]+'</div></div>';}).join('');};
+renderBlocks=function(){renderHeads();};
+var _live=live;live=function(k){_live(k);if(/^(m_|bs_|bo_|rtype|payer|c:mp|vp_|react)/.test(k)&&/^p[5-8]$/.test(curPane)){renderFri();if(curPane==='p6')$('subChk').innerHTML=subHtml();}};
+var _rc=refreshComputed;refreshComputed=function(){_rc();try{if(/^p[5-8]$/.test(curPane)){renderFri();galMine();}}catch(e){}};
+
+var t0=lsGet(KEY+'team');if(t0&&TEAMS.indexOf(t0)>=0)pick(t0);else syncSet(false,'팀을 고르면 공유가 시작됩니다');
+window.__w11={pick:pick,go:go,sy:function(){return sy;},state:function(){return S;},status:status,report:reportDoc};
+})();
+
+</script>
+</body>
+</html>
